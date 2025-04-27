@@ -2684,7 +2684,7 @@ mark {
 }
 
 .icon [stroke] {
-    stroke: currentColor
+    stroke: currentColor;
 }
 
 .screen-reader-text,
@@ -2879,12 +2879,17 @@ mark {
     border-radius: 100vmax;
     align-items: center;
     gap: .5rem;
-    background-color: #fbcba7;
+    background-color: #ed1b24;
     font-weight: 600
 }
 
-.menu-button--orange {
-    background-color: #ed1b24;
+.menu-button-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.menu-button-bleu {
+    background-color: #144190;
     color: #fff
 }
 
@@ -3730,6 +3735,40 @@ mark {
     gap: .5rem
 }
 
+/* Styles pour les icônes des réseaux sociaux */
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    color: white;
+    font-size: 18px;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.social-icon--facebook {
+    background-color: #1877F2;
+}
+
+.social-icon--twitter {
+    background-color: #000000;
+}
+
+.social-icon--instagram {
+    background: linear-gradient(45deg, #FCAF45, #E1306C, #C13584);
+}
+
+.social-icon--youtube {
+    background-color: #FF0000;
+}
+
 .faq-title {
     margin-bottom: 2rem
 }
@@ -4262,10 +4301,11 @@ mark {
 }
 
 .rights {
-    background-image: url(./images/dots-repeat.9995824aaf7b9af68439.png);
+    background-color: #144190;
     background-repeat: repeat-x;
     background-position: bottom;
-    text-align: center
+    text-align: center;
+    color: #fff;
 }
 
 .rights+.section {
