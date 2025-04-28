@@ -1,0 +1,148 @@
+/* Styles pour la carte des syndicats autonomes */
+
+.map-container {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.map-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #111827;
+    text-align: center;
+}
+
+.map-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #4b5563;
+    text-align: center;
+}
+
+.map-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .map-wrapper {
+        flex-direction: row;
+    }
+    
+    .map-svg-container {
+        flex: 2;
+    }
+    
+    .map-info-panel {
+        flex: 1;
+    }
+}
+
+.map-svg-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.map-svg-container svg {
+    width: 100%;
+    height: auto;
+}
+
+.map-svg-container path {
+    stroke: #fff;
+    stroke-width: 1px;
+    transition: fill 0.3s ease;
+    cursor: pointer;
+}
+
+.map-tooltip {
+    position: absolute;
+    background-color: #111827;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.map-info-panel {
+    background-color: #f3f4f6;
+    padding: 1.5rem;
+    border-radius: 8px;
+    min-height: 200px;
+}
+
+.map-info-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #111827;
+    border-bottom: 2px solid #e74c3c;
+    padding-bottom: 0.5rem;
+}
+
+.map-info-details p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #4b5563;
+}
+
+.map-info-details a {
+    color: #e74c3c;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.map-info-details a:hover {
+    color: #c0392b;
+    text-decoration: underline;
+}
+
+.map-legend {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 2rem;
+}
+
+.map-legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #4b5563;
+    margin: 0 10px;
+}
+
+.map-legend-color {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.map-legend-color-present {
+    background-color: #e74c3c;
+}
+
+.map-legend-color-absent {
+    background-color: #ecf0f1;
+}
+
+/* Styles responsifs */
+@media (max-width: 767px) {
+    .map-container {
+        padding: 0.75rem;
+    }
+    
+    .map-info-panel {
+        margin-top: 1.5rem;
+    }
+}

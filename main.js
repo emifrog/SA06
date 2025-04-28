@@ -298,3 +298,107 @@
     })(), l(110);
     l(285)
 })();
+
+// Code d'initialisation du slider
+document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionner les éléments du slider
+    const sliderTrack = document.querySelector('.slider-track');
+    const prevButton = document.querySelector('.slider-arrow--prev');
+    const nextButton = document.querySelector('.slider-arrow--next');
+    const sliderItems = document.querySelectorAll('.slider-item');
+    const sliderProgress = document.querySelector('.slider-progress');
+    
+    if (sliderTrack && prevButton && nextButton && sliderItems.length > 0) {
+        let currentIndex = 0;
+        
+        // Fonction pour afficher un élément spécifique
+        function showSlide(index) {
+            // S'assurer que l'index est dans les limites
+            if (index < 0) index = sliderItems.length - 1;
+            if (index >= sliderItems.length) index = 0;
+            
+            // Mettre à jour l'index courant
+            currentIndex = index;
+            
+            // Faire défiler jusqu'à l'élément
+            const slideWidth = sliderItems[0].offsetWidth;
+            sliderTrack.style.transition = 'transform 0.3s ease-in-out';
+            sliderTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+            
+            // Mettre à jour la barre de progression
+            if (sliderProgress) {
+                sliderProgress.style.width = `${(currentIndex + 1) / sliderItems.length * 100}%`;
+            }
+        }
+        
+        // Gestionnaires d'événements pour les boutons
+        prevButton.addEventListener('click', () => {
+            showSlide(currentIndex - 1);
+        });
+        
+        nextButton.addEventListener('click', () => {
+            showSlide(currentIndex + 1);
+        });
+        
+        // Initialiser le slider
+        showSlide(0);
+        
+        // Défilement automatique (optionnel)
+        let autoSlideInterval;
+        
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                showSlide(currentIndex + 1);
+            }, 5000); // Changer de slide toutes les 5 secondes
+        }
+        
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+        
+        // Démarrer le défilement automatique
+        startAutoSlide();
+        
+        // Arrêter le défilement automatique lors du survol
+        sliderTrack.addEventListener('mouseenter', stopAutoSlide);
+        sliderTrack.addEventListener('mouseleave', startAutoSlide);
+        
+        // Arrêter le défilement automatique lors du clic sur les boutons
+        prevButton.addEventListener('mouseenter', stopAutoSlide);
+        nextButton.addEventListener('mouseenter', stopAutoSlide);
+        prevButton.addEventListener('mouseleave', startAutoSlide);
+        nextButton.addEventListener('mouseleave', startAutoSlide);
+        
+        // Ajout de la gestion tactile pour les appareils mobiles
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        sliderTrack.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            stopAutoSlide();
+        }, {passive: true});
+        
+        sliderTrack.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            startAutoSlide();
+        }, {passive: true});
+        
+        function handleSwipe() {
+            const swipeThreshold = 50; // Seuil minimum pour considérer qu'il y a un swipe
+            if (touchEndX < touchStartX - swipeThreshold) {
+                // Swipe vers la gauche -> slide suivant
+                showSlide(currentIndex + 1);
+            } else if (touchEndX > touchStartX + swipeThreshold) {
+                // Swipe vers la droite -> slide précédent
+                showSlide(currentIndex - 1);
+            }
+        }
+        
+        // Ajuster la taille du slider lors du redimensionnement de la fenêtre
+        window.addEventListener('resize', () => {
+            showSlide(currentIndex);
+        });
+    }
+});
+
