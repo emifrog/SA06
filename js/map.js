@@ -2,8 +2,31 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Vérifier si l'élément de carte existe
     const mapContainer = document.getElementById('france-map-container');
-    if (!mapContainer) return;
-
+    if (!mapContainer) {
+        console.error('Conteneur de carte non trouvé');
+        return;
+    }
+    console.log('Initialisation de la carte...');
+    
+    // Vider le conteneur de carte
+    mapContainer.innerHTML = '';
+    
+    // Créer l'image de la carte
+    const mapImage = document.createElement('img');
+    mapImage.src = 'images/Départements_de_France.png';
+    mapImage.alt = 'Carte des départements de France';
+    mapImage.className = 'map-image';
+    mapImage.setAttribute('usemap', '#france-map');
+    
+    // Créer l'image map
+    const imageMap = document.createElement('map');
+    imageMap.name = 'france-map';
+    imageMap.id = 'france-map';
+    
+    // Ajouter l'image et l'image map au conteneur
+    mapContainer.appendChild(mapImage);
+    mapContainer.appendChild(imageMap);
+    
     // Données des syndicats par département
     const syndicats = [
         { dept: "01", nom: "Ain", president: "Jean Dupont", tel: "06 XX XX XX XX", email: "contact@sa01.fr" },
@@ -109,132 +132,337 @@ document.addEventListener('DOMContentLoaded', function() {
         { dept: "976", nom: "Mayotte", president: "Laurent Dubois", tel: "06 XX XX XX XX", email: "contact@sa976.fr" }
     ];
 
-    // Créer la carte SVG de la France
-    createMap();
+    // Créer les coordonnées des départements et les zones cliquables
+    createMapAreas();
 
-    // Ajouter les interactions
+    // Ajouter les interactions à la carte
     addMapInteractions();
 
-    // Fonction pour créer la carte SVG
-    function createMap() {
-        // Charger la carte SVG
-        fetch('images/france-map.svg')
-            .then(response => response.text())
-            .then(svgData => {
-                // Insérer la carte SVG dans le conteneur
-                mapContainer.innerHTML = svgData;
+    // Fonction pour créer les zones cliquables de la carte
+    function createMapAreas() {
+        console.log('Création des zones cliquables...');
+        // Coordonnées des départements (format: x1,y1,x2,y2)
+        const departmentCoords = {
+            '01': '450,260,480,290', // Ain
+            '02': '340,140,370,170', // Aisne
+            '03': '380,300,410,330', // Allier
+            '04': '450,400,480,430', // Alpes-de-Haute-Provence
+            '05': '470,380,500,410', // Hautes-Alpes
+            '06': '490,410,520,440', // Alpes-Maritimes
+            '07': '420,370,450,400', // Ardèche
+            '08': '370,130,400,160', // Ardennes
+            '09': '320,430,350,460', // Ariège
+            '10': '380,190,410,220', // Aube
+            '11': '350,440,380,470', // Aude
+            '12': '370,380,400,410', // Aveyron
+            '13': '430,440,460,470', // Bouches-du-Rhône
+            '14': '250,170,280,200', // Calvados
+            '15': '380,350,410,380', // Cantal
+            '16': '300,330,330,360', // Charente
+            '17': '270,340,300,370', // Charente-Maritime
+            '18': '350,250,380,280', // Cher
+            '19': '350,340,380,370', // Corrèze
+            '2A': '420,520,450,550', // Corse-du-Sud
+            '2B': '440,500,470,530', // Haute-Corse
+            '21': '410,220,440,250', // Côte-d'Or
+            '22': '180,190,210,220', // Côtes-d'Armor
+            '23': '360,320,390,350', // Creuse
+            '24': '310,360,340,390', // Dordogne
+            '25': '460,220,490,250', // Doubs
+            '26': '440,370,470,400', // Drôme
+            '27': '290,160,320,190', // Eure
+            '28': '310,200,340,230', // Eure-et-Loir
+            '29': '140,190,170,220', // Finistère
+            '30': '410,420,440,450', // Gard
+            '31': '330,420,360,450', // Haute-Garonne
+            '32': '310,400,340,430', // Gers
+            '33': '280,370,310,400', // Gironde
+            '34': '390,430,420,460', // Hérault
+            '35': '210,200,240,230', // Ille-et-Vilaine
+            '36': '340,280,370,310', // Indre
+            '37': '300,250,330,280', // Indre-et-Loire
+            '38': '460,320,490,350', // Isère
+            '39': '450,240,480,270', // Jura
+            '40': '270,400,300,430', // Landes
+            '41': '320,230,350,260', // Loir-et-Cher
+            '42': '420,320,450,350', // Loire
+            '43': '410,340,440,370', // Haute-Loire
+            '44': '220,240,250,270', // Loire-Atlantique
+            '45': '340,220,370,250', // Loiret
+            '46': '350,370,380,400', // Lot
+            '47': '300,390,330,420', // Lot-et-Garonne
+            '48': '400,380,430,410', // Lozère
+            '49': '260,240,290,270', // Maine-et-Loire
+            '50': '230,160,260,190', // Manche
+            '51': '380,160,410,190', // Marne
+            '52': '410,190,440,220', // Haute-Marne
+            '53': '250,210,280,240', // Mayenne
+            '54': '430,160,460,190', // Meurthe-et-Moselle
+            '55': '410,150,440,180', // Meuse
+            '56': '180,220,210,250', // Morbihan
+            '57': '450,140,480,170', // Moselle
+            '58': '390,240,420,270', // Nièvre
+            '59': '340,110,370,140', // Nord
+            '60': '330,150,360,180', // Oise
+            '61': '270,180,300,210', // Orne
+            '62': '310,120,340,150', // Pas-de-Calais
+            '63': '390,320,420,350', // Puy-de-Dôme
+            '64': '270,420,300,450', // Pyrénées-Atlantiques
+            '65': '300,430,330,460', // Hautes-Pyrénées
+            '66': '370,460,400,490', // Pyrénées-Orientales
+            '67': '470,160,500,190', // Bas-Rhin
+            '68': '480,190,510,220', // Haut-Rhin
+            '69': '430,300,460,330', // Rhône
+            '70': '440,200,470,230', // Haute-Saône
+            '71': '420,260,450,290', // Saône-et-Loire
+            '72': '270,210,300,240', // Sarthe
+            '73': '480,330,510,360', // Savoie
+            '74': '480,290,510,320', // Haute-Savoie
+            '75': '330,180,340,190', // Paris
+            '76': '280,140,310,170', // Seine-Maritime
+            '77': '350,190,380,220', // Seine-et-Marne
+            '78': '320,190,350,220', // Yvelines
+            '79': '270,290,300,320', // Deux-Sèvres
+            '80': '310,140,340,170', // Somme
+            '81': '350,400,380,430', // Tarn
+            '82': '330,390,360,420', // Tarn-et-Garonne
+            '83': '470,440,500,470', // Var
+            '84': '440,410,470,440', // Vaucluse
+            '85': '240,270,270,300', // Vendée
+            '86': '290,290,320,320', // Vienne
+            '87': '330,320,360,350', // Haute-Vienne
+            '88': '450,180,480,210', // Vosges
+            '89': '380,210,410,240', // Yonne
+            '90': '470,210,490,230', // Territoire de Belfort
+            '91': '330,200,350,220', // Essonne
+            '92': '325,185,335,195', // Hauts-de-Seine
+            '93': '335,180,345,190', // Seine-Saint-Denis
+            '94': '335,190,345,200', // Val-de-Marne
+            '95': '320,170,340,190', // Val-d'Oise
+            '971': '100,500,130,530', // Guadeloupe (position approximative)
+            '972': '130,500,160,530', // Martinique (position approximative)
+            '973': '160,500,190,530', // Guyane (position approximative)
+            '974': '190,500,220,530', // La Réunion (position approximative)
+            '976': '220,500,250,530'  // Mayotte (position approximative)
+        };
+        
+        // Créer les zones cliquables pour chaque département
+        for (const [deptId, coords] of Object.entries(departmentCoords)) {
+            // Vérifier si le département a un syndicat
+            const syndicat = syndicats.find(s => s.dept === deptId);
+            
+            // Créer la zone cliquable
+            const area = document.createElement('area');
+            area.shape = 'rect';
+            area.coords = coords;
+            area.alt = `Département ${deptId}`;
+            area.href = '#';
+            
+            // Ajouter les attributs de données si le département a un syndicat
+            if (syndicat) {
+                area.classList.add('has-syndicat');
+                area.setAttribute('data-dept', deptId);
+                area.setAttribute('data-nom', syndicat.nom);
+                area.setAttribute('data-president', syndicat.president);
+                area.setAttribute('data-tel', syndicat.tel);
+                area.setAttribute('data-email', syndicat.email);
                 
-                // Ajouter les interactions après le chargement de la carte
-                const svgElement = mapContainer.querySelector('svg');
-                if (svgElement) {
-                    // Ajuster la taille du SVG
-                    svgElement.setAttribute('width', '100%');
-                    svgElement.setAttribute('height', 'auto');
-                    svgElement.setAttribute('viewBox', '0 0 600 600');
-                    
-                    // Ajouter les interactions aux départements
-                    const paths = svgElement.querySelectorAll('path');
-                    paths.forEach(path => {
-                        const deptId = path.getAttribute('id');
-                        if (deptId) {
-                            // Vérifier si le département a un syndicat
-                            const syndicat = syndicats.find(s => s.dept === deptId);
-                            
-                            if (syndicat) {
-                                // Département avec syndicat
-                                path.setAttribute('fill', '#e74c3c'); // Rouge pour les départements avec syndicat
-                                path.setAttribute('data-dept', deptId);
-                                path.setAttribute('data-nom', syndicat.nom);
-                                path.setAttribute('data-president', syndicat.president);
-                                path.setAttribute('data-tel', syndicat.tel);
-                                path.setAttribute('data-email', syndicat.email);
-                                
-                                // Ajouter les événements
-                                path.addEventListener('mouseover', showTooltip);
-                                path.addEventListener('mouseout', hideTooltip);
-                                path.addEventListener('click', showDepartmentInfo);
-                            } else {
-                                // Département sans syndicat
-                                path.setAttribute('fill', '#ecf0f1'); // Gris clair pour les départements sans syndicat
-                            }
-                        }
-                    });
+                // Ajouter les événements
+                area.addEventListener('mouseover', showTooltip);
+                area.addEventListener('mouseout', hideTooltip);
+                area.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showDepartmentInfo(e);
+                });
+            }
+            
+            // Ajouter la zone cliquable à l'image map
+            imageMap.appendChild(area);
+        }
+        
+        // Créer une overlay pour visualiser les départements avec syndicats
+        createOverlay(departmentCoords);
+        
+        console.log('Zones cliquables créées avec succès');
+    }
+    
+    // Fonction pour créer une overlay pour visualiser les départements avec syndicats
+    function createOverlay(coords) {
+        console.log('Création de l\'overlay...');
+        const overlay = document.createElement('div');
+        overlay.className = 'map-overlay';
+        mapContainer.appendChild(overlay);
+        
+        // Attendre que l'image soit chargée pour ajuster les coordonnées
+        const mapImage = mapContainer.querySelector('.map-image');
+        if (mapImage) {
+            console.log('Image de la carte trouvée, attente du chargement...');
+            
+            // Fonction à exécuter lorsque l'image est chargée
+            const setupOverlay = function() {
+                console.log('Image chargée, dimensions:', mapImage.clientWidth, 'x', mapImage.clientHeight);
+                const imageWidth = mapImage.clientWidth;
+                const imageHeight = mapImage.clientHeight;
+                const originalWidth = 600; // Largeur de référence pour les coordonnées
+                const originalHeight = 600; // Hauteur de référence pour les coordonnées
+                
+                // Créer des div colorés pour chaque département avec un syndicat
+                for (const [deptId, coordStr] of Object.entries(coords)) {
+                    const syndicat = syndicats.find(s => s.dept === deptId);
+                    if (syndicat) {
+                        const [x1, y1, x2, y2] = coordStr.split(',').map(Number);
+                        
+                        // Ajuster les coordonnées en fonction de la taille réelle de l'image
+                        const scaledX1 = (x1 / originalWidth) * imageWidth;
+                        const scaledY1 = (y1 / originalHeight) * imageHeight;
+                        const scaledX2 = (x2 / originalWidth) * imageWidth;
+                        const scaledY2 = (y2 / originalHeight) * imageHeight;
+                        
+                        const highlightDiv = document.createElement('div');
+                        highlightDiv.className = 'dept-highlight';
+                        highlightDiv.style.left = `${scaledX1}px`;
+                        highlightDiv.style.top = `${scaledY1}px`;
+                        highlightDiv.style.width = `${scaledX2 - scaledX1}px`;
+                        highlightDiv.style.height = `${scaledY2 - scaledY1}px`;
+                        highlightDiv.setAttribute('data-dept', deptId);
+                        highlightDiv.setAttribute('data-nom', syndicat.nom);
+                        highlightDiv.setAttribute('data-president', syndicat.president);
+                        highlightDiv.setAttribute('data-tel', syndicat.tel);
+                        highlightDiv.setAttribute('data-email', syndicat.email);
+                        
+                        // Ajouter les événements
+                        highlightDiv.addEventListener('mouseover', showTooltip);
+                        highlightDiv.addEventListener('mouseout', hideTooltip);
+                        highlightDiv.addEventListener('click', showDepartmentInfo);
+                        
+                        overlay.appendChild(highlightDiv);
+                    }
                 }
-            })
-            .catch(error => {
-                console.error('Erreur lors du chargement de la carte:', error);
-                mapContainer.innerHTML = '<p>Erreur lors du chargement de la carte. Veuillez réessayer.</p>';
-            });
+                
+                console.log('Overlay créé avec succès');
+            };
+            
+            // Vérifier si l'image est déjà chargée
+            if (mapImage.complete) {
+                console.log('Image déjà chargée');
+                setupOverlay();
+            } else {
+                mapImage.onload = setupOverlay;
+            }
+        } else {
+            console.error('Image de la carte non trouvée');
+        }
     }
 
     // Fonction pour ajouter les interactions à la carte
     function addMapInteractions() {
-        // Créer l'élément de tooltip
+        console.log('Ajout des interactions à la carte...');
+        // Créer un élément pour les tooltips
         const tooltip = document.createElement('div');
         tooltip.className = 'map-tooltip';
         tooltip.style.display = 'none';
-        document.body.appendChild(tooltip);
-
-        // Récupérer l'élément d'information du département
+        mapContainer.appendChild(tooltip);
+        
+        // Référence à l'élément d'affichage des détails du département
         const deptInfo = document.getElementById('department-details');
-
+        if (!deptInfo) {
+            console.error('Élément department-details non trouvé');
+        }
+        
         // Fonction pour afficher le tooltip
         window.showTooltip = function(event) {
-            const path = event.target;
-            const deptId = path.getAttribute('data-dept');
-            const deptNom = path.getAttribute('data-nom');
+            const element = event.target;
+            const deptId = element.getAttribute('data-dept');
+            const deptNom = element.getAttribute('data-nom');
             
             if (deptId && deptNom) {
                 tooltip.textContent = `${deptId} - ${deptNom}`;
                 tooltip.style.display = 'block';
-                tooltip.style.left = (event.pageX + 10) + 'px';
-                tooltip.style.top = (event.pageY + 10) + 'px';
                 
-                // Changer la couleur au survol
-                path.setAttribute('fill', '#c0392b'); // Rouge plus foncé au survol
+                // Positionner le tooltip près du curseur
+                const rect = mapContainer.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+                
+                tooltip.style.left = `${x + 15}px`;
+                tooltip.style.top = `${y + 15}px`;
             }
-        }
-
+        };
+        
         // Fonction pour masquer le tooltip
-        window.hideTooltip = function(event) {
+        window.hideTooltip = function() {
             tooltip.style.display = 'none';
-            
-            // Remettre la couleur d'origine
-            const path = event.target;
-            path.setAttribute('fill', '#e74c3c');
-        }
-
-        // Fonction pour afficher les informations du département
-        window.showDepartmentInfo = function(event) {
-            const path = event.target;
-            const deptId = path.getAttribute('data-dept');
-            const deptNom = path.getAttribute('data-nom');
-            const president = path.getAttribute('data-president');
-            const tel = path.getAttribute('data-tel');
-            const email = path.getAttribute('data-email');
-            
-            if (deptId && deptNom) {
-                // Mettre à jour le titre de la section d'information
-                const infoTitle = document.querySelector('.map-info-title');
-                if (infoTitle) {
-                    infoTitle.textContent = `${deptId} - ${deptNom}`;
-                }
-                
-                // Mettre à jour les détails
-                if (deptInfo) {
-                    deptInfo.innerHTML = `
-                        <p><strong>Président :</strong> ${president}</p>
-                        <p><strong>Téléphone :</strong> <a href="tel:${tel}">${tel}</a></p>
-                        <p><strong>Email :</strong> <a href="mailto:${email}">${email}</a></p>
-                    `;
-                }
-                
-                // Faire défiler jusqu'aux informations si nécessaire
-                const infoPanel = document.getElementById('department-info');
-                if (infoPanel) {
-                    infoPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
-            }
-        }
+        };
+        
+        console.log('Interactions ajoutées avec succès');
     }
+
+    // Fonction pour afficher les informations du département
+    window.showDepartmentInfo = function(event) {
+        const element = event.target;
+        const deptId = element.getAttribute('data-dept');
+        const deptNom = element.getAttribute('data-nom');
+        const president = element.getAttribute('data-president');
+        const tel = element.getAttribute('data-tel');
+        const email = element.getAttribute('data-email');
+        
+        if (deptId && deptNom) {
+            // Mettre à jour le titre de la section d'information
+            const infoTitle = document.querySelector('.map-info-title');
+            if (infoTitle) {
+                infoTitle.textContent = `${deptId} - ${deptNom}`;
+            }
+            
+            // Mettre à jour les détails
+            const deptInfo = document.getElementById('department-details');
+            if (deptInfo) {
+                // Ajouter une animation pour l'apparition des informations
+                deptInfo.style.opacity = '0';
+                deptInfo.style.transform = 'translateY(10px)';
+                
+                setTimeout(() => {
+                    deptInfo.innerHTML = `
+                        <div class="info-item">
+                            <div class="info-icon">👤</div>
+                            <div class="info-content">
+                                <p class="info-label">Président</p>
+                                <p class="info-value">${president}</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📞</div>
+                            <div class="info-content">
+                                <p class="info-label">Téléphone</p>
+                                <p class="info-value"><a href="tel:${tel}">${tel}</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">✉️</div>
+                            <div class="info-content">
+                                <p class="info-label">Email</p>
+                                <p class="info-value"><a href="mailto:${email}">${email}</a></p>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Animer l'apparition des informations
+                    deptInfo.style.opacity = '1';
+                    deptInfo.style.transform = 'translateY(0)';
+                }, 200);
+            }
+            
+            // Faire défiler jusqu'aux informations si nécessaire
+            const infoPanel = document.getElementById('department-info');
+            if (infoPanel) {
+                infoPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+            
+            // Mettre en évidence le département sélectionné
+            const allHighlights = document.querySelectorAll('.dept-highlight');
+            allHighlights.forEach(highlight => {
+                highlight.classList.remove('selected');
+            });
+            element.classList.add('selected');
+        }
+    };
 });
