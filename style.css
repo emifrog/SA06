@@ -1285,7 +1285,7 @@ body {
     content: counter(steps);
     font-size: 12rem;
     font-weight: 700;
-    color: #ffe7db;
+    color: #144190;
     rotate: 6deg
 }
 
@@ -1876,13 +1876,14 @@ body {
 
 .form-label {
     display: block;
-    margin-bottom: .75rem
+    margin-bottom: .75rem;
+    font-weight: 600;
 }
 
 .form-help,
 .form-mandatory {
     font-size: 1.125rem;
-    color: #6b7280
+    color: #4c515d;
 }
 
 .form-mandatory {
@@ -2386,7 +2387,7 @@ body {
     font-family: "Founders Grotesk Condensed", sans-serif;
     font-size: var(--h200);
     font-weight: 700;
-    line-height: 1
+    line-height: 1;
 }
 
 .h250 {
@@ -3513,6 +3514,11 @@ mark {
     font-size: 1.3125rem;
     font-weight: 500;
     line-height: 1
+}
+
+.footer-info-title-img {
+    width: 60px;
+    height: 60px;
 }
 
 .footer-networks-title {
@@ -4738,7 +4744,12 @@ mark {
 
 .reasons-title {
     margin-bottom: var(--spc-y-md);
-    text-align: center
+    text-align: center;
+    background-image: url(images/line.fba7684a0285f9b70df0.svg);
+    background-size: 35% .1em;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    text-decoration: none
 }
 
 .reasons-wrapper {
@@ -5389,14 +5400,15 @@ mark {
 }
 
 .form-title {
-    margin-bottom: 3rem
+    margin-bottom: 3rem;
+    text-align: center;
 }
 
 .form-wrapper {
     position: relative;
     padding: var(--spc-y-md) var(--spc-x);
     border: 1px solid #374151;
-    background-color: #faf2e9;
+    background-color: #5f93ef;
     background-image: url(./images/dots-left.04f901e6e708712b8df6.png);
     background-repeat: no-repeat;
     background-position: -50px -300px
