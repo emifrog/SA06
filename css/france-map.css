@@ -1,0 +1,258 @@
+/* Styles pour la carte SVG interactive des syndicats autonomes */
+
+.map-container {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #144190;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+}
+
+#france-map-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    touch-action: manipulation;
+}
+
+.map-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+}
+
+.map-title u {
+    background-size: 100% .1em;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    text-decoration: none;
+}
+
+.map-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #f3f4f6;
+    text-align: center;
+}
+
+.map-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .map-wrapper {
+        flex-direction: row;
+    }
+    
+    #france-map-container {
+        flex: 2;
+    }
+    
+    .map-info-panel {
+        flex: 1;
+    }
+}
+
+/* Styles pour les départements dans la carte SVG */
+#france-map-container svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#france-map-container path {
+    stroke: #fff;
+    stroke-width: 0.5;
+    vector-effect: non-scaling-stroke;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+/* Départements sans syndicat */
+.dept-without-syndicat {
+    fill: #d1d5db;
+}
+
+/* Départements avec syndicat */
+.dept-with-syndicat {
+    fill: #e74c3c;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.1);
+    }
+    100% {
+        filter: brightness(1);
+    }
+}
+
+/* État de survol */
+.dept-with-syndicat.hover {
+    fill: #c0392b;
+    transform: scale(1.02);
+    transform-origin: center;
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
+    z-index: 10;
+}
+
+/* État sélectionné */
+.dept-with-syndicat.selected {
+    fill: #a93226;
+    transform: scale(1.03);
+    transform-origin: center;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+    z-index: 20;
+    animation: none;
+}
+
+.map-tooltip {
+    position: fixed;
+    background-color: #111827;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    transform: translate3d(0, 0, 0);
+}
+
+.map-info-panel {
+    background-color: #f3f4f6;
+    padding: 1.5rem;
+    border-radius: 8px;
+    min-height: 200px;
+    margin-top: 1rem;
+    border-left: 4px solid #e74c3c;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.map-info-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #111827;
+    border-bottom: 2px solid #e74c3c;
+    padding-bottom: 0.5rem;
+}
+
+.map-info-details {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    will-change: opacity, transform;
+}
+
+.info-item {
+    display: flex;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.info-icon {
+    flex: 0 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
+}
+
+.info-content {
+    flex: 1;
+}
+
+.info-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+}
+
+.info-value {
+    font-size: 1rem;
+    color: #111827;
+    font-weight: 500;
+    margin: 0;
+}
+
+.info-value a {
+    color: #e74c3c;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.info-value a:hover {
+    color: #c0392b;
+    text-decoration: underline;
+}
+
+.map-legend {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.map-legend-item {
+    display: flex;
+    align-items: center;
+}
+
+.map-legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+.map-legend-color-present {
+    background-color: #e74c3c;
+}
+
+.map-legend-color-absent {
+    background-color: #d1d5db;
+}
+
+.map-legend-text {
+    font-size: 0.875rem;
+    color: #fff;
+}
+
+.error-message {
+    color: #e74c3c;
+    text-align: center;
+    padding: 2rem;
+    font-weight: 500;
+}
