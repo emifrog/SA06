@@ -1,0 +1,31 @@
+/* Style pour afficher les images l'une en dessous de l'autre */
+.reasons-image {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espace entre les images */
+    align-items: center;
+    padding: 20px 0;
+}
+
+.reasons-image-layer {
+    display: block;
+    width: 80%; /* Taille fixe par rapport au conteneur */
+    max-width: 400px; /* Taille maximale pour éviter des images trop grandes */
+    height: auto;
+    border-radius: 8px; /* Coins arrondis pour les images */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour donner de la profondeur */
+}
+
+/* Style responsive qui conserve l'affichage vertical même sur les grands écrans */
+@media (min-width: 768px) {
+    .reasons-image {
+        /* Maintien de la direction en colonne */
+        flex-direction: column;
+        gap: 40px; /* Augmentation de l'espace entre les images sur grand écran */
+    }
+    
+    .reasons-image-layer {
+        width: 60%; /* Légèrement plus petit sur les grands écrans */
+        max-width: 500px;
+    }
+}

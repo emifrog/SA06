@@ -3775,6 +3775,10 @@ mark {
     background-color: #FF0000;
 }
 
+.social-icon--contact {
+    background-color: #111827;
+}
+
 .faq-title {
     margin-bottom: 2rem
 }

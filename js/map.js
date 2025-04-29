@@ -300,9 +300,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Fonction à exécuter lorsque l'image est chargée
             const setupOverlay = function() {
-                console.log('Image chargée, dimensions:', mapImage.clientWidth, 'x', mapImage.clientHeight);
+                console.log('Image chargée, dimensions:', mapImage.naturalWidth, 'x', mapImage.naturalHeight);
                 const imageWidth = mapImage.clientWidth;
                 const imageHeight = mapImage.clientHeight;
+                // Utiliser les dimensions réelles de l'image comme référence
                 const originalWidth = 600; // Largeur de référence pour les coordonnées
                 const originalHeight = 600; // Hauteur de référence pour les coordonnées
                 
@@ -345,9 +346,13 @@ document.addEventListener('DOMContentLoaded', function() {
             // Vérifier si l'image est déjà chargée
             if (mapImage.complete) {
                 console.log('Image déjà chargée');
-                setupOverlay();
+                // Petit délai pour s'assurer que le DOM est bien rendu
+                setTimeout(setupOverlay, 100);
             } else {
-                mapImage.onload = setupOverlay;
+                mapImage.onload = function() {
+                    // Petit délai pour s'assurer que le DOM est bien rendu
+                    setTimeout(setupOverlay, 100);
+                };
             }
         } else {
             console.error('Image de la carte non trouvée');
@@ -361,7 +366,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const tooltip = document.createElement('div');
         tooltip.className = 'map-tooltip';
         tooltip.style.display = 'none';
-        mapContainer.appendChild(tooltip);
+        document.body.appendChild(tooltip); // Ajouter au body pour éviter les problèmes de positionnement
         
         // Référence à l'élément d'affichage des détails du département
         const deptInfo = document.getElementById('department-details');
@@ -380,9 +385,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 tooltip.style.display = 'block';
                 
                 // Positionner le tooltip près du curseur
-                const rect = mapContainer.getBoundingClientRect();
-                const x = event.clientX - rect.left;
-                const y = event.clientY - rect.top;
+                const x = event.clientX;
+                const y = event.clientY;
                 
                 tooltip.style.left = `${x + 15}px`;
                 tooltip.style.top = `${y + 15}px`;
@@ -399,7 +403,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fonction pour afficher les informations du département
     window.showDepartmentInfo = function(event) {
-        const element = event.target;
+        event.preventDefault(); // Empêcher le comportement par défaut
+        event.stopPropagation(); // Empêcher la propagation de l'événement
+        
+        const element = event.currentTarget; // Utiliser currentTarget au lieu de target
         const deptId = element.getAttribute('data-dept');
         const deptNom = element.getAttribute('data-nom');
         const president = element.getAttribute('data-president');
