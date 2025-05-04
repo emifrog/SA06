@@ -1,4 +1,4 @@
-// Carte SVG interactive des syndicats autonomes
+// Carte SVG interactive des syndicats autonomes superposée sur une image PNG
 document.addEventListener('DOMContentLoaded', function() {
     // Vérifier si l'élément de carte existe
     const mapContainer = document.getElementById('france-map-container');
@@ -6,7 +6,21 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Conteneur de carte non trouvé');
         return;
     }
-    console.log('Initialisation de la carte SVG...');
+    console.log('Initialisation de la carte SVG avec superposition...');
+    
+    // Créer l'élément d'image de fond
+    const backgroundImage = document.createElement('img');
+    backgroundImage.src = 'images/departements_de_France.png';
+    backgroundImage.className = 'map-background-image';
+    backgroundImage.alt = 'Carte des départements de France';
+    
+    // S'assurer que l'image est complètement chargée avant de continuer
+    backgroundImage.onload = function() {
+        console.log('Image de fond chargée avec succès');
+    };
+    
+    // Ajouter l'image au conteneur
+    mapContainer.appendChild(backgroundImage);
     
     // Données des syndicats par département
     const syndicats = [
@@ -114,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     // Charger la carte SVG
-    fetch('images/france-map.svg')
+    /*fetch('images/france-map.svg')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Impossible de charger la carte SVG');
@@ -122,11 +136,41 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.text();
         })
         .then(svgContent => {
-            // Injecter le SVG dans le conteneur
-            mapContainer.innerHTML = svgContent;
+            // Créer un conteneur pour le SVG
+            const svgContainer = document.createElement('div');
+            svgContainer.className = 'svg-overlay';
+            svgContainer.innerHTML = svgContent;
+            
+            // Ajuster les dimensions du SVG pour qu'il corresponde à l'image
+            const svgElement = svgContainer.querySelector('svg');
+            if (svgElement) {
+                // S'assurer que le SVG prend tout l'espace disponible
+                svgElement.setAttribute('width', '100%');
+                svgElement.setAttribute('height', '100%');
+                svgElement.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+                svgElement.setAttribute('viewBox', '0 0 1000 1000');
+                
+                // Attendre que l'image de fond soit chargée pour ajuster le SVG
+                backgroundImage.addEventListener('load', function() {
+                    // Ajuster la position du SVG pour qu'il s'aligne avec l'image
+                    const imgWidth = backgroundImage.offsetWidth;
+                    const imgHeight = backgroundImage.offsetHeight;
+                    
+                    console.log(`Dimensions de l'image: ${imgWidth}x${imgHeight}`);
+                    
+                    // Ajuster le conteneur SVG pour qu'il corresponde aux dimensions de l'image
+                    svgContainer.style.width = `${imgWidth}px`;
+                    svgContainer.style.height = `${imgHeight}px`;
+                    svgContainer.style.top = `${(mapContainer.offsetHeight - imgHeight) / 2}px`;
+                    svgContainer.style.left = `${(mapContainer.offsetWidth - imgWidth) / 2}px`;
+                });
+            }
+            
+            // Injecter le SVG dans le conteneur (après l'image de fond)
+            mapContainer.appendChild(svgContainer);
             
             // Récupérer tous les départements dans le SVG
-            const paths = mapContainer.querySelectorAll('path');
+            const paths = svgContainer.querySelectorAll('path');
             
             // Créer un tooltip
             const tooltip = document.createElement('div');
@@ -253,10 +297,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
-            console.log('Carte SVG initialisée avec succès');
+            console.log('Carte SVG superposée et initialisée avec succès');
         })
         .catch(error => {
             console.error('Erreur lors du chargement de la carte SVG:', error);
             mapContainer.innerHTML = '<p class="error-message">Impossible de charger la carte. Veuillez réessayer plus tard.</p>';
-        });
+        });*/
 });

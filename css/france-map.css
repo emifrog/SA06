@@ -17,13 +17,17 @@
     position: relative;
     width: 100%;
     max-width: 600px;
+    height: 600px; /* Hauteur fixe pour maintenir les proportions */
     margin: 0 auto;
     overflow: hidden;
-    background-color: #fff;
+    background-color: transparent;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     touch-action: manipulation;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .map-title {
@@ -67,6 +71,47 @@
     }
 }
 
+/* Styles pour l'image de fond */
+.map-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
+    background-color: #fff;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/* Styles pour la superposition SVG */
+.svg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.svg-overlay svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(0.95); /* Légèrement réduit pour mieux s'aligner avec l'image */
+}
+
+.svg-overlay path {
+    pointer-events: auto;
+}
+
 /* Styles pour les départements dans la carte SVG */
 #france-map-container svg {
     width: 100%;
@@ -85,12 +130,14 @@
 
 /* Départements sans syndicat */
 .dept-without-syndicat {
-    fill: #d1d5db;
+    fill: rgba(209, 213, 219, 0.5);
+    stroke-width: 1;
 }
 
 /* Départements avec syndicat */
 .dept-with-syndicat {
-    fill: #e74c3c;
+    fill: rgba(231, 76, 60, 0.7);
+    stroke-width: 1;
     animation: pulse 2s infinite;
 }
 
