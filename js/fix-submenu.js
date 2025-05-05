@@ -63,7 +63,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // Afficher un message dans la console pour confirmer que le script a été chargé
-    console.log('Script de correction des sous-menus chargé avec succès');
 });

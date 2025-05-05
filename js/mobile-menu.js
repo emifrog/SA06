@@ -115,7 +115,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 menuWrapper.setAttribute('data-state', 'closed');
             }
         });
-        
-        console.log('Script du menu mobile amélioré chargé avec succès');
     }
 });

@@ -23,21 +23,19 @@
 
     <link rel="preload" href="style.css" as="style">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/tarteaucitron.min.css">
     <link rel="stylesheet" href="css/france-map.css">
     <link rel="stylesheet" href="css/reasons-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- CSS personnalisé pour le menu mobile -->
     <link rel="stylesheet" href="css/mobile-menu.css">
+    <!-- CSS pour la barre de progression du slider -->
+    <link rel="stylesheet" href="css/slider-progress.css">
     <!-- Font Awesome pour les icônes des réseaux sociaux -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
-    <nav role="navigation" aria-label="Accès rapide" class="quick-access">
-        <a href="#contenu-principal" class="quick-access-link">Contenu principal</a>
-        <a href="#pied-de-page" class="quick-access-link">Pied de page</a>
-    </nav>
-
     <header role="banner" class="header">
         <div class="container">
             <div class="header-wrapper">
@@ -119,7 +117,6 @@
                                             <path d="M4 5.99995L8 9.99995L12 5.99995" stroke="white" stroke-width="2"
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-
                                     </button>
 
                                     <div id="menu-sa06" data-state="closed" class="submenu">
@@ -155,7 +152,6 @@
                                         <div class="submenu-body">
                                             <div class="submenu-col">
                                                 <p class="submenu-category tag">Ce que nous sommes</p>
-
                                                 <ul class="submenu-list">
                                                     <li class="submenu-item">
                                                         <a href="qui-est-la-cfdt/les-revendications-de-la-cfdt/la-cfdt-en-10-points.html"
@@ -1727,45 +1723,14 @@
         </footer>
     
 
+    <script src="js/tarteaucitron.min.js"></script>
     <script async src="main.js"></script>
     <script src="js/france-map.js"></script>
-    <script src="js/tarteaucitron.min.js"></script>
     <script src="js/scroll-to-top.js"></script>
     <script src="js/fix-submenu.js"></script>
     <script src="js/mobile-menu.js"></script>
-
-    <script>
-        tarteaucitron.init({
-            "privacyUrl": "",
-            "bodyPosition": "bottom",
-            "hashtag": "#tarteaucitron",
-            "cookieName": "tarteaucitron",
-            "orientation": "bottom",
-            "groupServices": false,
-            "showDetailsOnClick": true,
-            "serviceDefaultState": "wait",
-            "showAlertSmall": false,
-            "cookieslist": false,
-            "closePopup": false,
-            "showIcon": true,
-            "iconPosition": "BottomRight",
-            "adblocker": false,
-            "DenyAllCta": true,
-            "AcceptAllCta": true,
-            "highPrivacy": true,
-            "alwaysNeedConsent": false,
-            "handleBrowserDNTRequest": false,
-            "removeCredit": false,
-            "moreInfoLink": true,
-            "useExternalCss": false,
-            "useExternalJs": false,
-            "readmoreLink": "",
-            "mandatory": true,
-            "mandatoryCta": true,
-            "googleConsentMode": true,
-            "partnersList": false
-        });
-    </script>
+    <script src="js/slider.js"></script>
+    <script src="js/tarteaucitron.js"></script>
 
     <!-- Bouton de remontée de page -->
     <button id="scroll-to-top" class="scroll-to-top" aria-label="Remonter en haut de page">
