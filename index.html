@@ -26,7 +26,8 @@
     <link rel="stylesheet" href="css/france-map.css">
     <link rel="stylesheet" href="css/reasons-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <!-- CSS personnalisé pour le menu mobile -->
+    <link rel="stylesheet" href="css/mobile-menu.css">
     <!-- Font Awesome pour les icônes des réseaux sociaux -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -48,7 +49,6 @@
                 <nav role="navigation" aria-label="Menu principal" class="menu">
                     <button type="button" aria-controls="menu" aria-expanded="false" class="menu-toggle">
                         <span class="menu-toggle-label">Menu</span>
-                        <span class="menu-toggle-label">Fermer</span>
                         <i class="menu-toggle-icon"></i>
                     </button>
 
@@ -112,7 +112,7 @@
                                 </li>
 
                                 <li class="menu-item">
-                                    <button type="button" aria-controls="menu-cfdt" aria-expanded="false"
+                                    <button type="button" aria-controls="menu-sa06" aria-expanded="false"
                                         class="menu-link menu-link--primary">
                                         Le Syndicat Autonome 06
                                         <svg aria-hidden="true" class="menu-arrow icon" viewBox="0 0 16 16">
@@ -122,7 +122,7 @@
 
                                     </button>
 
-                                    <div id="menu-cfdt" data-state="closed" class="submenu">
+                                    <div id="menu-sa06" data-state="closed" class="submenu">
                                         <div class="submenu-header">
                                             <p class="h400 submenu-title">Présentation du Syndicat Autonome 06</p>
 
@@ -131,7 +131,7 @@
                                                 concernant la Syndicat Autonome 06 : ce qui nous identifie, nos valeurs, nos actions,
                                                 nos finances...</p>
 
-                                            <button data-close="menu-cfdt"
+                                            <button data-close="menu-sa06"
                                                 class="tertiary-button tertiary-button--reverse submenu-close"
                                                 type="button"><svg aria-hidden="true" class="tertiary-button-icon icon"
                                                     viewBox="0 0 16 16">
@@ -1751,6 +1751,8 @@
     <script src="js/france-map.js"></script>
     <script src="js/tarteaucitron.min.js"></script>
     <script src="js/scroll-to-top.js"></script>
+    <script src="js/fix-submenu.js"></script>
+    <script src="js/mobile-menu.js"></script>
 
     <script>
         tarteaucitron.init({
