@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Sélectionner les éléments du menu
     const menuToggle = document.querySelector('.menu-toggle');
     const menuWrapper = document.getElementById('menu');
-    const submenuButtons = document.querySelectorAll('button[aria-controls^="menu-"]');
-    const submenuCloseButtons = document.querySelectorAll('[data-close]');
+
     
     // Vérifier si les éléments existent
     if (menuToggle && menuWrapper) {
@@ -44,63 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 menuWrapper.setAttribute('data-state', 'closed');
             });
         });
-        
-        // Gestion des sous-menus
-        if (submenuButtons.length > 0) {
-            submenuButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const submenuId = this.getAttribute('aria-controls');
-                    const submenu = document.getElementById(submenuId);
-                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                    
-                    if (submenu) {
-                        if (isExpanded) {
-                            // Fermer le sous-menu
-                            this.setAttribute('aria-expanded', 'false');
-                            submenu.setAttribute('data-state', 'closed');
-                        } else {
-                            // Fermer tous les autres sous-menus d'abord
-                            closeAllSubmenus();
-                            
-                            // Ouvrir ce sous-menu
-                            this.setAttribute('aria-expanded', 'true');
-                            submenu.setAttribute('data-state', 'opened');
-                        }
-                    }
-                });
-            });
-        }
-        
-        // Gestion des boutons de fermeture des sous-menus
-        if (submenuCloseButtons.length > 0) {
-            submenuCloseButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const submenuId = this.getAttribute('data-close');
-                    const submenu = document.getElementById(submenuId);
-                    const submenuButton = document.querySelector(`[aria-controls="${submenuId}"]`);
-                    
-                    if (submenu && submenuButton) {
-                        submenuButton.setAttribute('aria-expanded', 'false');
-                        submenu.setAttribute('data-state', 'closed');
-                    }
-                });
-            });
-        }
-        
-        // Fonction pour fermer tous les sous-menus
-        function closeAllSubmenus() {
-            const openSubmenus = document.querySelectorAll('.submenu[data-state="opened"]');
-            const expandedButtons = document.querySelectorAll('button[aria-expanded="true"][aria-controls^="menu-"]');
-            
-            openSubmenus.forEach(submenu => {
-                submenu.setAttribute('data-state', 'closed');
-            });
-            
-            expandedButtons.forEach(button => {
-                button.setAttribute('aria-expanded', 'false');
-            });
-        }
-        
+               
         // Ajouter une classe pour indiquer que le script est chargé
         document.body.classList.add('mobile-menu-js-loaded');
         
