@@ -1,7 +1,3 @@
-/**
- * Styles pour améliorer l'affichage du menu mobile
- */
-
 /* Amélioration du menu toggle */
 @media(max-width: 78.755rem) {
     /* Style du bouton de menu */
@@ -9,6 +5,8 @@
         font-size: 1.1rem;
         padding: 0.5rem 0.75rem;
         border-radius: 4px;
+        z-index: 1001;
+        position: relative;
     }
     
     /* Affichage des labels du menu toggle */
@@ -21,6 +19,8 @@
     .menu-wrapper[data-state="opened"] {
         display: block !important;
         opacity: 1 !important;
+        visibility: visible !important;
+        overflow-y: auto !important;
     }
     
     /* Amélioration de l'affichage des réseaux sociaux */
@@ -28,9 +28,9 @@
         display: flex !important;
         flex-direction: row !important;
         justify-content: center !important;
-
-        margin-top: 2rem !important;
         padding-top: 1.5rem !important;
+        flex-wrap: wrap !important;
+        gap: 0.75rem !important;
     }
     
     /* Affichage des icônes des réseaux sociaux */
@@ -42,8 +42,33 @@
         width: 2.5rem;
         height: 2.5rem;
         border-radius: 50%;
-        background-color: #ed1b24;
+
         color: white;
+        margin: 0 0.25rem !important;
+    }
+
+    .social-icon:hover {
+        transform: scale(1.1);
+    }
+    
+    .social-icon--facebook {
+        background-color: #1877F2;
+    }
+    
+    .social-icon--twitter {
+        background-color: #000000;
+    }
+    
+    .social-icon--instagram {
+        background: linear-gradient(45deg, #FCAF45, #E1306C, #C13584);
+    }
+    
+    .social-icon--youtube {
+        background-color: #FF0000;
+    }
+    
+    .social-icon--contact {
+        background-color: #111827;
     }
     
     /* Mise en page du menu principal */
@@ -51,7 +76,7 @@
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        margin-bottom: 2rem !important;
+        width: 100% !important;
     }
     
     /* Style des liens du menu principal */
@@ -63,6 +88,7 @@
         text-align: center !important;
         display: flex !important;
         justify-content: center !important;
+        align-items: center !important;
     }
     
     /* Ajustement pour les sous-menus */
@@ -76,6 +102,11 @@
         background-color: #f9fafb !important;
         padding: 1rem !important;
         overflow-y: auto !important;
+        display: none !important;
+    }
+    
+    .submenu[data-state="opened"] {
+        display: block !important;
     }
     
     /* Bouton de fermeture des sous-menus */
@@ -87,5 +118,35 @@
         color: white !important;
         border-radius: 4px !important;
         padding: 0.5rem !important;
+    }
+    
+    /* Ajustement pour les boutons dans la toolbar */
+    .menu-button {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 0.5rem 1rem !important;
+    }
+    
+    /* Ajustement pour les colonnes dans les sous-menus */
+    .submenu-body {
+        flex-direction: column !important;
+    }
+    
+    .submenu-col {
+        width: 100% !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    /* Amélioration de l'affichage du contenu des sous-menus */
+    .submenu-text {
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Correction pour les liens des sous-menus */
+    .tertiary-button {
+        width: 100% !important;
+        text-align: left !important;
     }
 }

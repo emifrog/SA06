@@ -3041,9 +3041,9 @@ mark {
         display: none
     }
 
-    .menu-toggle[aria-expanded=true] {
+    /*.menu-toggle[aria-expanded=true] {
         translate: 4rem 0
-    }
+    }*/
 
     .menu-toggle[aria-expanded=true] .menu-toggle-label:first-of-type {
         display: none
