@@ -23,20 +23,19 @@
 
     <link rel="preload" href="../style.css" as="style">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/tarteaucitron.min.css">
     <link rel="stylesheet" href="../css/france-map.css">
     <link rel="stylesheet" href="../css/reasons-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <!-- CSS personnalisé pour le menu mobile -->
+    <link rel="stylesheet" href="../css/mobile-menu.css">
+    <!-- CSS pour la barre de progression du slider -->
+    <link rel="stylesheet" href="../css/slider-progress.css">
     <!-- Font Awesome pour les icônes des réseaux sociaux -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
-    <nav role="navigation" aria-label="Accès rapide" class="quick-access">
-        <a href="#contenu-principal" class="quick-access-link">Contenu principal</a>
-        <a href="#pied-de-page" class="quick-access-link">Pied de page</a>
-    </nav>
-
     <header role="banner" class="header">
         <div class="container">
             <div class="header-wrapper">
@@ -48,7 +47,6 @@
                 <nav role="navigation" aria-label="Menu principal" class="menu">
                     <button type="button" aria-controls="menu" aria-expanded="false" class="menu-toggle">
                         <span class="menu-toggle-label">Menu</span>
-                        <span class="menu-toggle-label">Fermer</span>
                         <i class="menu-toggle-icon"></i>
                     </button>
 
@@ -83,9 +81,9 @@
                                 </li>
 
                                 <li class="menu-item">
-                                    <a href="./pages/adherer.html" class="menu-button menu-button-bleu">
+                                    <a href="./pages/adherer.html" target="_blank" rel="noopener noreferrer" class="menu-button menu-button-bleu">
                                         <span class="menu-button-label">Adhérer</span>
-                                        <img class="menu-button-icon" src="images/like.png" alt="Adhérer">
+                                        <img class="menu-button-icon" src="../images/like.png" alt="Adhérer">
                                     </a>
                                 </li>
 
@@ -93,7 +91,7 @@
                                     <a href="#" target="_blank" rel="noopener noreferrer"
                                         class="menu-button menu-button-bleu">
                                         <span class="menu-button-label">Espace adhérent·e</span>
-                                        <img class="menu-button-icon" src="images/profile.png" alt="Espace adhérent·e">
+                                        <img class="menu-button-icon" src="../images/profile.png" alt="Espace adhérent·e">
                                     </a>
                                 </li>
                             </ul>
@@ -112,17 +110,16 @@
                                 </li>
 
                                 <li class="menu-item">
-                                    <button type="button" aria-controls="menu-cfdt" aria-expanded="false"
+                                    <button type="button" aria-controls="menu-sa06" aria-expanded="false"
                                         class="menu-link menu-link--primary">
                                         Le Syndicat Autonome 06
                                         <svg aria-hidden="true" class="menu-arrow icon" viewBox="0 0 16 16">
                                             <path d="M4 5.99995L8 9.99995L12 5.99995" stroke="white" stroke-width="2"
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-
                                     </button>
 
-                                    <div id="menu-cfdt" data-state="closed" class="submenu">
+                                    <div id="menu-sa06" data-state="closed" class="submenu">
                                         <div class="submenu-header">
                                             <p class="h400 submenu-title">Présentation du Syndicat Autonome 06</p>
 
@@ -131,7 +128,7 @@
                                                 concernant la Syndicat Autonome 06 : ce qui nous identifie, nos valeurs, nos actions,
                                                 nos finances...</p>
 
-                                            <button data-close="menu-cfdt"
+                                            <button data-close="menu-sa06"
                                                 class="tertiary-button tertiary-button--reverse submenu-close"
                                                 type="button"><svg aria-hidden="true" class="tertiary-button-icon icon"
                                                     viewBox="0 0 16 16">
@@ -155,7 +152,6 @@
                                         <div class="submenu-body">
                                             <div class="submenu-col">
                                                 <p class="submenu-category tag">Ce que nous sommes</p>
-
                                                 <ul class="submenu-list">
                                                     <li class="submenu-item">
                                                         <a href="qui-est-la-cfdt/les-revendications-de-la-cfdt/la-cfdt-en-10-points.html"
@@ -965,277 +961,139 @@
         </div>
     </header>
 
-    <div class="mobile-menu">
-        <a href="https://monespace.cfdt.fr/" target="_blank" rel="noopener noreferrer" class="menu-button">
-            Espace adhérent·e
-            <svg aria-hidden="true" class="icon" viewBox="0 0 16 16">
-                <path
-                    d="M13.3337 14V12.6667C13.3337 11.9594 13.0527 11.2811 12.5526 10.781C12.0525 10.281 11.3742 10 10.667 10H5.33366C4.62641 10 3.94814 10.281 3.44804 10.781C2.94794 11.2811 2.66699 11.9594 2.66699 12.6667V14M10.667 4.66667C10.667 6.13943 9.47308 7.33333 8.00033 7.33333C6.52757 7.33333 5.33366 6.13943 5.33366 4.66667C5.33366 3.19391 6.52757 2 8.00033 2C9.47308 2 10.667 3.19391 10.667 4.66667Z"
-                    stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-        </a>
-
-        <a href="adherer.html" target="_blank" rel="noopener" class="menu-button menu-button--orange">
-            Adhérer
-            <svg aria-hidden="true" class="icon" viewBox="0 0 16 16">
-                <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666" stroke="white"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-        </a>
-    </div>
-
-
     <main id="contenu-principal" role="main" tabindex="-1" class="wrapper">
-        <section data-theme="offwhite" class="home slider section">
+        <section data-theme="offwhite" class="hero section">
             <div class="container">
-                <h1 class="home-title h100">Bienvenue sur le site du <u>SA 06, le premier syndicat</u> du SDIS 06</h1>
-                <div class="slider-wrapper">
-                    <ul class="slider-track">
-                        <li class="slider-item">
-                            <article data-theme="peach" class="card">
-                                <h3 class="card-title h400">Le SA 06, premier choix des salariés du SDIS 06</h3><a
-                                    href="#"
-                                    title="Lire l'article &quot;Le SA 06, premier choix des salariés du SDIS 06&quot;"
-                                    class="tertiary-button card-link"><svg aria-hidden="true"
-                                        class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
+                <nav role="navigation" aria-label="Vous êtes ici" class="breadcrumbs">
+                    <p class="screen-reader-text">Vous êtes ici</p>
 
-                                    <span class="tertiary-button-label">Lire l&#039;article</span>
-                                    <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </article>
+                    <ul class="breadcrumbs-list">
+                        <li class="breadcrumbs-item">
+                            <a href="../index.html" class="breadcrumbs-link">
+                                <svg aria-hidden="true" class="icon" viewBox="0 0 16 16">
+                                    <path
+                                        d="M6 14.6663V7.99967H10V14.6663M2 5.99967L8 1.33301L14 5.99967V13.333C14 13.6866 13.8595 14.0258 13.6095 14.2758C13.3594 14.5259 13.0203 14.6663 12.6667 14.6663H3.33333C2.97971 14.6663 2.64057 14.5259 2.39052 14.2758C2.14048 14.0258 2 13.6866 2 13.333V5.99967Z"
+                                        stroke="white" stroke-width="1.33" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+                                Accueil
+                            </a>
                         </li>
-                        <li class="slider-item">
-                            <article data-theme="orange" class="card">
-                                <div class="card-image media-cover">
-                                    <img src="images/media/maladie-pro-1024x359.jpg"
-                                        alt="Pétition ATD Quart Monde contre les sanctions RSA" width="347" height="201"
-                                        loading="lazy">
-                                </div>
-                                <h3 class="card-title h400">La DGSCGC rappelle enfin aux SIS leurs obligations sur la traçabilité des expositions professionnelles,
-                                     applicables dès le 1er janvier 2025.</h3><a
-                                    href="sinformer/toutes-les-actualites-par-dossiers-thematiques/la-cfdt-appelle-a-signer-la-petition-datd-quart-monde-contre-les-sanctions-visant-les-allocataires-du-rsa.html"
-                                    title=""
-                                    class="tertiary-button card-link"><svg aria-hidden="true"
-                                        class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
+                        <li aria-current="page" class="breadcrumbs-item">
+                            <svg aria-hidden="true" class="breadcrumbs-arrow icon" viewBox="0 0 16 16">
+                                <path d="M6 12L10 7.99995L6 3.99995" stroke="white" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span class="screen-reader-text">Pourquoi adhérer ?</span></li>
+                    </ul>
+                </nav>
+                <h1 class="hero-title h100"><u>Pourquoi adhérer ?</u></h1>
+                <p class="hero-text">L’adhésion est ouverte à toutes celles et tous ceux qui veulent rejoindre la SA06.
+                    L&#039;accès au formulaire d&#039;inscription en ligne est accessible en bas de page.</p>
+                <div class="hero-share">
+                    <p class="hero-share-label">Suivez-nous sur :</p>
 
-                                    <span class="tertiary-button-label">Lire l&#039;article</span>
-                                    <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </article>
+                    <ul class="hero-share-list">
+                        <li class="hero-share-item">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.cfdt.fr/adherer"
+                                target="_blank" rel="noopener" class="hero-share-link">
+                                <i class="fa-brands fa-facebook"></i>
+                                <span class="screen-reader-text">Suivez-nous sur Facebook</span>
+                            </a>
                         </li>
-                        <li class="slider-item">
-                            <article data-theme="blue" class="card">
-                                <div class="card-image media-cover">
-                                    <img src="images/media/moyen sp.jpg"
-                                        alt="Moyens insuffisants = Pompiers en danger ! - Les SIS doivent défendre leurs agents !"
-                                        width="347" height="201" loading="lazy">
-                                </div>
-                                <h3 class="card-title h400">Moyens insuffisants = Pompiers en danger ! Les SIS doivent défendre leurs agents !</h3><a
-                                    href="#"
-                                    title=""
-                                    class="tertiary-button card-link"><svg aria-hidden="true"
-                                        class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-                                    <span class="tertiary-button-label">Lire l&#039;article</span>
-                                    <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </article>
+                        <li class="hero-share-item">
+                            <a href="https://www.instagram.com/saspp06/" target="_blank"
+                                rel="noopener" class="hero-share-link">
+                                <i class="fa-brands fa-instagram"></i>
+                                <span class="screen-reader-text">Suivez-nous sur Instagram</span>
+                            </a>
                         </li>
-                        <li class="slider-item">
-                            <article data-theme="burgundy" class="card">
-                                <div class="card-image media-cover">
-                                    <img src="upload/c/upload/media-library/2025/03/19/4627b2b9-2375-40b8-8214-65ed5120d5a9_347_201_75.webp"
-                                        alt="Marylise Léon sur le plateau de RMC et BFM TV le 19 mars 2025" width="347"
-                                        height="201" loading="lazy">
-                                </div>
-                                <h3 class="card-title h400">[Entretien] &quot;Le Premier ministre a rompu le contrat. Le
-                                    conclave tel qu&#039;il a démarré ne peut plus continuer.&quot;</h3><a
-                                    href="sinformer/la-cfdt-dans-les-medias/entretien-le-premier-ministre-a-rompu-le-contrat-le-conclave-tel-quil-a-demarre-ne-peut-plus-continuer.html"
-                                    title="Lire l'article &quot;[Entretien] " Le Premier ministre a rompu le contrat. Le
-                                    conclave tel qu'il a démarré ne peut plus continuer."&quot;"
-                                    class="tertiary-button card-link"><svg aria-hidden="true"
-                                        class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-                                    <span class="tertiary-button-label">Lire l&#039;article</span>
-                                    <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </article>
+                        <li class="hero-share-item">
+                            <a href="https://www.youtube.com/@saspp06" target="_blank"
+                                rel="noopener" class="hero-share-link">
+                                <i class="fa-brands fa-youtube"></i>
+                                <span class="screen-reader-text">Suivez-nous sur YouTube</span>
+                            </a>
                         </li>
-                        <li class="slider-item">
-                            <article data-theme="teal" class="card">
-                                <h3 class="card-title h400">Santé des sapeurs-pompiers en danger</h3><a
-                                    href="#"
-                                    title="Lire l'article &quot;Santé des sapeurs-pompiers en danger&quot;"
-                                    class="tertiary-button card-link"><svg aria-hidden="true"
-                                        class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-                                    <span class="tertiary-button-label">Lire l&#039;article</span>
-                                    <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </article>
+                        <li class="hero-share-item">
+                            <a href="https://x.com/Faspp06" target="_blank"
+                                rel="noopener" class="hero-share-link">
+                                <i class="fa-brands fa-x-twitter"></i>
+                                <span class="screen-reader-text">Suivez-nous sur X</span>
+                            </a>
                         </li>
-                        <li class="slider-item">
-                            <article data-theme="peach" class="card">
-                                <div class="card-image media-cover">
-                                    <img src="upload/c/upload/media-library/2025/03/05/93a655f7-9dff-4294-871a-e614b859211e_347_201_75.webp"
-                                        alt="un ouvrier travail sur un poteau électrique, dans une cabine élévatrice, il porte un casque, des gants, et sa tenue de protection"
-                                        width="347" height="201" loading="lazy">
-                                </div>
-                                <h3 class="card-title h400">Expression Directe : pénibilité, préserver la santé des
-                                    travailleurs et travailleuses</h3><a
-                                    href="sinformer/web-tv/expression-directe-penibilite-preserver-la-sante-des-travailleurs-et-travailleuses.html"
-                                    title="Lire l'article &quot;Expression Directe : pénibilité, préserver la santé des travailleurs et travailleuses&quot;"
-                                    class="tertiary-button card-link"><svg aria-hidden="true"
-                                        class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
+                        <li class="hero-share-item">
+                            <a href="mailto:?subject=__Pourquoi adhérer ?__&amp;body=https://saspp06.fr"
+                                class="hero-share-link">
+                                <i class="fa-solid fa-envelope"></i>
 
-                                    <span class="tertiary-button-label">Lire l&#039;article</span>
-                                    <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="slider-item">
-                            <article data-theme="orange" class="card">
-                                <div class="card-image media-cover">
-                                    <img src="upload/c/upload/media-library/2025/03/13/553090c8-98de-488e-a910-cd8cf29d7350_347_201_75.webp"
-                                        alt="la prépa du congrès confédéral" width="347" height="201" loading="lazy">
-                                </div>
-                                <h3 class="card-title h400">Participez à la prépa du congrès national !</h3><a
-                                    href="sinformer/toutes-les-actualites-par-dossiers-thematiques/participez-a-la-prepa-du-congres-confederal.html"
-                                    title="Lire l'article &quot;Participez à la prépa du congrès national !&quot;"
-                                    class="tertiary-button card-link"><svg aria-hidden="true"
-                                        class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-                                    <span class="tertiary-button-label">Lire l&#039;article</span>
-                                    <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="slider-item">
-                            <article data-theme="blue" class="card">
-                                <div class="card-image media-cover">
-                                    <img src="upload/c/upload/media-library/2025/02/14/284c8974-0d54-4a05-9d47-c0b5ead51dec_347_201_75.webp"
-                                        alt="TRAVAIL ET VOUS LE TRAVAIL QUE NOUS VOULONS" width="347" height="201"
-                                        loading="lazy">
-                                </div>
-                                <h3 class="card-title h400">Le travail que nous voulons : les revendications de la FA
-                                    pour faire vivre la démocratie au travail</h3><a
-                                    href="sinformer/toutes-les-actualites-par-dossiers-thematiques/le-travail-que-nous-voulons-les-revendications-de-la-cfdt-pour-faire-vivre-la-democratie-au-travail.html"
-                                    title="Lire l'article &quot;Le travail que nous voulons : les revendications de la FA pour faire vivre la démocratie au travail&quot;"
-                                    class="tertiary-button card-link"><svg aria-hidden="true"
-                                        class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-                                    <span class="tertiary-button-label">Lire l&#039;article</span>
-                                    <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="slider-item">
-                            <article data-theme="burgundy" class="card">
-                                <div class="card-image media-cover">
-                                    <img src="upload/c/upload/media-library/2024/12/03/3964804f-21a7-492f-92bb-89b18838a7c9_347_201_75.webp"
-                                        alt="logos des réseaux sociaux où trouver le SA 06" width="347" height="201"
-                                        loading="lazy">
-                                </div>
-                                <h3 class="card-title h400">Le Syndicat Autonome 06 sur les réseaux sociaux</h3><a
-                                    href="sinformer/toutes-les-actualites-par-dossiers-thematiques/la-cfdt-quitte-le-reseau-social-x-ex-twitter.html"
-                                    title="Lire l'article &quot;Le Syndicat Autonome 06 sur les réseaux sociaux&quot;"
-                                    class="tertiary-button card-link"><svg aria-hidden="true"
-                                        class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-                                    <span class="tertiary-button-label">Lire l&#039;article</span>
-                                    <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </article>
+                                <span class="screen-reader-text">Partager par email</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
 
-                <div class="slider-controls"><button aria-label="Aller à l'élément précédent"
-                        class="round-button round-button--nightblue slider-arrow slider-arrow--prev" type="button"><svg
-                            aria-hidden="true" class="round-button-icon icon" viewBox="0 0 16 16">
-                            <path d="M12.6666 8L3.33334 8M3.33334 8L7.99997 12.6667M3.33334 8L7.99997 3.33336"
-                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button><button aria-label="Aller à l'élément suivant"
-                        class="round-button round-button--nightblue slider-arrow slider-arrow--next" type="button"><svg
-                            aria-hidden="true" class="round-button-icon icon" viewBox="0 0 16 16">
-                            <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <div class="slider-progress"></div>
+            </div>
+        </section>
+
+        <section class="section section--full-width" data-theme="white">
+            <img src="../images/bandeau-casque.jpg" alt="Pourquoi adhérer ?">
+        </section>
+
+        <section class="section" data-theme="offwhite">
+            <div class="container">
+                <h2 class="h200 section-title text-center">Rejoignez le Syndicat Autonome 06</h2>
+                <p class="section-subtitle text-center">Ensemble, défendons nos droits et améliorons nos conditions de travail</p>
+                
+                <div class="section-content">
+                    <div class="grid grid--2-cols">
+                        <div class="grid-item">
+                            <div class="card card--shadow card--primary">
+                                <div class="card-body">
+                                    <h3 class="h300 card-title">Formulaire d'adhésion</h3>
+                                    <form class="form" action="#" method="post">
+                                        <div class="form-group">
+                                            <label for="nom" class="form-label">Nom*</label>
+                                            <input type="text" id="nom" name="nom" required class="form-input" placeholder="Votre nom de famille">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="prenom" class="form-label">Prénom*</label>
+                                            <input type="text" id="prenom" name="prenom" required class="form-input" placeholder="Votre prénom">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email" class="form-label">Email*</label>
+                                            <input type="email" id="email" name="email" required class="form-input" placeholder="votre.email@exemple.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="telephone" class="form-label">Téléphone</label>
+                                            <input type="tel" id="telephone" name="telephone" class="form-input" placeholder="06 XX XX XX XX">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="centre" class="form-label">Centre d'affectation*</label>
+                                            <input type="text" id="centre" name="centre" required class="form-input" placeholder="Votre centre d'affectation">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="grade" class="form-label">Grade/Fonction*</label>
+                                            <input type="text" id="grade" name="grade" required class="form-input" placeholder="Votre grade ou fonction">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message" class="form-label">Message (facultatif)</label>
+                                            <textarea id="message" name="message" rows="4" class="form-textarea" placeholder="Informations complémentaires ou questions"></textarea>
+                                        </div>
+                                        <div class="form-group form-group--checkbox">
+                                            <input type="checkbox" id="rgpd" name="rgpd" required class="form-checkbox">
+                                            <label for="rgpd" class="form-checkbox-label">J'accepte que mes données soient utilisées pour traiter ma demande d'adhésion*</label>
+                                        </div>
+                                        <div class="form-actions">
+                                            <button type="submit" class="button button--primary"><span class="button-label">Envoyer ma demande d'adhésion</span></button>
+                                        </div>
+                                        <p class="form-note">* Champs obligatoires</p>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1245,7 +1103,7 @@
                 <div class="footer-info-col">
                     <p class="footer-info-title h500">Besoin d&#039;un renseignement ? <br />
                         Une question à nous poser ?</p>    
-                    <a href="../pages/contact.html" class="button button--white footer-info-button"><span class="button-label">Nous
+                    <a href="./contact.html" class="button button--white footer-info-button"><span class="button-label">Nous
                             contacter</span><i class="button-icon">
                             <svg aria-hidden="true" class="button-icon-inner icon" viewBox="0 0 16 16">
                                 <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
@@ -1313,7 +1171,7 @@
                 </div>
                 <div class="footer-info-col">
                     <p class="footer-info-title h500">Envie de nous rejoindre ?</p>
-                    <a href="#" target="_blank" class="button button--white footer-info-button"><span class="button-label">Adhérer</span><i class="button-icon">
+                    <a href="./adherer.html" target="_blank" class="button button--white footer-info-button"><span class="button-label">Adhérer</span><i class="button-icon">
                             <svg aria-hidden="true" class="button-icon-inner icon" viewBox="0 0 16 16">
                                 <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
                                     stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -1328,56 +1186,26 @@
                         <a href="#" class="footer-nav-link">©2025 XRWeb</a>
                     </li>
                     <li class="footer-nav-item">
-                        <a href="plan-du-site.html" class="footer-nav-link">Plan du site</a>
+                        <a href="../plan-du-site.html" class="footer-nav-link">Plan du site</a>
                     </li>
                     <li class="footer-nav-item">
-                        <a href="legal/legal-mentions.html" class="footer-nav-link">Mentions légales</a>
+                        <a href="../legal/legal-mentions.html" class="footer-nav-link">Mentions légales</a>
                     </li>
                     <li class="footer-nav-item">
-                        <a href="legal/privacy-policy.html" class="footer-nav-link">Politique de confidentialité</a>
+                        <a href="../legal/privacy-policy.html" class="footer-nav-link">Politique de confidentialité</a>
                     </li>
                 </ul>
             </div>
-        </footer>
-    
+        </footer>    
 
+    <script src="../js/tarteaucitron.min.js"></script>
     <script async src="../main.js"></script>
     <script src="../js/france-map.js"></script>
-    <script src="../js/tarteaucitron.min.js"></script>
     <script src="../js/scroll-to-top.js"></script>
-
-    <script>
-        tarteaucitron.init({
-            "privacyUrl": "",
-            "bodyPosition": "bottom",
-            "hashtag": "#tarteaucitron",
-            "cookieName": "tarteaucitron",
-            "orientation": "bottom",
-            "groupServices": false,
-            "showDetailsOnClick": true,
-            "serviceDefaultState": "wait",
-            "showAlertSmall": false,
-            "cookieslist": false,
-            "closePopup": false,
-            "showIcon": true,
-            "iconPosition": "BottomRight",
-            "adblocker": false,
-            "DenyAllCta": true,
-            "AcceptAllCta": true,
-            "highPrivacy": true,
-            "alwaysNeedConsent": false,
-            "handleBrowserDNTRequest": false,
-            "removeCredit": false,
-            "moreInfoLink": true,
-            "useExternalCss": false,
-            "useExternalJs": false,
-            "readmoreLink": "",
-            "mandatory": true,
-            "mandatoryCta": true,
-            "googleConsentMode": true,
-            "partnersList": false
-        });
-    </script>
+    <script src="../js/fix-submenu.js"></script>
+    <script src="../js/mobile-menu.js"></script>
+    <script src="../js/slider.js"></script>
+    <script src="../js/tarteaucitron.js"></script>
 
     <!-- Bouton de remontée de page -->
     <button id="scroll-to-top" class="scroll-to-top" aria-label="Remonter en haut de page">

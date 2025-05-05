@@ -46,6 +46,162 @@
     }
 }
 
+/* Full-width section image styles */
+.section--full-width img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Styles améliorés pour le formulaire d'adhésion */
+.form {
+    margin-top: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: #ed1b24;
+    box-shadow: 0 0 0 3px rgba(237, 27, 36, 0.2);
+    outline: none;
+}
+
+.form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-group--checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.form-checkbox {
+    margin-top: 0.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    accent-color: #ed1b24;
+}
+
+.form-checkbox-label {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.form-actions {
+    margin-top: 2rem;
+}
+
+.form-note {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.card--primary {
+    border-top: 4px solid #ed1b24;
+}
+
+.card--info {
+    border-top: 4px solid #3498db;
+}
+
+.list--check {
+    list-style: none;
+    padding-left: 0;
+}
+
+.list--check li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+.list--check li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #ed1b24;
+    font-weight: bold;
+}
+
+.button--primary {
+    background-color: #ed1b24;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button--primary:hover {
+    background-color: #d01018;
+}
+
+/* Styles additionnels pour la section d'adhésion */
+.section-title {
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+    color: #111827;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.process-steps {
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.info-section {
+    margin-top: 2rem;
+}
+
+.help-box {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.help-box-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
 * {
     margin: 0;
     padding: 0
