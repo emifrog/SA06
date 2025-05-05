@@ -5284,6 +5284,7 @@ mark {
 
 .hero-text {
     margin-top: var(--spc-y-md);
+    margin-bottom: var(--spc-y-md);
     font-size: var(--h450);
     line-height: 1.15
 }
@@ -6884,3 +6885,4 @@ mark {
 .results-item {
     border-bottom: 1px solid #6b7280
 }
+

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="images/favicon.ico">
+    <link rel="icon" href="../images/favicon.ico">
 
     <title>Bienvenue sur le site du Syndicat Autonome 06, 1er force syndicale du SDIS 06 | SA06</title>
 
@@ -21,16 +21,16 @@
     <meta property="og:type" content="site web">
     <meta property="og:url" content="#">
 
-    <link rel="preload" href="style.css" as="style">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/tarteaucitron.min.css">
-    <link rel="stylesheet" href="css/france-map.css">
-    <link rel="stylesheet" href="css/reasons-style.css">
+    <link rel="preload" href="../style.css" as="style">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/tarteaucitron.min.css">
+    <link rel="stylesheet" href="../css/france-map.css">
+    <link rel="stylesheet" href="../css/reasons-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- CSS personnalisé pour le menu mobile -->
-    <link rel="stylesheet" href="css/mobile-menu.css">
+    <link rel="stylesheet" href="../css/mobile-menu.css">
     <!-- CSS pour la barre de progression du slider -->
-    <link rel="stylesheet" href="css/slider-progress.css">
+    <link rel="stylesheet" href="../css/slider-progress.css">
     <!-- Font Awesome pour les icônes des réseaux sociaux -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -39,8 +39,8 @@
     <header role="banner" class="header">
         <div class="container">
             <div class="header-wrapper">
-                <a href="index.html" class="header-logo">
-                    <img src="images/logo.svg" alt="Logo SA06" class="header-logo-image">
+                <a href="../index.html" class="header-logo">
+                    <img src="../images/logo.svg" alt="Logo SA06" class="header-logo-image">
                     <span class="header-logo-tagline">SYNDICAT AUTONOME 06</span>
                 </a>
 
@@ -83,7 +83,7 @@
                                 <li class="menu-item">
                                     <a href="./pages/adherer.html" target="_blank" rel="noopener noreferrer" class="menu-button menu-button-bleu">
                                         <span class="menu-button-label">Adhérer</span>
-                                        <img class="menu-button-icon" src="images/like.png" alt="Adhérer">
+                                        <img class="menu-button-icon" src="../images/like.png" alt="Adhérer">
                                     </a>
                                 </li>
 
@@ -91,7 +91,7 @@
                                     <a href="#" target="_blank" rel="noopener noreferrer"
                                         class="menu-button menu-button-bleu">
                                         <span class="menu-button-label">Espace adhérent·e</span>
-                                        <img class="menu-button-icon" src="images/profile.png" alt="Espace adhérent·e">
+                                        <img class="menu-button-icon" src="../images/profile.png" alt="Espace adhérent·e">
                                     </a>
                                 </li>
                             </ul>
@@ -102,7 +102,7 @@
                                 </li>
 
                                 <li class="menu-item">
-                                    <a href="./pages/media.html" class="menu-link menu-link--primary">Vidéos</a>
+                                    <a href="./pages/videos.html" class="menu-link menu-link--primary">Vidéos</a>
                                 </li>
 
                                 <li class="menu-item">
@@ -962,145 +962,67 @@
     </header>
 
     <main id="contenu-principal" role="main" tabindex="-1" class="wrapper">
-        <section data-theme="offwhite" class="home slider section">
+        <section data-theme="offwhite" class="hero section">
             <div class="container">
-                <h1 class="home-title h100">Bienvenue sur le site du <u>SA 06, le premier syndicat</u> du SDIS 06</h1>
-                <div class="slider-wrapper">
-                    <ul class="slider-track">
-                        <li class="slider-item">
-                            <article data-theme="peach" class="card">
-                                <h3 class="card-title h400">Le SA 06, premier choix des salariés du SDIS 06</h3><a
-                                    href="#"
-                                    title="Lire l'article &quot;Le SA 06, premier choix des salariés du SDIS 06&quot;"
-                                    class="tertiary-button card-link"><svg aria-hidden="true"
-                                        class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
+                <nav role="navigation" aria-label="Vous êtes ici" class="breadcrumbs">
+                    <p class="screen-reader-text">Vous êtes ici</p>
 
-                                    <span class="tertiary-button-label">Lire l&#039;article</span>
-                                    <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="slider-item">
-                            <article data-theme="orange" class="card">
-                                <div class="card-image media-cover">
-                                    <img src="images/media/maladie-pro-1024x359.jpg"
-                                        alt="Pétition ATD Quart Monde contre les sanctions RSA" width="347" height="201"
-                                        loading="lazy">
-                                </div>
-                                <h3 class="card-title h400">La DGSCGC rappelle enfin aux SIS leurs obligations sur la traçabilité des expositions professionnelles,
-                                     applicables dès le 1er janvier 2025.</h3><a
-                                    href="sinformer/toutes-les-actualites-par-dossiers-thematiques/la-cfdt-appelle-a-signer-la-petition-datd-quart-monde-contre-les-sanctions-visant-les-allocataires-du-rsa.html"
-                                    title=""
-                                    class="tertiary-button card-link"><svg aria-hidden="true"
-                                        class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
+                    <ul class="breadcrumbs-list">
+                        <li class="breadcrumbs-item">
+                            <a href="../index.html" class="breadcrumbs-link">
+                                <svg aria-hidden="true" class="icon" viewBox="0 0 16 16">
+                                    <path
+                                        d="M6 14.6663V7.99967H10V14.6663M2 5.99967L8 1.33301L14 5.99967V13.333C14 13.6866 13.8595 14.0258 13.6095 14.2758C13.3594 14.5259 13.0203 14.6663 12.6667 14.6663H3.33333C2.97971 14.6663 2.64057 14.5259 2.39052 14.2758C2.14048 14.0258 2 13.6866 2 13.333V5.99967Z"
+                                        stroke="white" stroke-width="1.33" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
 
-                                    <span class="tertiary-button-label">Lire l&#039;article</span>
-                                    <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </article>
+                                Accueil
+                            </a>
                         </li>
-                        <li class="slider-item">
-                            <article data-theme="blue" class="card">
-                                <div class="card-image media-cover">
-                                    <img src="images/media/moyen sp.jpg"
-                                        alt="Moyens insuffisants = Pompiers en danger ! - Les SIS doivent défendre leurs agents !"
-                                        width="347" height="201" loading="lazy">
-                                </div>
-                                <h3 class="card-title h400">Moyens insuffisants = Pompiers en danger ! Les SIS doivent défendre leurs agents !</h3><a
-                                    href="#"
-                                    title=""
-                                    class="tertiary-button card-link"><svg aria-hidden="true"
-                                        class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
+                        <li aria-current="page" class="breadcrumbs-item">
+                            <svg aria-hidden="true" class="breadcrumbs-arrow icon" viewBox="0 0 16 16">
+                                <path d="M6 12L10 7.99995L6 3.99995" stroke="white" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span class="screen-reader-text">Parole Autonome</span></li>
+                    </ul>
+                </nav>
+                <h1 class="hero-title h100"><u>Parole Autonome</u></h1>
+                <p class="hero-text">Retrouvez ici toutes les vidéos produites par le SA06 !</p>
+                <form action="#" role="search" class="rights-form">
+                    <div class="rights-field autocomplete">
+                        <input type="search" name="r" aria-label="Rechercher un sujet" class="rights-input">
+                        <div hidden class="autocomplete-suggestions"></div>
+                    </div>
 
-                                    <span class="tertiary-button-label">Lire l&#039;article</span>
-                                    <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="slider-item">
-                            <article data-theme="burgundy" class="card">
-                                <div class="card-image media-cover">
-                                    <img src="upload/c/upload/media-library/2025/03/19/4627b2b9-2375-40b8-8214-65ed5120d5a9_347_201_75.webp"
-                                        alt="Marylise Léon sur le plateau de RMC et BFM TV le 19 mars 2025" width="347"
-                                        height="201" loading="lazy">
-                                </div>
-                                <h3 class="card-title h400">[Entretien] &quot;Le Premier ministre a rompu le contrat. Le
-                                    conclave tel qu&#039;il a démarré ne peut plus continuer.&quot;</h3><a
-                                    href="sinformer/la-cfdt-dans-les-medias/entretien-le-premier-ministre-a-rompu-le-contrat-le-conclave-tel-quil-a-demarre-ne-peut-plus-continuer.html"
-                                    title="Lire l'article &quot;[Entretien] " Le Premier ministre a rompu le contrat. Le
-                                    conclave tel qu'il a démarré ne peut plus continuer."&quot;"
-                                    class="tertiary-button card-link"><svg aria-hidden="true"
-                                        class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
+                    <button type="submit"
+                        class="round-button round-button--fill round-button--orange rights-submit"><svg
+                            aria-hidden="true" class="round-button-icon icon" viewBox="0 0 16 17">
+                            <path
+                                d="M14 14.5L11.1 11.6M12.6667 7.83333C12.6667 10.7789 10.2789 13.1667 7.33333 13.1667C4.38781 13.1667 2 10.7789 2 7.83333C2 4.88781 4.38781 2.5 7.33333 2.5C10.2789 2.5 12.6667 4.88781 12.6667 7.83333Z"
+                                stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </section>
 
-                                    <span class="tertiary-button-label">Lire l&#039;article</span>
-                                    <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="slider-item">
-                            <article data-theme="teal" class="card">
-                                <h3 class="card-title h400">Santé des sapeurs-pompiers en danger</h3><a
-                                    href="#"
-                                    title="Lire l'article &quot;Santé des sapeurs-pompiers en danger&quot;"
-                                    class="tertiary-button card-link"><svg aria-hidden="true"
-                                        class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-                                    <span class="tertiary-button-label">Lire l&#039;article</span>
-                                    <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="slider-item">
+        <section data-theme="offwhite" class="listing section">
+            <div class="container container--lg">
+                <div aria-live="polite" aria-atomic="true" class="listing-container">
+                    <ul aria-label="Page 1" class="cards-list">
+                        <li class="cards-item">
                             <article data-theme="peach" class="card">
                                 <div class="card-image media-cover">
-                                    <img src="upload/c/upload/media-library/2025/03/05/93a655f7-9dff-4294-871a-e614b859211e_347_201_75.webp"
-                                        alt="un ouvrier travail sur un poteau électrique, dans une cabine élévatrice, il porte un casque, des gants, et sa tenue de protection"
+                                    <img src="../upload/c/upload/media-library/2025/04/09/730df3e0-5d48-4b21-9ff6-cee53d47f39e_347_201_75.webp"
+                                        alt="merci  - CFDT 1ère, remerciements de Marylise Léon et militants"
                                         width="347" height="201" loading="lazy">
                                 </div>
-                                <h3 class="card-title h400">Expression Directe : pénibilité, préserver la santé des
-                                    travailleurs et travailleuses</h3><a
-                                    href="sinformer/web-tv/expression-directe-penibilite-preserver-la-sante-des-travailleurs-et-travailleuses.html"
-                                    title="Lire l'article &quot;Expression Directe : pénibilité, préserver la santé des travailleurs et travailleuses&quot;"
+                                <h3 class="card-title h400">La CFDT 1ère : Merci !</h3><a
+                                    href="web-tv/la-cfdt-1ere-merci.html"
+                                    title="Lire l'article &quot;La CFDT 1ère : Merci !&quot;"
                                     class="tertiary-button card-link"><svg aria-hidden="true"
                                         class="tertiary-button-icon icon" viewBox="0 0 16 16">
                                         <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
@@ -1117,15 +1039,15 @@
                                 </a>
                             </article>
                         </li>
-                        <li class="slider-item">
+                        <li class="cards-item">
                             <article data-theme="orange" class="card">
                                 <div class="card-image media-cover">
-                                    <img src="upload/c/upload/media-library/2025/03/13/553090c8-98de-488e-a910-cd8cf29d7350_347_201_75.webp"
-                                        alt="la prépa du congrès confédéral" width="347" height="201" loading="lazy">
+                                    <img src="../upload/c/upload/media-library/2025/03/26/12dda497-20c9-42c5-8bc7-f059d834e3c1_347_201_75.webp"
+                                        alt="Marion" width="347" height="201" loading="lazy">
                                 </div>
-                                <h3 class="card-title h400">Participez à la prépa du congrès national !</h3><a
-                                    href="sinformer/toutes-les-actualites-par-dossiers-thematiques/participez-a-la-prepa-du-congres-confederal.html"
-                                    title="Lire l'article &quot;Participez à la prépa du congrès national !&quot;"
+                                <h3 class="card-title h400">Travail &amp; Vous - Marion, conseillère service médical
+                                </h3><a href="web-tv/travail-vous-marion-conseillere-service-medical.html"
+                                    title="Lire l'article &quot;Travail & Vous - Marion, conseillère service médical&quot;"
                                     class="tertiary-button card-link"><svg aria-hidden="true"
                                         class="tertiary-button-icon icon" viewBox="0 0 16 16">
                                         <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
@@ -1142,17 +1064,16 @@
                                 </a>
                             </article>
                         </li>
-                        <li class="slider-item">
+                        <li class="cards-item">
                             <article data-theme="blue" class="card">
                                 <div class="card-image media-cover">
-                                    <img src="upload/c/upload/media-library/2025/02/14/284c8974-0d54-4a05-9d47-c0b5ead51dec_347_201_75.webp"
-                                        alt="TRAVAIL ET VOUS LE TRAVAIL QUE NOUS VOULONS" width="347" height="201"
+                                    <img src="../upload/c/upload/media-library/2025/03/19/8824b849-ed22-477f-9a45-32f6a6f01ca4_347_201_75.webp"
+                                        alt="Marie - travail et vous - éclairagiste" width="347" height="201"
                                         loading="lazy">
                                 </div>
-                                <h3 class="card-title h400">Le travail que nous voulons : les revendications de la FA
-                                    pour faire vivre la démocratie au travail</h3><a
-                                    href="sinformer/toutes-les-actualites-par-dossiers-thematiques/le-travail-que-nous-voulons-les-revendications-de-la-cfdt-pour-faire-vivre-la-democratie-au-travail.html"
-                                    title="Lire l'article &quot;Le travail que nous voulons : les revendications de la FA pour faire vivre la démocratie au travail&quot;"
+                                <h3 class="card-title h400">Travail &amp; Vous - Marie, éclairagiste électricienne</h3>
+                                <a href="web-tv/travail-vous-marie-eclairagiste-electricienne.html"
+                                    title="Lire l'article &quot;Travail & Vous - Marie, éclairagiste électricienne&quot;"
                                     class="tertiary-button card-link"><svg aria-hidden="true"
                                         class="tertiary-button-icon icon" viewBox="0 0 16 16">
                                         <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
@@ -1169,16 +1090,67 @@
                                 </a>
                             </article>
                         </li>
-                        <li class="slider-item">
-                            <article data-theme="burgundy" class="card">
+                        <li class="cards-item">
+                            <article data-theme="blue" class="card">
                                 <div class="card-image media-cover">
-                                    <img src="upload/c/upload/media-library/2024/12/03/3964804f-21a7-492f-92bb-89b18838a7c9_347_201_75.webp"
-                                        alt="logos des réseaux sociaux où trouver le SA 06" width="347" height="201"
+                                    <img src="../upload/c/upload/media-library/2025/03/19/8824b849-ed22-477f-9a45-32f6a6f01ca4_347_201_75.webp"
+                                        alt="Marie - travail et vous - éclairagiste" width="347" height="201"
                                         loading="lazy">
                                 </div>
-                                <h3 class="card-title h400">Le Syndicat Autonome 06 sur les réseaux sociaux</h3><a
-                                    href="sinformer/toutes-les-actualites-par-dossiers-thematiques/la-cfdt-quitte-le-reseau-social-x-ex-twitter.html"
-                                    title="Lire l'article &quot;Le Syndicat Autonome 06 sur les réseaux sociaux&quot;"
+                                <h3 class="card-title h400">Travail &amp; Vous - Marie, éclairagiste électricienne</h3>
+                                <a href="web-tv/travail-vous-marie-eclairagiste-electricienne.html"
+                                    title="Lire l'article &quot;Travail & Vous - Marie, éclairagiste électricienne&quot;"
+                                    class="tertiary-button card-link"><svg aria-hidden="true"
+                                        class="tertiary-button-icon icon" viewBox="0 0 16 16">
+                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
+                                            stroke="white" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+
+                                    <span class="tertiary-button-label">Lire l&#039;article</span>
+                                    <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
+                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
+                                            stroke="white" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </article>
+                        </li>
+                        <li class="cards-item">
+                            <article data-theme="orange" class="card">
+                                <div class="card-image media-cover">
+                                    <img src="../upload/c/upload/media-library/2025/03/26/12dda497-20c9-42c5-8bc7-f059d834e3c1_347_201_75.webp"
+                                        alt="Marion" width="347" height="201" loading="lazy">
+                                </div>
+                                <h3 class="card-title h400">Travail &amp; Vous - Marion, conseillère service médical
+                                </h3><a href="web-tv/travail-vous-marion-conseillere-service-medical.html"
+                                    title="Lire l'article &quot;Travail & Vous - Marion, conseillère service médical&quot;"
+                                    class="tertiary-button card-link"><svg aria-hidden="true"
+                                        class="tertiary-button-icon icon" viewBox="0 0 16 16">
+                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
+                                            stroke="white" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+
+                                    <span class="tertiary-button-label">Lire l&#039;article</span>
+                                    <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
+                                        <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
+                                            stroke="white" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </article>
+                        </li>
+                        <li class="cards-item">
+                            <article data-theme="peach" class="card">
+                                <div class="card-image media-cover">
+                                    <img src="../upload/c/upload/media-library/2025/04/09/730df3e0-5d48-4b21-9ff6-cee53d47f39e_347_201_75.webp"
+                                        alt="merci  - CFDT 1ère, remerciements de Marylise Léon et militants"
+                                        width="347" height="201" loading="lazy">
+                                </div>
+                                <h3 class="card-title h400">La CFDT 1ère : Merci !</h3><a
+                                    href="web-tv/la-cfdt-1ere-merci.html"
+                                    title="Lire l'article &quot;La CFDT 1ère : Merci !&quot;"
                                     class="tertiary-button card-link"><svg aria-hidden="true"
                                         class="tertiary-button-icon icon" viewBox="0 0 16 16">
                                         <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
@@ -1196,427 +1168,65 @@
                             </article>
                         </li>
                     </ul>
-                </div>
-
-                <div class="slider-controls"><button aria-label="Aller à l'élément précédent"
-                        class="round-button round-button--nightblue slider-arrow slider-arrow--prev" type="button"><svg
-                            aria-hidden="true" class="round-button-icon icon" viewBox="0 0 16 16">
-                            <path d="M12.6666 8L3.33334 8M3.33334 8L7.99997 12.6667M3.33334 8L7.99997 3.33336"
-                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button><button aria-label="Aller à l'élément suivant"
-                        class="round-button round-button--nightblue slider-arrow slider-arrow--next" type="button"><svg
-                            aria-hidden="true" class="round-button-icon icon" viewBox="0 0 16 16">
-                            <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <div class="slider-progress"></div>
-                </div>
-            </div>
-        </section>
-
-        <section data-theme="cream" class="rights section">
-            <div class="container container--xl">
-                <div class="rights-wrapper">
-                    <img src="images/sapeurs-pompiers-professionnels-1024x758.png" alt="" width="260" height="260" loading="lazy"
-                        class="rights-image">
-
-                    <div class="rights-inner">
-                        <h2 class="rights-title h200">Avec le Syndicat Autonome
-                            faites valoir <u>vos droits</u></h2>
-
-                        <form action="https://www.cfdt.fr/resultats-de-recherche" role="search" class="rights-form">
-                            <div class="rights-field autocomplete">
-                                <input type="search" name="r" aria-label="Rechercher un sujet"
-                                    data-placeholders="Démission,Licenciement économique"
-                                    data-source="/mes-droits/suggestions" class="rights-input">
-
-                                <div hidden class="autocomplete-suggestions"></div>
-                            </div>
-
-                            <input type="hidden" name="m" value="mes-droits" />
-
-                            <button type="submit"
-                                class="round-button round-button--fill round-button--orange rights-submit"><svg
-                                    aria-hidden="true" class="round-button-icon icon" viewBox="0 0 16 17">
-                                    <path
-                                        d="M14 14.5L11.1 11.6M12.6667 7.83333C12.6667 10.7789 10.2789 13.1667 7.33333 13.1667C4.38781 13.1667 2 10.7789 2 7.83333C2 4.88781 4.38781 2.5 7.33333 2.5C10.2789 2.5 12.6667 4.88781 12.6667 7.83333Z"
-                                        stroke="white" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </button>
-                        </form>
-
-                        <div class="rights-paths">
-                            <ul class="rights-paths-list">
-                                <li class="rights-paths-item">
-                                    <a href="mes-droits/parcours/ma-recherche-demploi-et-mon-embauche.html"
-                                        class="tertiary-button"><svg aria-hidden="true"
-                                            class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                                stroke="white" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-
-                                        <span class="tertiary-button-label">Ma recherche d&#039;emploi et mon
-                                            embauche</span>
-                                        <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                                stroke="white" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li class="rights-paths-item">
-                                    <a href="mes-droits/parcours/mes-droits-a-conges-payes.html"
-                                        class="tertiary-button"><svg aria-hidden="true"
-                                            class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                                stroke="white" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-
-                                        <span class="tertiary-button-label">Mes droits à congés payés</span>
-                                        <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                                stroke="white" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li class="rights-paths-item">
-                                    <a href="mes-droits/parcours/je-subis-un-harcelement-une-violence-ou-une-discrimination.html"
-                                        class="tertiary-button"><svg aria-hidden="true"
-                                            class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                                stroke="white" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-
-                                        <span class="tertiary-button-label">Je subis un harcèlement, une violence ou une
-                                            discrimination</span>
-                                        <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                                stroke="white" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li class="rights-paths-item">
-                                    <a href="mes-droits/parcours/mon-temps-de-travail.html" class="tertiary-button"><svg
-                                            aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                                stroke="white" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-
-                                        <span class="tertiary-button-label">Mon temps de travail</span>
-                                        <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                                stroke="white" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li class="rights-paths-item">
-                                    <a href="mes-droits/parcours/la-fin-de-mon-contrat-de-travail.html"
-                                        class="tertiary-button"><svg aria-hidden="true"
-                                            class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                                stroke="white" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-
-                                        <span class="tertiary-button-label">La fin de mon contrat de travail</span>
-                                        <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                                stroke="white" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <a href="mes-droits/index.html" class="button button--orange rights-link"><span
-                                class="button-label">Tous vos droits</span><i class="button-icon">
-                                <svg aria-hidden="true" class="button-icon-inner icon" viewBox="0 0 16 16">
-                                    <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                        stroke="white" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </i></a>
-                    </div>
-
-                    <img src="images/personnel-administratif-1024x758.png" alt="" width="260" height="260" loading="lazy"
-                        class="rights-image">
-                </div>
-            </div>
-        </section>
-
-        <section data-theme="offwhite" class="inserts section">
-            <div class="container">
-                <h2 class="inserts-title h200">Qu'est-ce que la <u>Syndicat Autonome</u> ?</h2>
-                <div class="inserts-text cms">
-                    <p>La Syndicat Autonome est la première force syndicale des SDIS de France. Ce résultat est
-                        le fruit du travail et de l’engagement des militants et des militantes de la Syndicat Autonome, et le reflet
-                        de la confiance que les travailleurs et les travailleuses leur accordent pour améliorer leurs
-                        droits.</p>
-                    <p>Partout en France, sur votre lieu de travail ou près de chez vous, les équipes Syndicat Autonome vous
-                        accueillent pour répondre à vos questions et vous accompagner.</p>
-                </div>
-                <ul class="inserts-list">
-                    <li class="inserts-item">
-                        <article data-theme="orange" class="card">
-                            <h3 class="card-title h400">La Syndicat Autonome en bref</h3>
-
-                            <p class="card-text">10 points essentiels pour mieux connaître le premier syndicat de
-                                France, secteurs privé et public confondus.</p><a
-                                href="qui-est-la-cfdt/les-revendications-de-la-cfdt/la-cfdt-en-10-points.html"
-                                class="tertiary-button card-link"><svg aria-hidden="true"
-                                    class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                    <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                        stroke="white" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-
-                                <span class="tertiary-button-label">En savoir plus</span>
-                                <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                    <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                        stroke="white" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </a>
-                        </article>
-                    </li>
-                    <li class="inserts-item">
-                        <article data-theme="peach" class="card">
-                            <h3 class="card-title h400">Nos revendications</h3>
-
-                            <p class="card-text">Découvrez nos revendications thème par thème et nos propositions en
-                                faveur de l’amélioration des conditions de travail de chacun.e.</p><a
-                                href="qui-est-la-cfdt/les-revendications-de-la-cfdt.html"
-                                class="tertiary-button card-link"><svg aria-hidden="true"
-                                    class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                    <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                        stroke="white" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-
-                                <span class="tertiary-button-label">En savoir plus</span>
-                                <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                    <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                        stroke="white" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </a>
-                        </article>
-                    </li>
-                    <li class="inserts-item">
-                        <article data-theme="blue" class="card">
-                            <h3 class="card-title h400">Nos valeurs</h3>
-
-                            <p class="card-text">Quatre valeurs et un principe d&#039;action qui font des femmes et des
-                                hommes les véritables actrices et acteurs de leurs choix de vie.</p><a
-                                href="qui-est-la-cfdt/les-valeurs-de-la-cfdt/les-valeurs-de-la-cfdt.html"
-                                class="tertiary-button card-link"><svg aria-hidden="true"
-                                    class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                    <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                        stroke="white" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-
-                                <span class="tertiary-button-label">En savoir plus</span>
-                                <svg aria-hidden="true" class="tertiary-button-icon icon" viewBox="0 0 16 16">
-                                    <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                        stroke="white" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </a>
-                        </article>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section data-theme="offwhite" class="reasons section">
-            <div class="container">
-                <h2 class="reasons-title h200">5 raisons d'adhérer</h2>
-                <div class="reasons-wrapper">
-                    <ol class="reasons-list">
-                        <li class="reasons-item">
-                            <article class="step-card">
-                                <h3 class="step-card-title h450">Défendre mes droits en rejoignant la 1re organisation
-                                    syndicale du SDIS 06</h3>
-
-                                <p class="step-card-text">En rejoignant la SA 06, je défends mes droits et je contribue à
-                                    les renforcer ! Grâce au poids de ses adhérentes et de ses adhérents, le SA 06 pèse
-                                    dans les négociations et les concertations pour défendre les droits de tous les
-                                    travailleurs et toutes les travailleuses.</p>
-                            </article>
-                        </li>
-                        <li class="reasons-item">
-                            <article class="step-card">
-                                <h3 class="step-card-title h450">Obtenir de nouveaux droits pour tous et toutes</h3>
-
-                                <p class="step-card-text">Grâce à son action et au poids de ses adhérents et de ses
-                                    adhérentes, le Syndicat Autonome 06 obtient des résultats concrets à l’échelle locale et nationale,
-                                    pour une meilleure protection de chacun et de chacune, et de nouveaux droits pour
-                                    tous et toutes.</p>
-                            </article>
-                        </li>
-                        <li class="reasons-item">
-                            <article class="step-card">
-                                <h3 class="step-card-title h450">Bénéficier de services exclusifs</h3>
-
-                                <p class="step-card-text">Être adhérent ou adhérente au Syndicat Autonome 06, c’est aussi avoir accès
-                                    à une offre de services personnalisées et multicanale d’assurances, de publications,
-                                    de formations, etc., qui sont inclus dans le prix de mon adhésion.</p>
-                            </article>
-                        </li>
-                        <li class="reasons-item">
-                            <article class="step-card">
-                                <h3 class="step-card-title h450">Être informé.e et rester connecté.e à toute l’actualité
-                                    professionnelle et sociale qui me concerne</h3>
-
-                                <p class="step-card-text">Notre site vous donne accès à de très nombreuses informations
-                                    et publications sur tous les sujets du travail (emploi, formation, réforme de
-                                    l’assurance chômage, droits, etc.) ainsi qu’à des vidéos et des documents
-                                    téléchargeables.</p>
-                            </article>
-                        </li>
-                        <li class="reasons-item">
-                            <article class="step-card">
-                                <h3 class="step-card-title h450">Intégrer les réseaux de la FA</h3>
-
-                                <p class="step-card-text">Que vous soyez salariée, agent ou agente des fonctions
-                                    publiques, cadre, travailleur ou travailleuse indépendant, auto-entrepreneur.e, ou
-                                    même retraité.e, vous avez une structure FA dédiée qui porte votre voix, défend
-                                    votre statut et vos droits. Vous pouvez compter sur la Fédération Autonome et sur tout son réseau
-                                    pour vous défendre en cas de difficultés.</p>
-                            </article>
-                        </li>
-                    </ol>
-
-                    <div class="reasons-image">
-                        <img src="images/pompier.png" alt="" loading="lazy" inert
-                            class="reasons-image-layer">
-                        <img src="images/administratif.jpg" alt="" loading="lazy"
-                            inert class="reasons-image-layer">
-                        <img src="images/technique.jpg" alt="" loading="lazy"
-                            inert class="reasons-image-layer">
-                        <img src="images/justice.jpg" alt="" loading="lazy" inert
-                            class="reasons-image-layer">
-                        <img src="images/FA.jpg" alt="" loading="lazy"
-                            inert class="reasons-image-layer">
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section data-theme="offwhite" class="push section">
-            <div class="container container--md">
-                <h2 class="push-title h200">Et beaucoup d&#039;autres à découvrir... ensemble !</h2>
-                <ul class="push-list">
-                    <li class="push-item">
-                        <a href="adherer.html" target="_blank" class="button button--peach"><span
-                                class="button-label">Pourquoi adhérer ?</span><i class="button-icon">
-                                <svg aria-hidden="true" class="button-icon-inner icon" viewBox="0 0 16 16">
-                                    <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                        stroke="white" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </i></a>
-                    </li>
-                    <li class="push-item">
-                        <a href="adherer.html" target="_blank" class="button button--orange"><span
-                                class="button-label">J'adhère au SA 06</span><i class="button-icon">
-                                <svg aria-hidden="true" class="button-icon-inner icon" viewBox="0 0 16 16">
-                                    <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
-                                        stroke="white" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </i></a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section data-theme="white" class="finder section">
-            <div class="container">
-                <h2 class="finder-title h200"><u>La FA et moi</u></h2>
-
-                <p class="finder-text">Avec des milliers d'adhérentes et d'adhérents et de nombreux syndicats présents sur tout le territoire, la Fédération Autonome et le Syndicat Autonome 06 sont à vos côtés dans tous les secteurs d'activité.
-                    Un conseil ? Une question ? Besoin d'être accompagné·e dans une démarche ou une situation professionnelle ?
-                    Envie de vous informer sur nos actions près de chez vous ou dans votre secteur d’activité ?
-                    Retrouvez toutes nos informations et nos contacts sur nos sites.</p>
-
-                <form action="https://www.cfdt.fr/contact" class="finder-form">
-
-                    <div class="finder-field autocomplete">
-                        <input id="finder_search" type="text" name="a"
-                            placeholder="Renseignez une ville, un code postal" class="finder-input">
-
-                        <div hidden class="autocomplete-suggestions"></div>
-                    </div>
-
-                    <button type="submit" class="button button--orange finder-submit">
-                        <span class="button-label">Trouver</span>
-                        <i class="button-icon">
-                            <svg aria-hidden="true" class="button-icon-inner icon" viewBox="0 0 16 16">
-                                <path
-                                    d="M13.6471 6.74513C13.6471 11.1372 8.00003 14.9019 8.00003 14.9019C8.00003 14.9019 2.35297 11.1372 2.35297 6.74513C2.35297 5.24743 2.94792 3.81108 4.00695 2.75205C5.06598 1.69302 6.50233 1.09807 8.00003 1.09807C9.49772 1.09807 10.934 1.69302 11.9931 2.75205C13.0522 3.81108 13.6471 5.24743 13.6471 6.74513Z"
-                                    stroke="white" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round" />
-                                <path
-                                    d="M8.00003 8.62748C9.03962 8.62748 9.88238 7.78473 9.88238 6.74513C9.88238 5.70554 9.03962 4.86278 8.00003 4.86278C6.96043 4.86278 6.11768 5.70554 6.11768 6.74513C6.11768 7.78473 6.96043 8.62748 8.00003 8.62748Z"
-                                    stroke="white" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round" />
+                    <div class="pagination">
+                        <button disabled="" aria-label="Page précédente"
+                            class="round-button round-button--nightblue pagination-arrow" type="button"><svg
+                                aria-hidden="true" class="round-button-icon icon" viewBox="0 0 16 16">
+                                <path d="M12.6666 8L3.33334 8M3.33334 8L7.99997 12.6667M3.33334 8L7.99997 3.33336"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                        </i>
-                    </button>
-                </form>
-                
-                <!-- Cartographie des syndicats autonomes -->
-                <div class="map-container">
-                    <h3 class="map-title">
-                        <u>Cartographie des Syndicats Autonomes !</u>
-                    </h3>
-                    
-                    <div class="map-wrapper">
-                        <div id="france-map-container">
-                            <!-- La carte SVG sera injectée ici par JavaScript -->
-                        </div>
-                        
-                        <div class="map-info-panel" id="department-info">
-                            <div class="map-info-content">
-                                <h4 class="map-info-title">Sélectionnez un département</h4>
-                                <div class="map-info-details" id="department-details">
-                                    <p>Cliquez sur un département pour afficher les informations du syndicat autonome.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="map-legend">
-                        <div class="map-legend-item">
-                            <span class="map-legend-color map-legend-color-present"></span>
-                            <span class="map-legend-text">Syndicat autonome présent</span>
-                        </div>
-                        <div class="map-legend-item">
-                            <span class="map-legend-color map-legend-color-absent"></span>
-                            <span class="map-legend-text">Pas de syndicat autonome</span>
-                        </div>
+                        </button>
+
+                        <ul class="pagination-list">
+
+                            <li class="pagination-item">
+                                <button type="button" data-page="1" aria-label="Aller à la page 1" aria-current="true"
+                                    class="pagination-link">
+                                    <span aria-hidden="true">01</span>
+                                </button>
+                            </li>
+                            <li class="pagination-item">
+                                <button type="button" data-page="2" aria-label="Aller à la page 2"
+                                    class="pagination-link">
+                                    <span aria-hidden="true">02</span>
+                                </button>
+                            </li>
+                            <li class="pagination-item">
+                                <button type="button" data-page="3" aria-label="Aller à la page 3"
+                                    class="pagination-link">
+                                    <span aria-hidden="true">03</span>
+                                </button>
+                            </li>
+                            <li class="pagination-item">
+                                <button type="button" data-page="4" aria-label="Aller à la page 4"
+                                    class="pagination-link">
+                                    <span aria-hidden="true">04</span>
+                                </button>
+                            </li>
+                            <li class="pagination-item">
+                                <button type="button" data-page="5" aria-label="Aller à la page 5"
+                                    class="pagination-link">
+                                    <span aria-hidden="true">05</span>
+                                </button>
+                            </li>
+
+                            <li class="pagination-item">...</li>
+
+                            <li class="pagination-item">
+                                <button type="button" data-page="26" aria-label="Aller à la page 26"
+                                    class="pagination-link">
+                                    <span aria-hidden="true">26</span>
+                                </button>
+                            </li>
+                        </ul>
+
+                        <button data-page="2" aria-label="Page suivante"
+                            class="round-button round-button--nightblue pagination-arrow" type="button"><svg
+                                aria-hidden="true" class="round-button-icon icon" viewBox="0 0 16 16">
+                                <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1627,7 +1237,7 @@
                 <div class="footer-info-col">
                     <p class="footer-info-title h500">Besoin d&#039;un renseignement ? <br />
                         Une question à nous poser ?</p>    
-                    <a href="contact.html" class="button button--white footer-info-button"><span class="button-label">Nous
+                    <a href="./contact.html" class="button button--white footer-info-button"><span class="button-label">Nous
                             contacter</span><i class="button-icon">
                             <svg aria-hidden="true" class="button-icon-inner icon" viewBox="0 0 16 16">
                                 <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
@@ -1695,7 +1305,7 @@
                 </div>
                 <div class="footer-info-col">
                     <p class="footer-info-title h500">Envie de nous rejoindre ?</p>
-                    <a href="#" target="_blank" class="button button--white footer-info-button"><span class="button-label">Adhérer</span><i class="button-icon">
+                    <a href="./adherer.html" target="_blank" class="button button--white footer-info-button"><span class="button-label">Adhérer</span><i class="button-icon">
                             <svg aria-hidden="true" class="button-icon-inner icon" viewBox="0 0 16 16">
                                 <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
                                     stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -1710,27 +1320,27 @@
                         <a href="#" class="footer-nav-link">©2025 XRWeb</a>
                     </li>
                     <li class="footer-nav-item">
-                        <a href="plan-du-site.html" class="footer-nav-link">Plan du site</a>
+                        <a href="../plan-du-site.html" class="footer-nav-link">Plan du site</a>
                     </li>
                     <li class="footer-nav-item">
-                        <a href="legal/legal-mentions.html" class="footer-nav-link">Mentions légales</a>
+                        <a href="../legal/legal-mentions.html" class="footer-nav-link">Mentions légales</a>
                     </li>
                     <li class="footer-nav-item">
-                        <a href="legal/privacy-policy.html" class="footer-nav-link">Politique de confidentialité</a>
+                        <a href="../legal/privacy-policy.html" class="footer-nav-link">Politique de confidentialité</a>
                     </li>
                 </ul>
             </div>
         </footer>
     
 
-    <script src="js/tarteaucitron.min.js"></script>
-    <script async src="main.js"></script>
-    <script src="js/france-map.js"></script>
-    <script src="js/scroll-to-top.js"></script>
-    <script src="js/fix-submenu.js"></script>
-    <script src="js/mobile-menu.js"></script>
-    <script src="js/slider.js"></script>
-    <script src="js/tarteaucitron.js"></script>
+    <script src="../js/tarteaucitron.min.js"></script>
+    <script async src="../main.js"></script>
+    <script src="../js/france-map.js"></script>
+    <script src="../js/scroll-to-top.js"></script>
+    <script src="../js/fix-submenu.js"></script>
+    <script src="../js/mobile-menu.js"></script>
+    <script src="../js/slider.js"></script>
+    <script src="../js/tarteaucitron.js"></script>
 
     <!-- Bouton de remontée de page -->
     <button id="scroll-to-top" class="scroll-to-top" aria-label="Remonter en haut de page">
