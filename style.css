@@ -22,6 +22,11 @@
     font-stretch: normal
 }
 
+/* Classe pour cacher le champ honeypot de Netlify Forms */
+.hidden-field {
+    display: none;
+}
+
 @font-face {
     font-family: "Gotham Condensed";
     src: url(./fonts/500.f7e8f5253107e6dcf1ec.woff2) format("woff2");
@@ -66,7 +71,7 @@
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: #333;
+    color: #111827;
 }
 
 .form-input,
@@ -2071,7 +2076,7 @@ body {
 .form-help,
 .form-mandatory {
     font-size: 1.125rem;
-    color: #4c515d;
+    color: #292c33;
 }
 
 .form-mandatory {
@@ -5606,7 +5611,7 @@ mark {
     position: relative;
     padding: var(--spc-y-md) var(--spc-x);
     border: 1px solid #374151;
-    background-color: #5f93ef;
+    background-color: #1b5bca;
     background-image: url(./images/dots-left.04f901e6e708712b8df6.png);
     background-repeat: no-repeat;
     background-position: -50px -300px
