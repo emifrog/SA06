@@ -2059,7 +2059,7 @@ body {
 
 .form-group {
     display: grid;
-    gap: 2rem
+    /*gap: 2rem*/
 }
 
 .form-label {
@@ -3073,7 +3073,7 @@ mark {
 }
 
 .menu-button-icon {
-    width: 1.25rem;
+    /*width: 1.25rem;*/
     height: 1.25rem;
 }
 
