@@ -11,30 +11,293 @@
     margin-right: auto;
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-#france-map-container {
-    position: relative;
+.carte {
+    width: 65%;
+    height: auto;
+    max-height: calc(100vh - 100px);
+    margin: auto;
+    overflow: visible;
+    transition: all 0.3s ease;
+  }
+  
+  .carte svg {
     width: 100%;
-    max-width: 600px;
-    height: 600px; /* Hauteur fixe pour maintenir les proportions */
-    margin: 0 auto;
-    overflow: hidden;
-    background-color: transparent;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: auto;
+    max-height: 100%;
+  }
+  
+  path {
+    stroke: #000000;
+    stroke-width: 1px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-opacity: 0.25;
+    transition: fill 0.3s ease, opacity 0.5s ease, stroke-width 0.3s ease, stroke-opacity 0.3s ease;
+    cursor: pointer;
     touch-action: manipulation;
+  }
+  
+  path:hover {
+    stroke-opacity: 0.5;
+    stroke-width: 1.5px;
+  }
+  
+  /* Styles pour améliorer l'interaction tactile */
+  @media (hover: none) {
+    path:active {
+      stroke-opacity: 0.7;
+      stroke-width: 2px;
+    }
+  }
+  
+  #info-panel {
+    flex: 1;
+    padding: 20px;
+    background-color: white;
+    border-left: 1px solid #e0e0e0;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.05);
+    overflow-y: auto;
+  }
+  
+  #info-panel h2 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+  }
+  
+  #dept-info {
+    margin-top: 15px;
+    line-height: 1.6;
+  }
+  
+  #dept-info p {
+    margin: 8px 0;
+  }
+  
+  #dept-info a {
+    color: #2980b9;
+    text-decoration: none;
+  }
+  
+  #dept-info a:hover {
+    text-decoration: underline;
+  }
+  
+  .legend {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    width: 100%;
+  }
+  
+  .legend h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .legend-item {
     display: flex;
     align-items: center;
-    justify-content: center;
-}
+    margin-bottom: 8px;
+  }
+  
+  .legend-color {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 992px) {
+    .map-container {
+      flex-direction: column;
+      padding: 0.8rem;
+    }
+    
+    .carte {
+      width: 100%;
+      max-height: 60vh;
+      margin-bottom: 1rem;
+    }
+    
+    .map-info-panel {
+      width: 80vw;
+      margin-top: 1rem;
+    }
+    
+    .map-title {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    body {
+      overflow-x: hidden;
+    }
+    
+    .map-container {
+      padding: 0;
+      margin: 0;
+      gap: 0;
+      max-width: 100%;
+      width: 100vw;
+      border-radius: 0;
+      display: block;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      overflow: hidden;
+    }
+    
+    .carte {
+      width: 100%;
+      max-height: 55vh;
+      margin: 0 auto;
+      padding: 0.5rem;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    
+    .carte svg {
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+    
+    .map-info-panel {
+      position: relative;
+      padding: 1.2rem;
+      min-height: auto;
+      width: 80vw;
+      box-sizing: border-box;
+      margin: 0;
+      border-left: none;
+      border-top: 4px solid #ed1b24;
+      border-radius: 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #f3f4f6;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .map-info-content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .map-info-title {
+      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .map-info-details {
+      padding: 0;
+      width: 100%;
+    }
+    
+    .map-info-details p {
+      font-size: 1rem;
+      margin: 0.7rem 0;
+      line-height: 1.5;
+      width: 100%;
+      word-wrap: break-word;
+    }
+    
+    .map-info-details a {
+      display: inline-block;
+      word-break: break-all;
+      color: #ed1b24;
+      text-decoration: none;
+    }
+    
+    .map-legend {
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 0;
+      padding: 0.6rem;
+      margin-top: 0.8rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+    }
+    
+    .map-legend-item {
+      margin: 0.2rem 0;
+      width: auto;
+      padding: 0 0.5rem;
+    }
+    
+    .map-legend-color {
+      width: 12px;
+      height: 12px;
+    }
+    
+    .map-legend-text {
+      font-size: 0.75rem;
+    }
+  }
+  
+  /* Petits mobiles */
+  @media (max-width: 480px) {
+    .map-container {
+      padding: 0.3rem;
+    }
+    
+    .carte {
+      max-height: 45vh;
+    }
+    
+    .map-info-panel {
+      padding: 0.6rem;
+    }
+    
+    .map-info-title {
+      font-size: 1rem;
+    }
+    
+    .map-info-details p {
+      font-size: 0.8rem;
+      margin: 0.3rem 0;
+    }
+    
+    .map-legend {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .map-legend-item {
+      margin: 0.15rem 0;
+      justify-content: center;
+    }
+  }
+
 
 .map-title {
+    margin-bottom: 2.5rem;
     font-size: 1.5rem;
     font-weight: 600;
     color: #fff;
     text-align: center;
+    width: 100%;
 }
 
 .map-title u {
@@ -49,127 +312,6 @@
     margin-bottom: 1.5rem;
     color: #f3f4f6;
     text-align: center;
-}
-
-.map-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-@media (min-width: 768px) {
-    .map-wrapper {
-        flex-direction: row;
-    }
-    
-    #france-map-container {
-        flex: 2;
-    }
-    
-    .map-info-panel {
-        flex: 1;
-    }
-}
-
-/* Styles pour l'image de fond */
-.map-background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    z-index: 1;
-    background-color: #fff;
-    max-height: 100%;
-    max-width: 100%;
-}
-
-/* Styles pour la superposition SVG */
-.svg-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.svg-overlay svg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: scale(0.95); /* Légèrement réduit pour mieux s'aligner avec l'image */
-}
-
-.svg-overlay path {
-    pointer-events: auto;
-}
-
-/* Styles pour les départements dans la carte SVG */
-#france-map-container svg {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-#france-map-container path {
-    stroke: #fff;
-    stroke-width: 0.5;
-    vector-effect: non-scaling-stroke;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    touch-action: manipulation;
-}
-
-/* Départements sans syndicat */
-.dept-without-syndicat {
-    fill: rgba(209, 213, 219, 0.5);
-    stroke-width: 1;
-}
-
-/* Départements avec syndicat */
-.dept-with-syndicat {
-    fill: rgba(231, 76, 60, 0.7);
-    stroke-width: 1;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        filter: brightness(1);
-    }
-    50% {
-        filter: brightness(1.1);
-    }
-    100% {
-        filter: brightness(1);
-    }
-}
-
-/* État de survol */
-.dept-with-syndicat.hover {
-    fill: #c0392b;
-    transform: scale(1.02);
-    transform-origin: center;
-    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
-    z-index: 10;
-}
-
-/* État sélectionné */
-.dept-with-syndicat.selected {
-    fill: #a93226;
-    transform: scale(1.03);
-    transform-origin: center;
-    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
-    z-index: 20;
-    animation: none;
 }
 
 .map-tooltip {
@@ -191,17 +333,18 @@
     padding: 1.5rem;
     border-radius: 8px;
     min-height: 200px;
-    margin-top: 1rem;
-    border-left: 4px solid #e74c3c;
+    border-left: 4px solid #ed1b24;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    width: 80vw;
+    margin: 0;
 }
 
 .map-info-title {
     font-size: 1.25rem;
     margin-bottom: 1rem;
     color: #111827;
-    border-bottom: 2px solid #e74c3c;
+    border-bottom: 2px solid #ed1b24;
     padding-bottom: 0.5rem;
 }
 
@@ -260,7 +403,7 @@
 }
 
 .info-value a:hover {
-    color: #c0392b;
+    color: #ed1b24;
     text-decoration: underline;
 }
 
@@ -285,11 +428,11 @@
 }
 
 .map-legend-color-present {
-    background-color: #e74c3c;
+    background-color: #3262ac;
 }
 
 .map-legend-color-absent {
-    background-color: #d1d5db;
+    background-color: #ecf0f1;
 }
 
 .map-legend-text {

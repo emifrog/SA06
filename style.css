@@ -5642,11 +5642,6 @@ mark {
     background-position: 0 calc(100% + 232px)
 }
 
-.map-title {
-    margin-bottom: 2.5rem;
-    text-align: center
-}
-
 .map-form {
     display: flex;
     max-width: 42rem;
