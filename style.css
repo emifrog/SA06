@@ -403,6 +403,12 @@ body {
     color: var(--theme-txt)
 }
 
+.section-theme {
+    padding: var(--spc-x);
+    background-color: var(--theme-bg);
+    color: var(--theme-txt)
+}
+
 /*.section[data-theme=white]+.section[data-theme=white] {
     padding-top: 0
 }
@@ -1245,6 +1251,27 @@ body {
     position: absolute;
     inset: 0;
     content: ""
+}
+
+.page-image {
+    width: 100%;
+    height: auto;
+}
+
+.bandeau-container {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bandeau-container img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    max-width: 100vw;
+    display: block;
 }
 
 .training-card,
@@ -2573,7 +2600,8 @@ body {
     font-family: "Founders Grotesk Condensed", sans-serif;
     font-size: var(--h150);
     font-weight: 700;
-    line-height: 1
+    line-height: 1;
+    text-align: center;
 }
 
 .h200 {
@@ -3339,6 +3367,10 @@ mark {
     flex-direction: column;
     align-items: flex-start;
     gap: .75rem
+}
+ 
+.submenu ul {
+margin-top: 2.2rem;
 }
 
 .submenu-body {
@@ -7041,4 +7073,3 @@ mark {
 .results-item {
     border-bottom: 1px solid #6b7280
 }
-
