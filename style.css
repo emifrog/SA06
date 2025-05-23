@@ -488,7 +488,8 @@ body {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    font-weight: 600
+    font-weight: 600;
+    overflow: hidden;
 }
 
 .round-button,
@@ -704,39 +705,119 @@ body {
 
 .tertiary-button {
     gap: .375em;
-    overflow: hidden
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    padding: 0.6em 1.2em;
+    border-radius: 0.25em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transform: translateZ(0)
 }
 
 .tertiary-button-icon {
-    display: flex
+    display: flex;
+    position: relative;
+    z-index: 2;
+    will-change: transform, opacity
 }
 
 .tertiary-button:not(.tertiary-button--reverse) .tertiary-button-icon:first-child {
-    margin-left: -1.375em
+    opacity: 0;
+    transform: translateX(-15px) scale(0.9);
+    position: absolute;
+    left: 0.6em;
+    filter: blur(2px)
 }
 
 .tertiary-button--reverse .tertiary-button-icon:last-child {
-    margin-right: -1.375em
+    opacity: 0;
+    transform: translateX(15px) scale(0.9);
+    position: absolute;
+    right: 0.6em;
+    filter: blur(2px)
 }
 
 @media(hover: hover)and (prefers-reduced-motion: no-preference) {
 
     .tertiary-button-icon,
     .tertiary-button-label {
-        transition: translate .2s ease-out
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1)
+    }
+
+    .tertiary-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: currentColor;
+        opacity: 0.08;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        z-index: 1;
+        border-radius: inherit;
+        will-change: transform
+    }
+    
+    .tertiary-button::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.15), rgba(255,255,255,0) 70%);
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: all 0.7s ease;
+        z-index: 2;
+        pointer-events: none;
+        border-radius: inherit
     }
 }
 
 @media(hover: hover) {
 
-    .tertiary-button:not(.tertiary-button--reverse):hover .tertiary-button-icon,
-    .tertiary-button:not(.tertiary-button--reverse):hover .tertiary-button-label {
-        translate: 1.375em 0
+    .tertiary-button:hover {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transform: translateY(-1px)
     }
 
-    .tertiary-button--reverse:hover .tertiary-button-icon,
+    .tertiary-button:not(.tertiary-button--reverse):hover .tertiary-button-label {
+        transform: translateX(12px)
+    }
+
     .tertiary-button--reverse:hover .tertiary-button-label {
-        translate: -1.375em 0
+        transform: translateX(-12px)
+    }
+
+    .tertiary-button:not(.tertiary-button--reverse):hover .tertiary-button-icon:first-child {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: blur(0)
+    }
+
+    .tertiary-button--reverse:hover .tertiary-button-icon:last-child {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: blur(0)
+    }
+
+    .tertiary-button:hover::before {
+        transform: scaleX(1);
+        transform-origin: left
+    }
+    
+    .tertiary-button:hover::after {
+        opacity: 1;
+        transform: translateX(100%)
+    }
+    
+    .tertiary-button:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05)
     }
 }
 
@@ -2901,13 +2982,7 @@ mark {
     fill: none
 }
 
-.icon [fill] {
-    fill: currentColor
-}
-
-.icon [stroke] {
-    stroke: currentColor;
-}
+/*
 
 .screen-reader-text,
 .slider-a11y {
@@ -2916,6 +2991,7 @@ mark {
     position: absolute;
     overflow: hidden
 }
+*/
 
 @media(max-width: 47.96875rem) {
     :has(.sticky-actions) .tarteaucitronIconBottomRight {

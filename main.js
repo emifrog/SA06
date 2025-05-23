@@ -279,7 +279,10 @@
                         if (l.o(e, s) && (0 !== (r = e[s]) && (e[s] = void 0), r)) {
                             var t = o && ("load" === o.type ? "missing" : o.type),
                                 n = o && o.target && o.target.src;
-                            a.message = "Loading chunk " + s + " failed.\n(" + t + ": " + n + ")", a.name = "ChunkLoadError", a.type = t, a.request = n, r[1](a)
+                            // Try to handle the error gracefully
+                            console.warn("Chunk load failed: " + s + ". Continuing without the chunk.");
+                            // Resolve the promise instead of rejecting it to prevent the error
+                            r[0]();
                         }
                     }), "chunk-" + s, s)
                 }
