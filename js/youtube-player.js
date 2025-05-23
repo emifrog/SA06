@@ -186,7 +186,5 @@ if (!customElements.get('youtube-player')) {
 
 // Initialiser les lecteurs existants après le chargement de la page
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('YouTube Player: Initialisation des lecteurs');
   const players = document.querySelectorAll('youtube-player');
-  console.log(`YouTube Player: ${players.length} lecteurs trouvés`);
 });

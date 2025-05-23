@@ -50,6 +50,8 @@
                     
                     var img = document.createElement('img');
                     img.src = 'images/tarteaucitron.png';
+                    img.src = '../images/tarteaucitron.png';
+                    img.src = '../../images/tarteaucitron.png';
                     img.style.width = '50px';
                     img.style.height = 'auto';
                     img.alt = 'Paramètres des cookies';
