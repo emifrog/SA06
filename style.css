@@ -2982,8 +2982,6 @@ mark {
     fill: none
 }
 
-/*
-
 .screen-reader-text,
 .slider-a11y {
     width: 0;
@@ -2991,7 +2989,7 @@ mark {
     position: absolute;
     overflow: hidden
 }
-*/
+
 
 @media(max-width: 47.96875rem) {
     :has(.sticky-actions) .tarteaucitronIconBottomRight {
