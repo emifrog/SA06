@@ -2,14 +2,10 @@
  * Script pour corriger le problème d'affichage des sous-menus
  */
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Submenu fix script loaded');
     
     // Sélectionner tous les boutons qui contrôlent les sous-menus
     const submenuButtons = document.querySelectorAll('button[aria-controls^="menu-"]');
-    
-    // Vérifier dans la console si les boutons sont trouvés
-    console.log('Submenu buttons found:', submenuButtons.length);
-    
+        
     // Ajouter des écouteurs d'événements à chaque bouton
     submenuButtons.forEach(button => {
         const submenuId = button.getAttribute('aria-controls');
@@ -17,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Vérifier si le sous-menu correspondant existe
         if (submenu) {
-            console.log('Submenu found:', submenuId);
             
             // Supprimer les écouteurs d'événements existants pour éviter les conflits
             const newButton = button.cloneNode(true);
@@ -30,15 +25,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Récupérer l'état actuel du sous-menu
                 const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                
-                console.log('Button clicked for', submenuId, 'Current state:', isExpanded ? 'expanded' : 'collapsed');
-                
+                                
                 // Basculer l'état du sous-menu
                 if (isExpanded) {
                     // Fermer le sous-menu
                     this.setAttribute('aria-expanded', 'false');
                     submenu.setAttribute('data-state', 'closed');
-                    console.log('Closing submenu:', submenuId);
                 } else {
                     // Fermer les autres sous-menus d'abord
                     document.querySelectorAll('.submenu[data-state="opened"]').forEach(menu => {
@@ -54,11 +46,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Ouvrir ce sous-menu
                     this.setAttribute('aria-expanded', 'true');
                     submenu.setAttribute('data-state', 'opened');
-                    console.log('Opening submenu:', submenuId);
                 }
             });
         } else {
-            console.error('Submenu not found for button with aria-controls:', submenuId);
         }
     });
     
@@ -88,9 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const controlButton = document.querySelector(`button[aria-controls="${submenuId}"]`);
                 if (controlButton) {
                     controlButton.setAttribute('aria-expanded', 'false');
-                }
-                
-                console.log('Closed submenu via close button:', submenuId);
+                }                
             }
         });
     });
@@ -105,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Fermer le sous-menu
                 button.setAttribute('aria-expanded', 'false');
                 submenu.setAttribute('data-state', 'closed');
-                console.log('Closed submenu by clicking outside:', submenu.id);
             }
         });
     });
