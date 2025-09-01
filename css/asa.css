@@ -46,19 +46,10 @@ nav {
     padding: 0 2rem;
 }
 
-.logo {
-    width: 48px;
-    height: 48px;
-
+.logo img {
+    height: 50px;
 }
 
-.logo span {
-    text-transform: uppercase;
-    font-size: 1.3125rem;
-    font-weight: 500;
-    line-height: 1;
-    color: #ed1b24
-}
 
 .nav-links {
     display: flex;

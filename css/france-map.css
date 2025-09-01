@@ -23,6 +23,7 @@
     margin: auto;
     overflow: visible;
     transition: all 0.3s ease;
+    margin-bottom: 40px;
   }
   
   .carte svg {
@@ -353,6 +354,7 @@
     transition: all 0.3s ease;
     width: 80vw;
     margin: 0;
+    margin-top: 40px;
 }
 
 .map-info-title {
