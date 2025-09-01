@@ -397,7 +397,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 showSlide(currentIndex - 1);
             }
         }
-        
         // Ajuster la taille du slider lors du redimensionnement de la fenêtre
         window.addEventListener('resize', () => {
             showSlide(currentIndex);
@@ -405,3 +404,57 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Initialisation du formulaire de contact
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContactForm);
+} else {
+    initContactForm();
+}
+
+function initContactForm() {
+    const form = document.querySelector('form[action*="formsubmit.co"]');
+    if (form) {
+        // La validation se fera via l'attribut onsubmit du formulaire
+        console.log('Formulaire de contact initialisé');
+    }
+}
+
+// Fonction de validation du formulaire
+document.validateContactForm = function() {
+    try {
+        const form = document.querySelector('form[action*="formsubmit.co"]');
+        if (!form) return true; // Si le formulaire n'existe pas, on laisse passer
+
+        const fields = {
+            lastName: { element: document.getElementById('contact_lastName'), name: 'Nom' },
+            firstName: { element: document.getElementById('contact_firstName'), name: 'Prénom' },
+            email: { element: document.getElementById('contact_email'), name: 'Email' },
+            subject: { element: document.getElementById('contact_subject'), name: 'Sujet' },
+            message: { element: document.getElementById('contact_message'), name: 'Message' }
+        };
+
+        // Vérification des champs obligatoires
+        for (const [key, field] of Object.entries(fields)) {
+            const value = field.element?.value?.trim() || '';
+            if (!value) {
+                alert(`Le champ "${field.name}" est obligatoire.`);
+                field.element?.focus();
+                return false;
+            }
+        }
+
+        // Validation de l'email
+        const email = fields.email.element.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Veuillez entrer une adresse email valide.');
+            fields.email.element.focus();
+            return false;
+        }
+
+        return true;
+    } catch (error) {
+        console.error('Erreur lors de la validation du formulaire:', error);
+        return true; // En cas d'erreur, on laisse passer pour ne pas bloquer l'utilisateur
+    }
+};

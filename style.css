@@ -59,6 +59,15 @@
 }
 
 /* Styles améliorés pour le formulaire d'adhésion */
+
+.form-section {
+    margin-bottom: 40px;
+    background-color: var(--theme-bg);
+    color: var(--theme-txt);
+    border-radius: 8px;
+
+}
+
 .form {
     margin-top: 1.5rem;
 }
@@ -69,6 +78,7 @@
 
 .form-label {
     display: block;
+    padding-top: 10px;
     margin-bottom: 0.5rem;
     font-weight: 600;
     color: #111827;
@@ -2191,12 +2201,6 @@ body {
 .form-group {
     display: grid;
     /*gap: 2rem*/
-}
-
-.form-label {
-    display: block;
-    margin-bottom: .75rem;
-    font-weight: 600;
 }
 
 .form-help,
@@ -5747,11 +5751,15 @@ margin-top: 2.2rem;
 }
 
 .form-image {
+    width: 96px;
+    height: 96px;
     display: block;
     aspect-ratio: 1;
     position: absolute;
     top: -3rem;
-    right: -1rem
+    right: -1rem;
+    transform: rotate(12deg);
+    z-index: 1;    
 }
 
 .form-inner {
