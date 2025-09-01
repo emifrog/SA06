@@ -6733,6 +6733,131 @@ margin-top: 2.2rem;
     aspect-ratio: 1/.47
 }
 
+/* Styles pour la section du droit de grève */
+.droit-greve-section {
+    background-color: #f8f9fa;
+    padding: 3rem 0;
+    margin: 3rem 0;
+}
+
+.droit-greve-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.droit-greve-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.droit-greve-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.droit-greve-header h1::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 4px;
+    background-color: #e53e3e;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.droit-greve-header p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.droit-greve-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.droit-greve-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid #e53e3e;
+}
+
+.droit-greve-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.droit-greve-card h2 {
+    
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.droit-greve-card h2::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background-color: #e53e3e;
+    bottom: 0;
+    left: 0;
+}
+
+.droit-greve-card h3 {
+    color: #144190;
+}
+
+.droit-greve-card p {
+    color: #111827;
+    line-height: 1.6;
+    margin-top: 1rem;
+}
+
+.droit-greve-card ul {
+    list-style-type: none;
+    padding-left: 1rem;
+}
+
+.droit-greve-card li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.droit-greve-card li::before {
+    content: '•';
+    color: #e53e3e;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .droit-greve-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .droit-greve-header h1 {
+        font-size: 2rem;
+    }
+    
+    .droit-greve-header p {
+        font-size: 1rem;
+    }
+}
+
 .history-section-date {
     margin-bottom: 2.5rem;
     font-family: "Founders Grotesk Condensed", sans-serif;
