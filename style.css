@@ -419,6 +419,10 @@ body {
     color: var(--theme-txt)
 }
 
+.menu-item-asa {
+    width: 50px;
+}
+
 /*.section[data-theme=white]+.section[data-theme=white] {
     padding-top: 0
 }
@@ -6816,6 +6820,26 @@ margin-top: 2.2rem;
 
 .droit-greve-card h3 {
     color: #144190;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.droit-greve-card h4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.droit-greve-card h3::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background-color: #e53e3e;
+    bottom: 0;
+    left: 0;
 }
 
 .droit-greve-card p {
