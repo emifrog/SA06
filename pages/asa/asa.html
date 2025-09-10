@@ -3,226 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Association Innovation - Transformer l'Avenir Ensemble</title>
+    <meta name="description" content="Ressource nationale dédiée à la prévention, la détection précoce et le soutien des sapeurs-pompiers face aux risques de cancer liés à leur profession">
+    <title>Cancer chez les Sapeurs-Pompiers | Ressource Nationale</title>
     <link rel="stylesheet" href="../../css/asa.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <img src="../../images/asa/Logo-ASA06.png" alt="Logo Association de Solidarité Autonome">
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Accueil</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#" class="nav-cta">Commencer</a></li>
-            </ul>
+    <header>
+        <div class="container">
+            <nav class="navbar" aria-label="Navigation principale">
+                <div class="logo">
+                    <a href="index.html" aria-label="Retour à l'accueil" title="Retour à l'accueil">
+                        <img src="../../images/asa/logo-remove.png" alt="Logo">
+                    </a>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Ouvrir le menu" title="Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#about" aria-label="À propos de l'initiative" title="En savoir plus sur l'initiative">À propos</a></li>
+                    <li><a href="#risks" aria-label="Comprendre les risques de cancer" title="Découvrir les risques de cancer">Parcours santé</a></li>
+                    <li><a href="#prevention" aria-label="Mesures de prévention" title="En savoir plus sur la prévention">Complémentaire</a></li>
+                    <li><a href="#resources" aria-label="Ressources disponibles" title="Consulter les ressources">DUC</a></li>
+                    <li><a href="..//asa/contact.html" aria-label="Contactez-nous" title="Nous contacter">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="float-element float-1"></div>
-        <div class="float-element float-2"></div>
-        <div class="hero-container">
-            <h1 class="fade-up">L'Avenir de l'Innovation<br>avec les Dernières Technologies</h1>
-            <p class="hero-subtitle fade-up fade-up-delay">
-                Rejoignez notre association pour transformer vos idées en solutions concrètes et créer un impact durable dans notre communauté.
-            </p>
-            <div class="hero-buttons fade-up">
-                <a href="#" class="btn btn-primary">
-                    Commencer →
-                </a>
-                <a href="#" class="btn btn-secondary">
-                    En savoir plus
-                </a>
+    <section id="about" class="hero">
+        <div class="container">
+            <h1 class="hero-title">Association Solidarité Autonome</h1>
+            <p>Depuis de nombreuses années, l’Association de Solidarité Autonome (ASA06) s’engage auprès de ses adhérents et accompagne leurs familles dans les moments difficiles.
+            Face à un problème de santé, un accident de la vie ou un décès, nous sommes là pour apporter un soutien humain et financier, en complément des aides apportées par vos amicales.</p>
+            <p><strong>Notre mission : être une présence bienveillante et solidaire, lorsque l’épreuve frappe.</strong></p>
+            <p>Sur ce site, vous trouverez l’ensemble des aides proposées, les démarches simples pour en bénéficier.</p>
+            <div class="image-zoom-container">
+                <img src="../../images/asa/organigramme.png" alt="Organigramme" class="zoomable-image">
             </div>
-            <div class="rating fade-up">
-                <span class="stars">★★★★★</span>
-                <span class="rating-text">4.9 · Noté par 500+ membres</span>
+            
+            <!-- Modal pour l'image en grand -->
+            <div id="imageModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="zoomedImage">
+                <div id="caption"></div>
             </div>
+        </div>
+    </section>
 
-            <div class="stats-grid">
-                <div class="stat-card stat-card-1">
-                    <div class="stat-icon">📊</div>
-                    <div class="stat-value">100+</div>
-                    <div class="stat-label">Projets innovants<br>lancés cette année</div>
+    <section id="risks" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Parcours Santé</h2>
+            </div>
+            <div class="info-columns">
+                <div class="info-column">
+                    <h3>Agents cancérigènes courants</h3>
+                    <ul>
+                        <li>Fumées d'incendie contenant des HAP</li>
+                        <li>Benzène et autres COV</li>
+                        <li>Amiante dans les bâtiments anciens</li>
+                        <li>Particules fines (PM2.5 et PM10)</li>
+                        <li>Formaldéhyde et autres aldéhydes</li>
+                        <li>Métaux lourds (plomb, cadmium, chrome)</li>
+                        <li>Dioxines et furanes</li>
+                    </ul>
                 </div>
-                <div class="stat-card stat-card-2">
-                    <div class="stat-value">1951+</div>
-                    <div class="stat-label">Membres actifs<br>dans notre réseau</div>
+                <div class="info-column">
+                    <h3>Cancers les plus fréquents</h3>
+                    <ul>
+                        <li>Cancer du poumon</li>
+                        <li>Mésothéliome</li>
+                        <li>Cancer colorectal</li>
+                        <li>Leucémies et lymphomes</li>
+                        <li>Cancer de la vessie</li>
+                        <li>Cancer de la prostate</li>
+                        <li>Mélanome et autres cancers cutanés</li>
+                    </ul>
                 </div>
-                <div class="stat-card stat-card-3">
-                    <div class="stat-icon">🎯</div>
-                    <div class="stat-value">6+</div>
-                    <div class="stat-label">Années d'expertise<br>en innovation sociale</div>
+                <div class="info-column">
+                    <h3>Facteurs aggravants</h3>
+                    <ul>
+                        <li>Exposition répétée sur de longues périodes</li>
+                        <li>Contamination croisée des équipements</li>
+                        <li>Absorption cutanée accrue par la transpiration</li>
+                        <li>Inhalation plus importante durant l'effort</li>
+                        <li>Manque de décontamination appropriée</li>
+                        <li>Effets synergiques entre polluants</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="services-container">
-            <div class="section-header">
-                <h2 class="section-title">Services Efficaces et Intégrés</h2>
-                <p class="section-subtitle">
-                    Découvrez notre gamme complète de services conçus pour accélérer votre impact et transformer vos idées en réalité.
-                </p>
+    <section id="prevention" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Complémentaire</h2>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">⚡</div>
-                    <h3 class="service-title">Innovation & Stratégie</h3>
-                    <p class="service-description">
-                        Développez des stratégies innovantes adaptées à vos défis spécifiques avec notre expertise sectorielle.
-                    </p>
+            <div class="info-columns">
+                <div class="info-column">
+                    <h3>Avant l'intervention</h3>
+                    <ul>
+                        <li>Formation aux risques cancérigènes</li>
+                        <li>Vérification et entretien des EPI</li>
+                        <li>Préparation du matériel de décontamination</li>
+                        <li>Établissement de zones propres/sales</li>
+                        <li>Briefing sur les risques spécifiques</li>
+                    </ul>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🎯</div>
-                    <h3 class="service-title">Formation & Mentorat</h3>
-                    <p class="service-description">
-                        Accédez à des programmes de formation personnalisés et un réseau de mentors expérimentés.
-                    </p>
+                <div class="info-column">
+                    <h3>Pendant l'intervention</h3>
+                    <ul>
+                        <li>Port systématique de l'ARI</li>
+                        <li>Respect des zones et procédures</li>
+                        <li>Limitation du temps d'exposition</li>
+                        <li>Rotation des équipes</li>
+                        <li>Surveillance mutuelle des équipements</li>
+                    </ul>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🚀</div>
-                    <h3 class="service-title">Gestion de Projets</h3>
-                    <p class="service-description">
-                        Bénéficiez d'un accompagnement complet pour la gestion et le déploiement de vos initiatives.
-                    </p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💡</div>
-                    <h3 class="service-title">Technologie & Innovation</h3>
-                    <p class="service-description">
-                        Exploitez les dernières technologies pour créer des solutions durables et évolutives.
-                    </p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📈</div>
-                    <h3 class="service-title">Analyse & Optimisation</h3>
-                    <p class="service-description">
-                        Optimisez vos processus grâce à notre expertise en analyse de données et amélioration continue.
-                    </p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🤝</div>
-                    <h3 class="service-title">Réseau & Partenariats</h3>
-                    <p class="service-description">
-                        Connectez-vous à notre vaste réseau de partenaires et créez des collaborations stratégiques.
-                    </p>
+                <div class="info-column">
+                    <h3>Après l'intervention</h3>
+                    <ul>
+                        <li>Décontamination primaire sur site</li>
+                        <li>Transport sécurisé des équipements</li>
+                        <li>Douche dans les 60 minutes</li>
+                        <li>Nettoyage approfondi des EPI</li>
+                        <li>Surveillance médicale régulière</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits" id="about">
-        <div class="benefits-container">
-            <div class="benefits-content">
-                <h2>Avantages Clés de Notre Système pour Votre Efficacité</h2>
-                <p style="color: var(--gray); margin-bottom: 2rem;">
-                    Notre approche intégrée maximise votre impact tout en optimisant vos ressources.
-                </p>
-                <div class="benefits-list">
-                    <div class="benefit-item">
-                        <div class="benefit-icon">✓</div>
-                        <div class="benefit-text">
-                            <h3>Amélioration de la Qualité</h3>
-                            <p>Des standards élevés garantissant l'excellence dans chaque projet entrepris.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">✓</div>
-                        <div class="benefit-text">
-                            <h3>Processus de Production Optimisés</h3>
-                            <p>Méthodologies éprouvées pour accélérer le développement et la mise en œuvre.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">✓</div>
-                        <div class="benefit-text">
-                            <h3>Production AI-Driven</h3>
-                            <p>Intégration de l'intelligence artificielle pour des solutions innovantes et adaptatives.</p>
-                        </div>
-                    </div>
-                </div>
+    <section id="resources" class="section resources">
+        <div class="container">
+            <div class="section-title">
+                <h2>DUC</h2>
             </div>
-            <div class="benefits-visual">
-                <div class="visual-card">
-                    <div class="visual-stat">
-                        <div class="visual-number">1951+</div>
-                        <div class="visual-label">Membres Actifs</div>
-                    </div>
-                    <div class="visual-chart">
-                        <div class="chart-bar" style="--bar-height: 40%"></div>
-                        <div class="chart-bar" style="--bar-height: 60%"></div>
-                        <div class="chart-bar" style="--bar-height: 80%"></div>
-                        <div class="chart-bar" style="--bar-height: 100%"></div>
-                        <div class="chart-bar" style="--bar-height: 70%"></div>
-                    </div>
+            <div class="resource-list">
+                <div class="resource-item">
+                    <h3>Publications scientifiques</h3>
+                    <p>Accédez aux dernières études sur les risques cancérigènes chez les sapeurs-pompiers et les avancées en matière de prévention.</p>
+                    <a href="#" class="btn" aria-label="Consulter les publications" title="Consulter les publications">Consulter</a>
+                </div>
+                <div class="resource-item">
+                    <h3>Protocoles de décontamination</h3>
+                    <p>Guides pratiques et fiches techniques pour une décontamination efficace après intervention.</p>
+                    <a href="#" class="btn" aria-label="Télécharger les protocoles" title="Télécharger les protocoles">Télécharger</a>
+                </div>
+                <div class="resource-item">
+                    <h3>Suivi médical</h3>
+                    <p>Informations sur les examens recommandés et la fréquence de surveillance selon l'exposition.</p>
+                    <a href="#" class="btn" aria-label="En savoir plus sur le suivi médical" title="En savoir plus">En savoir plus</a>
+                </div>
+                <div class="resource-item">
+                    <h3>Soutien psychologique</h3>
+                    <p>Ressources pour les sapeurs-pompiers atteints de cancer et leurs proches.</p>
+                    <a href="#" class="btn" aria-label="Contacter le soutien psychologique" title="Contacter le soutien psychologique">Contacter</a>
+                </div>
+                <div class="resource-item">
+                    <h3>Formation continue</h3>
+                    <p>Modules de formation en ligne et présentiel sur la prévention des risques cancérigènes.</p>
+                    <a href="#" class="btn" aria-label="S'inscrire à la formation" title="S'inscrire à la formation">S'inscrire</a>
+                </div>
+                <div class="resource-item">
+                    <h3>Équipements recommandés</h3>
+                    <p>Sélection d'EPI et matériels de décontamination conformes aux dernières normes.</p>
+                    <a href="#" class="btn" aria-label="Consulter les équipements recommandés" title="Consulter les équipements recommandés">Consulter</a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="cta-container">
-            <h2>De l'Idée à la Production en Quelques Jours</h2>
-            <p>
-                Rejoignez des centaines d'organisations qui ont transformé leur vision en réalité avec notre accompagnement.
-            </p>
-            <a href="#" class="cta-button">Voir la Démo →</a>
+    
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contactez-nous</h2>
+            </div>
+            <p class="text-center">Des questions? Besoin de conseils ou de ressources spécifiques? Notre équipe est là pour vous accompagner.</p>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#" class="btn" aria-label="Formulaire de contact" title="Formulaire de contact">Formulaire de contact</a>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-brand">
-                <h3>
-                    <div class="logo-icon" style="width: 28px; height: 28px; font-size: 0.9rem;">◆</div>
-                    InnoAssoc
-                </h3>
-                <p>Votre partenaire pour l'innovation sociale et technologique depuis 2018.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <img src="images/logo.jpg" alt="Logo" width="80" height="80">
+                    <p>
+                        L’Association de Solidarité Autonome (ASA06) s’engage auprès de ses adhérents et accompagne leurs familles dans les moments difficiles.
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="#about" aria-label="À propos de l'initiative" title="En savoir plus sur l'initiative">À propos</a></li>
+                        <li><a href="#risks" aria-label="Comprendre les risques de cancer" title="Découvrir les risques de cancer">Parcours santé</a></li>
+                        <li><a href="#prevention" aria-label="Mesures de prévention" title="En savoir plus sur la prévention">Complémentaire</a></li>
+                        <li><a href="#resources" aria-label="Ressources disponibles" title="Consulter les ressources">DUC</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="#" aria-label="Formulaire de contact" title="Formulaire de contact">Formulaire</a></li>
+                        <li><p aria-label="Adresse" title="Adresse">285 avenue des Maurettes <br> 06270 Villeneuve-Loubet</p></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-section">
-                <h4>Association</h4>
-                <ul class="footer-links">
-                    <li><a href="#">À propos</a></li>
-                    <li><a href="#">Mission</a></li>
-                    <li><a href="#">Équipe</a></li>
-                    <li><a href="#">Carrières</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2025 XRWeb - Tous droits réservés</p>
             </div>
-            <div class="footer-section">
-                <h4>Ressources</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Documentation</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Événements</a></li>
-                    <li><a href="#">Support</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <ul class="footer-links">
-                    <li><a href="#">contact@innoassoc.fr</a></li>
-                    <li><a href="#">+33 1 23 45 67 89</a></li>
-                    <li><a href="#">Paris, France</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 InnoAssoc. Tous droits réservés. | Mentions légales | Politique de confidentialité</p>
         </div>
     </footer>
 
-    <script src="../../js/asa.js"></script>
+    <!-- Bouton pour remonter en haut de la page -->
+    <button id="back-to-top" class="back-to-top" aria-label="Remonter en haut de la page" title="Haut de page">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Script pour le bouton de retour en haut de page
+        const backToTopButton = document.getElementById("back-to-top");
+        
+        // Afficher le bouton quand l'utilisateur descend de 300px depuis le haut
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+        
+        // Remonter en haut quand l'utilisateur clique sur le bouton
+        backToTopButton.addEventListener("click", function() {
+            document.body.scrollTop = 0; // Pour Safari
+            document.documentElement.scrollTop = 0; // Pour Chrome, Firefox, IE et Opera
+        });
+
+        // Script pour le menu mobile
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const body = document.body;
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        // Ouvrir/fermer le menu mobile
+        mobileMenuToggle.addEventListener('click', function() {
+            body.classList.toggle('mobile-menu-open');
+        });
+
+        // Fermer le menu mobile quand on clique sur un lien
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                body.classList.remove('mobile-menu-open');
+            });
+        });
+
+        // Script pour le zoom d'image
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('zoomedImage');
+        const captionText = document.getElementById('caption');
+        const zoomableImage = document.querySelector('.zoomable-image');
+        const closeBtn = document.querySelector('.close');
+
+        if (zoomableImage) {
+            // Ouvrir la modal quand on clique sur l'image
+            zoomableImage.addEventListener('click', function() {
+                modal.classList.add('show');
+                modalImg.src = this.src;
+                modalImg.alt = this.alt; // Ajout de l'attribut alt manquant
+                captionText.innerHTML = this.alt;
+                document.body.style.overflow = 'hidden'; // Empêcher le défilement de la page
+            });
+
+            // Fermer la modal quand on clique sur la croix
+            closeBtn.addEventListener('click', function() {
+                modal.classList.remove('show');
+                document.body.style.overflow = 'auto'; // Rétablir le défilement de la page
+            });
+
+            // Fermer la modal quand on clique en dehors de l'image
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = 'auto'; // Rétablir le défilement de la page
+                }
+            });
+
+            // Fermer la modal avec la touche Échap
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && modal.classList.contains('show')) {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = 'auto'; // Rétablir le défilement de la page
+                }
+            });
+        }
+    </script>
 </body>
 </html>
