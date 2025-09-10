@@ -1610,6 +1610,7 @@ body {
     display: flex;
     width: 0;
     height: 100%;
+    padding-left: 15px;
     position: absolute;
     left: 0;
     z-index: -1;
@@ -4099,6 +4100,10 @@ margin-top: 2.2rem;
 
 .social-icon--instagram {
     background: linear-gradient(45deg, #FCAF45, #E1306C, #C13584);
+}
+
+.social-icon--tiktok {
+    background-color: #000000;
 }
 
 .social-icon--youtube {

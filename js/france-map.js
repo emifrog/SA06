@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Mettre à jour le panneau d'information
       infoPanel.innerHTML = `
-        <p><strong>Département :</strong> ${data.nom} (${deptId})</p>
+
         <p><strong>Président :</strong> ${data.president || 'Non renseigné'}</p>
         <p><strong>Telephone :</strong> ${data.telephone || 'Non renseigné'}</p>
         <p><strong>Email :</strong> ${data.email ? `<a href="mailto:${data.email}">${data.email}</a>` : 'Non renseigné'}</p>

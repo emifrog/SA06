@@ -4,7 +4,7 @@
     "03": { "nom": "Allier", "president": "Luc Martin", "email": "contact.allier@departements.fr", "hasSyndicat": true, "region": "84" },
     "04": { "nom": "Alpes-de-Haute-Provence", "president": "Sophie Blanc", "email": "contact.ahp@departements.fr", "hasSyndicat": true, "region": "93" },
     "05": { "nom": "Hautes-Alpes", "president": "Pierre Montagne", "email": "contact.hautes-alpes@departements.fr", "hasSyndicat": false, "region": "93" },
-    "06": { "nom": "Alpes-Maritimes", "president": "Claude Riviera", "email": "contact.alpes-maritimes@departements.fr", "hasSyndicat": true, "region": "93" },
+    "06": { "nom": "Alpes-Maritimes", "president": "Julien Antoine/Julien Pinson", "email": "contact.alpes-maritimes@departements.fr", "hasSyndicat": true, "region": "93" },
     "09": { "nom": "Ariège", "president": "Julie Montagne", "email": "contact.ariege@departements.fr", "hasSyndicat": false, "region": "76" },
     "10": { "nom": "Aube", "president": "Michel Rivière", "email": "contact.aube@departements.fr", "hasSyndicat": true, "region": "44" },
     "13": { "nom": "Bouches-du-Rhône", "president": "Anne Mer", "email": "contact.bdr@departements.fr", "hasSyndicat": true, "region": "93" },
