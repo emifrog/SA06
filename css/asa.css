@@ -93,6 +93,7 @@ header {
     border-radius: 0; /* Suppression de la bordure arrondie */
 }
 
+
 .logo:hover img {
     transform: none;
 }

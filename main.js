@@ -458,3 +458,55 @@ document.validateContactForm = function() {
         return true; // En cas d'erreur, on laisse passer pour ne pas bloquer l'utilisateur
     }
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        const content = item.querySelector('.accordion-content');
+        const icon = header.querySelector('.accordion-icon');
+        
+        header.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Ferme tous les autres éléments d'accordéon
+            accordionItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    const otherContent = otherItem.querySelector('.accordion-content');
+                    const otherIcon = otherItem.querySelector('.accordion-icon');
+                    otherContent.style.display = 'none';
+                    otherIcon.textContent = '+';
+                    otherIcon.style.backgroundColor = '#f5f5f5';
+                    otherIcon.style.color = '#999';
+                }
+            });
+            
+            // Ouvre ou ferme l'élément cliqué
+            if (!isActive) {
+                item.classList.add('active');
+                content.style.display = 'block';
+                icon.textContent = '-';
+                icon.style.backgroundColor = '#E74C3C';
+                icon.style.color = 'white';
+            } else {
+                item.classList.remove('active');
+                content.style.display = 'none';
+                icon.textContent = '+';
+                icon.style.backgroundColor = '#f5f5f5';
+                icon.style.color = '#999';
+            }
+        });
+    });
+    
+    // Ouvre le premier élément par défaut
+    if (accordionItems.length > 0) {
+        const firstItem = accordionItems[0];
+        firstItem.classList.add('active');
+        firstItem.querySelector('.accordion-content').style.display = 'block';
+        firstItem.querySelector('.accordion-icon').textContent = '-';
+        firstItem.querySelector('.accordion-icon').style.backgroundColor = '#E74C3C';
+        firstItem.querySelector('.accordion-icon').style.color = 'white';
+    }
+});
