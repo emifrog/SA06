@@ -5,8 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="theme-color" content="#3262ac">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/logo-192x192.png">
 
     <title>Bienvenue sur le site du Syndicat Autonome 06, 1ère force syndicale du SDIS 06 | SA06</title>
 
@@ -19,11 +23,12 @@
         content="Rejoignez le Syndicat Autonome 06, pour améliorer vos droits et conditions de travail.">
 
     <meta property="og:type" content="site web">
-    <meta property="og:url" content="#">
+    <meta property="og:url" content="https://sa06.org">
 
     <link rel="preload" href="style.css" as="style">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/france-map.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile-menu.css">
+    <link rel="stylesheet" href="css/pwa.css">
     <link rel="stylesheet" href="css/reasons-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- CSS personnalisé pour le menu mobile -->
@@ -379,6 +384,11 @@
                         </div>
                     </div>
                 </nav>
+
+                <!-- Bouton d'installation PWA -->
+                <button class="install-button" id="installButton" style="display: none;">
+                    <i class="fas fa-download"></i> Installer l'application
+                </button>
 
                 <div class="search"><button aria-controls="search" aria-expanded="false"
                         aria-label="Ouvrir la recherche"
@@ -1126,7 +1136,7 @@
     <script src="js/submenu-fix.js"></script>
     <script src="js/mobile-menu.js"></script>
     <script src="js/slider.js"></script>
-
+    <script src="js/pwa.js"></script>
 
     <!-- Bouton de remontée de page -->
     <button id="scroll-to-top" class="scroll-to-top" aria-label="Remonter en haut de page">
