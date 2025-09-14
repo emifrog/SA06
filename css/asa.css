@@ -93,7 +93,6 @@ header {
     border-radius: 0; /* Suppression de la bordure arrondie */
 }
 
-
 .logo:hover img {
     transform: none;
 }
@@ -175,7 +174,7 @@ header {
 }
 
 .hero img {
-    height: 250px;
+    height: 450px;
     width: auto;
     margin: 0 auto;
     display: block;
@@ -194,7 +193,7 @@ header {
 }
 
 .section-title h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--secondary-color);
     letter-spacing: -0.5px;
@@ -666,6 +665,42 @@ footer {
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: right 0.3s ease-in-out;
         z-index: 100;
+    }
+
+    .logo img {
+        width: 60px; /* Taille réduite du logo */
+        height: auto; /* Maintient le ratio d'aspect */
+        margin-right: 0.5rem;
+        border-radius: 0; /* Suppression de la bordure arrondie */
+    }
+    
+    .logo:hover img {
+        transform: none;
+    }
+
+    .logo img:hover {
+        transform: none;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+        letter-spacing: 0.5px;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero img {
+        height: 250px;
+    }
+    
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
     }
     
     .mobile-menu-open .nav-links {
