@@ -23,6 +23,7 @@
 
     <link rel="preload" href="../style.css" as="style">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/faq.css">
     <link rel="stylesheet" href="../css/france-map.css">
     <link rel="stylesheet" href="../css/reasons-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -481,10 +482,12 @@
                                 <span class="accordion-icon">-</span>
                                 <span class="accordion-title">Quels sont les avantages d'adhérer au SA06 ?</span>
                             </button>
-                            <div class="accordion-content" style="display: block;">
-                                <p>En adhérant au SA06, vous bénéficiez d'une protection juridique, d'un accompagnement personnalisé dans vos démarches professionnelles, 
-                                    de formations syndicales, et vous participez à la défense collective des droits des salariés. 
-                                    Vous avez également accès à des services exclusifs et à des avantages négociés par la CFDT.</p>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>En adhérant au SA06, vous bénéficiez d'une protection juridique, d'un accompagnement personnalisé dans vos démarches professionnelles, 
+                                        de formations syndicales, et vous participez à la défense collective des droits des salariés. 
+                                        Vous avez également accès à des services exclusifs et à des avantages négociés par la CFDT.</p>
+                                </div>
                             </div>
                         </div>
                         
@@ -494,9 +497,11 @@
                                 <span class="accordion-title">Comment adhérer au SA06 ?</span>
                             </button>
                             <div class="accordion-content">
-                                <p>L'adhésion au SA06 est simple et rapide. Vous pouvez adhérer en ligne sur notre site sécurisé, 
-                                    par courrier en téléchargeant le formulaire d'adhésion, ou en prenant contact avec un délégué CFDT de votre entreprise. 
-                                    L'adhésion vous donne immédiatement accès à tous les services du syndicat.</p>
+                                <div class="accordion-content-inner">
+                                    <p>L'adhésion au SA06 est simple et rapide. Vous pouvez adhérer en ligne sur notre site sécurisé, 
+                                        par courrier en téléchargeant le formulaire d'adhésion, ou en prenant contact avec un délégué CFDT de votre entreprise. 
+                                        L'adhésion vous donne immédiatement accès à tous les services du syndicat.</p>
+                                </div>
                             </div>
                         </div>
                         
@@ -506,9 +511,11 @@
                                 <span class="accordion-title">Quelle est la différence entre être syndiqué et être élu ?</span>
                             </button>
                             <div class="accordion-content">
-                                <p>Être syndiqué signifie adhérer à un syndicat pour défendre collectivement vos droits. 
-                                    Être élu, c'est représenter les salariés dans les instances de l'entreprise (comité d'entreprise, CHSCT, etc.). 
-                                    Les élus sont désignés par élection et bénéficient de protections spécifiques. Le SA06 forme et accompagne à la fois ses adhérents et ses élus.</p>
+                                <div class="accordion-content-inner">
+                                    <p>Être syndiqué signifie adhérer à un syndicat pour défendre collectivement vos droits. 
+                                        Être élu, c'est représenter les salariés dans les instances de l'entreprise (comité d'entreprise, CHSCT, etc.). 
+                                        Les élus sont désignés par élection et bénéficient de protections spécifiques. Le SA06 forme et accompagne à la fois ses adhérents et ses élus.</p>
+                                </div>
                             </div>
                         </div>
                         
@@ -518,7 +525,9 @@
                                 <span class="accordion-title">Le SA06 est-elle présente dans mon entreprise ?</span>
                             </button>
                             <div class="accordion-content">
-                                <p>Le SA06 est présente dans la plupart des entreprises et secteurs d'activité. Pour savoir si le SA06 est présente dans votre entreprise, vous pouvez effectuer une recherche sur notre site, contacter l'union départementale CFDT de votre région, ou nous envoyer un message via notre formulaire de contact. Nous vous mettrons en relation avec le correspondant CFDT le plus proche de chez vous.</p>
+                                <div class="accordion-content-inner">
+                                    <p>Le SA06 est présente dans la plupart des entreprises et secteurs d'activité. Pour savoir si le SA06 est présente dans votre entreprise, vous pouvez effectuer une recherche sur notre site, contacter l'union départementale CFDT de votre région, ou nous envoyer un message via notre formulaire de contact. Nous vous mettrons en relation avec le correspondant CFDT le plus proche de chez vous.</p>
+                                </div>
                             </div>
                         </div>
                         
@@ -528,65 +537,54 @@
                                 <span class="accordion-title">Comment contacter le SA06 ?</span>
                             </button>
                             <div class="accordion-content">
-                                <p>Vous pouvez contacter le SA06 de plusieurs façons : en vous rendant à la permanence syndicale de votre entreprise, en appelant le numéro, ou en utilisant notre formulaire de contact en ligne. 
-                                    Tous nos contacts sont disponibles dans la rubrique "Nous contacter" de notre site internet.</p>
+                                <div class="accordion-content-inner">
+                                    <p>Vous pouvez contacter le SA06 de plusieurs façons : en vous rendant à la permanence syndicale de votre entreprise, en appelant le numéro, ou en utilisant notre formulaire de contact en ligne. 
+                                        Tous nos contacts sont disponibles dans la rubrique "Nous contacter" de notre site internet.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        
+              
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                const accordionItems = document.querySelectorAll('.accordion-item');
+                const items = document.querySelectorAll('.accordion-item');
                 
-                accordionItems.forEach(item => {
+                items.forEach(item => {
                     const header = item.querySelector('.accordion-header');
                     const content = item.querySelector('.accordion-content');
-                    const icon = header.querySelector('.accordion-icon');
+                    const icon = item.querySelector('.accordion-icon');
                     
                     header.addEventListener('click', () => {
-                        const isActive = item.classList.contains('active');
-                        
-                        // Ferme tous les autres éléments d'accordéon
-                        accordionItems.forEach(otherItem => {
+                        // Ferme tous les autres items
+                        items.forEach(otherItem => {
                             if (otherItem !== item) {
                                 otherItem.classList.remove('active');
-                                const otherContent = otherItem.querySelector('.accordion-content');
-                                const otherIcon = otherItem.querySelector('.accordion-icon');
-                                otherContent.style.display = 'none';
-                                otherIcon.textContent = '+';
-                                otherIcon.style.backgroundColor = '#f5f5f5';
-                                otherIcon.style.color = '#999';
+                                otherItem.querySelector('.accordion-content').style.display = 'none';
+                                otherItem.querySelector('.accordion-icon').textContent = '+';
                             }
                         });
                         
-                        // Ouvre ou ferme l'élément cliqué
-                        if (!isActive) {
-                            item.classList.add('active');
-                            content.style.display = 'block';
-                            icon.textContent = '-';
-                            icon.style.backgroundColor = '#E74C3C';
-                            icon.style.color = 'white';
-                        } else {
-                            item.classList.remove('active');
+                        // Bascule l'item actuel
+                        if (content.style.display === 'block') {
                             content.style.display = 'none';
                             icon.textContent = '+';
-                            icon.style.backgroundColor = '#f5f5f5';
-                            icon.style.color = '#999';
+                            item.classList.remove('active');
+                        } else {
+                            content.style.display = 'block';
+                            icon.textContent = '-';
+                            item.classList.add('active');
                         }
                     });
                 });
                 
-                // Ouvre le premier élément par défaut
-                if (accordionItems.length > 0) {
-                    const firstItem = accordionItems[0];
-                    firstItem.classList.add('active');
-                    firstItem.querySelector('.accordion-content').style.display = 'block';
-                    firstItem.querySelector('.accordion-icon').textContent = '-';
-                    firstItem.querySelector('.accordion-icon').style.backgroundColor = '#E74C3C';
-                    firstItem.querySelector('.accordion-icon').style.color = 'white';
+                // Ouvre le premier item par défaut
+                if (items.length > 0) {
+                    items[0].querySelector('.accordion-content').style.display = 'block';
+                    items[0].querySelector('.accordion-icon').textContent = '-';
+                    items[0].classList.add('active');
                 }
             });
         </script>
@@ -688,7 +686,12 @@
     <script src="../js/submenu-fix.js"></script>
     <script src="../js/mobile-menu.js"></script>
     <script src="../js/slider.js"></script>
-
+    <script src="../js/asa.js"></script>
+    <script src="../js/france-map.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="../js/animations.js"></script>
+    
     <!-- Bouton de remontée de page -->
     <button id="scroll-to-top" class="scroll-to-top" aria-label="Remonter en haut de page">
         <i class="fa-solid fa-arrow-up"></i>

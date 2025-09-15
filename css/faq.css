@@ -1,0 +1,73 @@
+/* Style de base de l'accordéon */
+.accordion-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.accordion-header {
+    background-color: #f8f9fa;
+    padding: 16px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    border: none;
+    font-family: inherit;
+    margin: 0;
+}
+
+.accordion-header:hover {
+    background-color: #e9ecef;
+}
+
+.accordion-header:focus {
+    outline: 2px solid #3262ac;
+}
+
+.accordion-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    flex-grow: 1;
+}
+
+.accordion-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    color: #6c757d;
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-left: 12px;
+}
+
+.accordion-content {
+    display: none;
+    padding: 0 20px 20px;
+    background-color: #ffffff;
+    color: #495057;
+    line-height: 1.6;
+}
+
+.accordion-item.active .accordion-header {
+    background-color: #e7f1ff;
+}
+
+.accordion-item.active .accordion-icon {
+    background-color: #3262ac;
+    color: white;
+}
+
+.accordion-content-inner {
+    padding: 10px 0;
+}
