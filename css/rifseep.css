@@ -349,7 +349,9 @@
 }
 
 .card-subtitle {
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
     opacity: 0.9;
     margin-top: 5px;
 }
