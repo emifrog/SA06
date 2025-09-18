@@ -552,39 +552,55 @@
             document.addEventListener('DOMContentLoaded', function() {
                 const items = document.querySelectorAll('.accordion-item');
                 
+                // Fonction pour fermer un item
+                function closeItem(item) {
+                    item.classList.remove('active');
+                    const icon = item.querySelector('.accordion-icon');
+                    if (icon) icon.textContent = '+';
+                }
+                
+                // Fonction pour ouvrir un item
+                function openItem(item) {
+                    // Ferme d'abord tous les autres items
+                    items.forEach(otherItem => {
+                        if (otherItem !== item) closeItem(otherItem);
+                    });
+                    
+                    // Ouvre l'item actuel
+                    item.classList.add('active');
+                    const icon = item.querySelector('.accordion-icon');
+                    if (icon) icon.textContent = '×';
+                }
+                
+                // Initialisation des écouteurs d'événements
                 items.forEach(item => {
                     const header = item.querySelector('.accordion-header');
-                    const content = item.querySelector('.accordion-content');
-                    const icon = item.querySelector('.accordion-icon');
+                    if (!header) return;
                     
-                    header.addEventListener('click', () => {
-                        // Ferme tous les autres items
-                        items.forEach(otherItem => {
-                            if (otherItem !== item) {
-                                otherItem.classList.remove('active');
-                                otherItem.querySelector('.accordion-content').style.display = 'none';
-                                otherItem.querySelector('.accordion-icon').textContent = '+';
-                            }
-                        });
+                    header.addEventListener('click', (e) => {
+                        e.preventDefault();
                         
-                        // Bascule l'item actuel
-                        if (content.style.display === 'block') {
-                            content.style.display = 'none';
-                            icon.textContent = '+';
-                            item.classList.remove('active');
+                        if (item.classList.contains('active')) {
+                            closeItem(item);
                         } else {
-                            content.style.display = 'block';
-                            icon.textContent = '-';
-                            item.classList.add('active');
+                            openItem(item);
+                        }
+                    });
+                    
+                    // Gestion des touches clavier pour l'accessibilité
+                    header.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            header.click();
                         }
                     });
                 });
                 
                 // Ouvre le premier item par défaut
                 if (items.length > 0) {
-                    items[0].querySelector('.accordion-content').style.display = 'block';
-                    items[0].querySelector('.accordion-icon').textContent = '-';
-                    items[0].classList.add('active');
+                    setTimeout(() => {
+                        openItem(items[0]);
+                    }, 100);
                 }
             });
         </script>
@@ -687,10 +703,6 @@
     <script src="../js/mobile-menu.js"></script>
     <script src="../js/slider.js"></script>
     <script src="../js/asa.js"></script>
-    <script src="../js/france-map.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="../js/animations.js"></script>
     
     <!-- Bouton de remontée de page -->
     <button id="scroll-to-top" class="scroll-to-top" aria-label="Remonter en haut de page">
