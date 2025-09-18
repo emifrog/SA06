@@ -16,6 +16,15 @@
     --header-height: 80px;
     --max-width: 1200px;
     --btn-shadow: 0 4px 16px rgba(59,130,246,0.12);
+    
+    /* Nouvelles variables pour la validation de formulaire */
+    --error-color: #e53e3e;
+    --error-bg: #fef2f2;
+    --error-border: #fca5a5;
+    --success-color: #10b981;
+    --success-bg: #ecfdf5;
+    --warning-color: #f59e0b;
+    --info-color: #3b82f6;
 }
 
 * {

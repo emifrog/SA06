@@ -32,6 +32,8 @@
     <link rel="stylesheet" href="../css/slider-progress.css">
     <!-- Font Awesome pour les icônes des réseaux sociaux -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- CSS pour la page de contact -->
+    <link rel="stylesheet" href="../css/asa-contact.css">
 </head>
 
 <body>
@@ -481,11 +483,11 @@
                     <img src="../images/logo-remove.png" alt="logo" loading="lazy" class="form-image">
                     <h3 class="form-title h300">Vous souhaitez nous contacter directement&nbsp;? Écrivez-nous&nbsp;!</h3>
                     <div class="form-inner">
-                        <form id="contact" name="contact" action="https://formsubmit.co/faspp06@gmail.com" method="POST" onsubmit="return document.validateContactForm();">
-                            <input type="hidden" name="_subject" value="Nouveau message depuis le formulaire de contact">
-                            <input type="hidden" name="_next" value="../merci.html">
-                            <input type="hidden" name="_template" value="table">
-                            <input type="hidden" name="_autoresponse" value="Merci pour votre message. Nous vous répondrons dès que possible.">
+                        <form id="contact" name="contact" action="https://formspree.io/f/mrbawwgl" method="POST" onsubmit="return document.validateContactForm();">
+                            <input type="hidden" name="_subject" value="Nouveau message depuis le formulaire de contact SA06">
+                            <input type="hidden" name="_language" value="fr">
+                            <input type="hidden" name="_next" value="https://sa06.org/pages/merci.html">
+                            <input type="text" name="_gotcha" style="display:none">
                             <p class="hidden-field">
                                 <label>Ne pas remplir si vous êtes humain: <input name="bot-field" /></label>
                             </p>
@@ -687,6 +689,117 @@
     </footer>
 
     
+    <script>
+        // Validation du formulaire de contact
+        function validateContactForm() {
+            const form = document.getElementById('contact');
+            const lastName = document.getElementById('contact_lastName').value.trim();
+            const firstName = document.getElementById('contact_firstName').value.trim();
+            const email = document.getElementById('contact_email').value.trim();
+            const subject = document.getElementById('contact_subject').value;
+            const message = document.getElementById('contact_message').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            // Réinitialisation des messages d'erreur
+            document.querySelectorAll('.error-message').forEach(el => el.remove());
+            document.querySelectorAll('.form-row').forEach(row => row.classList.remove('has-error'));
+            
+            let isValid = true;
+            
+            // Validation du nom
+            if (lastName === '') {
+                showError('contact_lastName', 'Veuillez renseigner votre nom');
+                isValid = false;
+            }
+            
+            // Validation du prénom
+            if (firstName === '') {
+                showError('contact_firstName', 'Veuillez renseigner votre prénom');
+                isValid = false;
+            }
+            
+            // Validation de l'email
+            if (email === '') {
+                showError('contact_email', 'Veuillez renseigner votre adresse email');
+                isValid = false;
+            } else if (!emailRegex.test(email)) {
+                showError('contact_email', 'Veuillez entrer une adresse email valide');
+                isValid = false;
+            }
+            
+            // Validation du sujet
+            if (subject === '') {
+                showError('contact_subject', 'Veuillez sélectionner un sujet');
+                isValid = false;
+            }
+            
+            // Validation du message
+            if (message === '') {
+                showError('contact_message', 'Veuillez saisir votre message');
+                isValid = false;
+            } else if (message.length < 10) {
+                showError('contact_message', 'Votre message doit contenir au moins 10 caractères');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Afficher un indicateur de chargement
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton.innerHTML;
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<span class="button-label">Envoi en cours...</span>';
+                
+                // Simuler un délai d'envoi (à supprimer en production)
+                setTimeout(() => {
+                    submitButton.innerHTML = originalButtonText;
+                    submitButton.disabled = false;
+                }, 2000);
+                
+                return true; // Soumettre le formulaire
+            }
+            
+            return false; // Empêcher la soumission du formulaire
+        };
+        
+        function showError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+            const formRow = field.closest('.form-row') || field.closest('.select');
+            
+            if (formRow) {
+                formRow.classList.add('has-error');
+                
+                // Ne pas ajouter plusieurs fois le même message d'erreur
+                if (!formRow.querySelector('.error-message')) {
+                    const errorElement = document.createElement('div');
+                    errorElement.className = 'error-message';
+                    errorElement.style.color = '#e74c3c';
+                    errorElement.style.fontSize = '0.875rem';
+                    errorElement.style.marginTop = '0.25rem';
+                    errorElement.textContent = message;
+                    
+                    // Insérer après le champ de formulaire
+                    const inputWrapper = formRow.querySelector('.input, .select-inner');
+                    if (inputWrapper) {
+                        inputWrapper.parentNode.insertBefore(errorElement, inputWrapper.nextSibling);
+                    } else {
+                        formRow.appendChild(errorElement);
+                    }
+                }
+                
+                // Défilement vers le premier champ en erreur
+                if (!window.scrollToFirstError) {
+                    window.scrollToFirstError = true;
+                    formRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Réinitialiser après un délai
+                    setTimeout(() => {
+                        window.scrollToFirstError = false;
+                    }, 1000);
+                }
+            }
+        }
+    </script>
+
     <script async src="../main.js"></script>
     <script src="../js/scroll-to-top.js"></script>
     <script src="../js/submenu-fix.js"></script>

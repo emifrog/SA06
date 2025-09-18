@@ -580,10 +580,79 @@
                     header.addEventListener('click', (e) => {
                         e.preventDefault();
                         
+                        // Si l'élément est déjà actif, on le ferme
                         if (item.classList.contains('active')) {
-                            closeItem(item);
-                        } else {
-                            openItem(item);
+                            const content = item.querySelector('.accordion-content');
+                            const icon = item.querySelector('.accordion-icon');
+                            const inner = content?.querySelector('.accordion-content-inner');
+                            
+                            // Animation de fermeture
+                            if (content) {
+                                content.style.maxHeight = '0';
+                                content.style.padding = '0 20px';
+                                
+                                if (inner) {
+                                    inner.style.opacity = '0';
+                                    inner.style.transform = 'translateY(-10px)';
+                                }
+                                
+                                // Retire la classe active après la fin de l'animation
+                                setTimeout(() => {
+                                    item.classList.remove('active');
+                                    if (icon) icon.textContent = '+';
+                                    content.style.display = 'none';
+                                }, 300);
+                            }
+                        } 
+                        // Sinon, on l'ouvre
+                        else {
+                            // Ferme d'abord tous les autres éléments
+                            items.forEach(otherItem => {
+                                if (otherItem !== item && otherItem.classList.contains('active')) {
+                                    const otherContent = otherItem.querySelector('.accordion-content');
+                                    const otherIcon = otherItem.querySelector('.accordion-icon');
+                                    const otherInner = otherContent?.querySelector('.accordion-content-inner');
+                                    
+                                    if (otherContent) {
+                                        otherContent.style.maxHeight = '0';
+                                        otherContent.style.padding = '0 20px';
+                                        
+                                        if (otherInner) {
+                                            otherInner.style.opacity = '0';
+                                            otherInner.style.transform = 'translateY(-10px)';
+                                        }
+                                        
+                                        setTimeout(() => {
+                                            otherItem.classList.remove('active');
+                                            if (otherIcon) otherIcon.textContent = '+';
+                                            otherContent.style.display = 'none';
+                                        }, 300);
+                                    }
+                                }
+                            });
+                            
+                            // Ouvre l'élément actuel
+                            const content = item.querySelector('.accordion-content');
+                            const icon = item.querySelector('.accordion-icon');
+                            
+                            if (content && icon) {
+                                content.style.display = 'block';
+                                icon.textContent = '×';
+                                item.classList.add('active');
+                                
+                                // Force un reflow pour démarrer l'animation
+                                void content.offsetHeight;
+                                
+                                // Démarre l'animation
+                                content.style.maxHeight = content.scrollHeight + 'px';
+                                content.style.padding = '0 20px 20px';
+                                
+                                const inner = content.querySelector('.accordion-content-inner');
+                                if (inner) {
+                                    inner.style.opacity = '1';
+                                    inner.style.transform = 'translateY(0)';
+                                }
+                            }
                         }
                     });
                     
@@ -598,9 +667,32 @@
                 
                 // Ouvre le premier item par défaut
                 if (items.length > 0) {
+                    // Ajoute un petit délai pour s'assurer que le CSS est chargé
                     setTimeout(() => {
-                        openItem(items[0]);
-                    }, 100);
+                        // Ouvre le premier élément
+                        const firstItem = items[0];
+                        firstItem.classList.add('active');
+                        const content = firstItem.querySelector('.accordion-content');
+                        const icon = firstItem.querySelector('.accordion-icon');
+                        
+                        if (content && icon) {
+                            content.style.display = 'block';
+                            icon.textContent = '×';
+                            
+                            // Force un reflow pour déclencher la transition
+                            void content.offsetHeight;
+                            
+                            // Active la transition après un court délai
+                            setTimeout(() => {
+                                content.style.maxHeight = content.scrollHeight + 'px';
+                                const inner = content.querySelector('.accordion-content-inner');
+                                if (inner) {
+                                    inner.style.opacity = '1';
+                                    inner.style.transform = 'translateY(0)';
+                                }
+                            }, 10);
+                        }
+                    }, 50);
                 }
             });
         </script>
