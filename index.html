@@ -11,6 +11,7 @@
 
     <link rel="icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="images/logo-192x192.png">
+    <link rel="manifest" href="manifest.json">
 
     <title>Bienvenue sur le site du Syndicat Autonome 06, 1ère force syndicale du SDIS 06 | SA06</title>
 
@@ -384,11 +385,6 @@
                         </div>
                     </div>
                 </nav>
-
-                <!-- Bouton d'installation PWA -->
-                <button class="install-button" id="installButton" style="display: none;">
-                    <i class="fas fa-download"></i> Installer l'application
-                </button>
 
                 <div class="search"><button aria-controls="search" aria-expanded="false"
                         aria-label="Ouvrir la recherche"
@@ -1136,6 +1132,13 @@
     <script src="js/submenu-fix.js"></script>
     <script src="js/mobile-menu.js"></script>
     <script src="js/slider.js"></script>
+    <script src="js/pwa.js"></script>
+
+    <!-- Bouton d'installation PWA flottant -->
+    <button class="pwa-install-button" id="installButton" style="display: none;">
+        <span class="pwa-button-label">Installer l'app</span>
+        <i class="fas fa-download pwa-button-icon"></i>
+    </button>
 
     <!-- Bouton de remontée de page -->
     <button id="scroll-to-top" class="scroll-to-top" aria-label="Remonter en haut de page">

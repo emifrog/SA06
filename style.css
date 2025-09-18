@@ -6744,6 +6744,78 @@ margin-top: 2.2rem;
     aspect-ratio: 1/.47
 }
 
+/* Bouton d'installation PWA */
+#installButton {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #12438e;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(18, 67, 142, 0.3);
+    z-index: 1000;
+    white-space: nowrap;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    min-width: 140px;
+    max-width: 200px;
+}
+
+#installButton:hover {
+    background: #0d3269;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(18, 67, 142, 0.4);
+}
+
+#installButton .pwa-button-icon {
+    font-size: 16px;
+}
+
+/* Version mobile */
+@media (max-width: 768px) {
+    #installButton {
+        bottom: 20px;
+        right: 20px;
+        left: auto;
+        padding: 10px 16px;
+        font-size: 13px;
+        gap: 6px;
+        border-radius: 35px;
+        min-width: 120px;
+        max-width: 160px;
+        width: auto;
+        justify-content: center;
+    }
+    
+    #installButton .pwa-button-icon {
+        font-size: 14px;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 480px) {
+    #installButton {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 14px;
+        font-size: 12px;
+        gap: 5px;
+        border-radius: 30px;
+        min-width: 110px;
+        max-width: 140px;
+    }
+}
+
 /* Styles pour la section du droit de grève */
 .droit-greve-section {
     background-color: #f8f9fa;
@@ -7585,5 +7657,114 @@ margin-top: 2.2rem;
     .button {
         width: 100%;
         justify-content: center;
+    }
+}
+
+/* ===== PWA STYLES ===== */
+
+/* Bouton d'installation PWA flottant */
+#installButton {
+    position: fixed !important;
+    bottom: 30px;
+    right: 30px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #144190;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(18, 67, 142, 0.3);
+    z-index: 1000;
+    white-space: nowrap;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    min-width: 140px;
+    max-width: 200px;
+}
+
+#installButton:hover {
+    background: #0b45a8;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(50, 98, 172, 0.4);
+}
+
+/* Bannière de mise à jour PWA */
+.pwa-update-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    background: #144190;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.pwa-notification {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.pwa-notification button {
+    background: white;
+    color: #144190;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.pwa-notification button:hover {
+    background: #f0f0f0;
+}
+
+/* Responsive PWA */
+@media (max-width: 768px) {
+    #installButton {
+        bottom: 20px !important;
+        right: 20px !important;
+        left: auto !important;
+        padding: 12px 18px !important;
+        font-size: 13px !important;
+        gap: 6px;
+        border-radius: 35px;
+        min-width: 120px !important;
+        max-width: 160px !important;
+        width: auto !important;
+        justify-content: center;
+    }
+    
+    .pwa-notification {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    #installButton {
+        bottom: 15px !important;
+        right: 15px !important;
+        left: auto !important;
+        padding: 10px 16px !important;
+        font-size: 12px !important;
+        gap: 5px;
+        border-radius: 30px;
+        min-width: 110px !important;
+        max-width: 140px !important;
+        width: auto !important;
     }
 }

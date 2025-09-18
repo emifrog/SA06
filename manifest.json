@@ -1,0 +1,88 @@
+{
+  "name": "Syndicat Autonome 06 - SA06",
+  "short_name": "SA06",
+  "description": "Site officiel du Syndicat Autonome 06, 1ère force syndicale du SDIS 06",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3262ac",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "fr",
+  "categories": ["business", "productivity", "social"],
+  "icons": [
+    {
+      "src": "images/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "images/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "images/logo-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/logo-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/logo-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "images/logo-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Actualités",
+      "short_name": "Actualités",
+      "description": "Consulter les dernières actualités du SA06",
+      "url": "/pages/actu.html",
+      "icons": [
+        {
+          "src": "images/logo.svg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Contacter le SA06",
+      "url": "/pages/asa/contact.html",
+      "icons": [
+        {
+          "src": "images/logo.svg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "FAQ",
+      "short_name": "FAQ",
+      "description": "Questions fréquemment posées",
+      "url": "/pages/faq.html",
+      "icons": [
+        {
+          "src": "images/logo.svg",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}
