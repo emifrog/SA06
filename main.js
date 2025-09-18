@@ -462,51 +462,68 @@ document.validateContactForm = function() {
 document.addEventListener('DOMContentLoaded', function() {
     const accordionItems = document.querySelectorAll('.accordion-item');
     
-    accordionItems.forEach(item => {
+    accordionItems.forEach((item, index) => {
         const header = item.querySelector('.accordion-header');
         const content = item.querySelector('.accordion-content');
-        const icon = header.querySelector('.accordion-icon');
+        const icon = item.querySelector('.accordion-icon');
+        
+        if (!header || !content || !icon) return;
+        
+        // Ajoute les attributs d'accessibilité
+        header.setAttribute('role', 'button');
+        header.setAttribute('tabindex', '0');
+        header.setAttribute('aria-controls', `accordion-content-${index}`);
+        content.setAttribute('id', `accordion-content-${index}`);
+        content.setAttribute('role', 'region');
+        
+        // Initialise l'état
+        const isActive = item.classList.contains('active');
+        header.setAttribute('aria-expanded', isActive.toString());
         
         header.addEventListener('click', () => {
-            const isActive = item.classList.contains('active');
+            const isCurrentlyActive = item.classList.contains('active');
             
             // Ferme tous les autres éléments d'accordéon
             accordionItems.forEach(otherItem => {
-                if (otherItem !== item) {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
                     otherItem.classList.remove('active');
-                    const otherContent = otherItem.querySelector('.accordion-content');
                     const otherIcon = otherItem.querySelector('.accordion-icon');
-                    otherContent.style.display = 'none';
-                    otherIcon.textContent = '+';
-                    otherIcon.style.backgroundColor = '#f5f5f5';
-                    otherIcon.style.color = '#999';
+                    const otherHeader = otherItem.querySelector('.accordion-header');
+                    if (otherIcon) otherIcon.textContent = '+';
+                    if (otherHeader) otherHeader.setAttribute('aria-expanded', 'false');
                 }
             });
             
-            // Ouvre ou ferme l'élément cliqué
-            if (!isActive) {
-                item.classList.add('active');
-                content.style.display = 'block';
-                icon.textContent = '-';
-                icon.style.backgroundColor = '#E74C3C';
-                icon.style.color = 'white';
-            } else {
+            // Toggle l'élément cliqué
+            if (isCurrentlyActive) {
                 item.classList.remove('active');
-                content.style.display = 'none';
                 icon.textContent = '+';
-                icon.style.backgroundColor = '#f5f5f5';
-                icon.style.color = '#999';
+                header.setAttribute('aria-expanded', 'false');
+            } else {
+                item.classList.add('active');
+                icon.textContent = '×';
+                header.setAttribute('aria-expanded', 'true');
+            }
+        });
+        
+        // Gestion du clavier pour l'accessibilité
+        header.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                header.click();
+            }
+            else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                const nextIndex = (index + 1) % accordionItems.length;
+                const nextHeader = accordionItems[nextIndex].querySelector('.accordion-header');
+                if (nextHeader) nextHeader.focus();
+            }
+            else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                const prevIndex = index === 0 ? accordionItems.length - 1 : index - 1;
+                const prevHeader = accordionItems[prevIndex].querySelector('.accordion-header');
+                if (prevHeader) prevHeader.focus();
             }
         });
     });
-    
-    // Ouvre le premier élément par défaut
-    if (accordionItems.length > 0) {
-        const firstItem = accordionItems[0];
-        firstItem.classList.add('active');
-        firstItem.querySelector('.accordion-content').style.display = 'block';
-        firstItem.querySelector('.accordion-icon').textContent = '-';
-        firstItem.querySelector('.accordion-icon').style.backgroundColor = '#E74C3C';
-        firstItem.querySelector('.accordion-icon').style.color = 'white';
-    }
 });
