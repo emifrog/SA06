@@ -1,47 +1,190 @@
 <!DOCTYPE html>
 <html lang="fr">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Message envoyé - Merci !</title>
+    <title>Message envoyé - Merci | SA06</title>
+    <meta name="description" content="Merci d'avoir contacté le Syndicat Autonome 06. Votre message a bien été envoyé et nous vous répondrons dans les plus brefs délais.">
+    <link rel="icon" href="../images/favicon.ico">
+    <link rel="preload" href="../style.css" as="style">
     <link rel="stylesheet" href="../style.css">
-    <style>
-        .thank-you {
-            text-align: center;
-            padding: 4rem 1rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .thank-you h1 {
-            color: #1a365d;
-            margin-bottom: 1.5rem;
-        }
-        .thank-you p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
-        .button {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background-color: #1a365d;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #2c5282;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/france-map.css">
+    <link rel="stylesheet" href="../css/asa-contact.css">
+    <link rel="stylesheet" href="../css/reasons-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS personnalisé pour le menu mobile -->
+    <link rel="stylesheet" href="../css/mobile-menu.css">
+    <!-- CSS pour la barre de progression du slider -->
+    <link rel="stylesheet" href="../css/slider-progress.css">
+    <!-- Font Awesome pour les icônes des réseaux sociaux -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
+
 <body>
-    <main class="thank-you">
-        <h1>Merci pour votre message !</h1>
-        <p>Nous avons bien reçu votre demande et nous vous répondrons dans les plus brefs délais.</p>
-        <p>En attendant, vous pouvez continuer à explorer notre site ou retourner à la page d'accueil.</p>
-        <a href="../index.html" class="button">Retour à l'accueil</a>
+
+    <!-- Contenu principal -->
+    <main id="main-content">
+        <section class="thank-you-section">
+            <div class="container">
+                <div class="thank-you-container">
+                    <div class="thank-you-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h1 class="thank-you-title">Message envoyé avec succès !</h1>
+                    <div class="thank-you-message">
+                        <p>Nous avons bien reçu votre message et vous remercions de l'intérêt que vous portez au <strong>Syndicat Autonome 06</strong>.</p>
+                        <p>Nous examinerons votre demande et vous répondrons dans les plus brefs délais.</p>
+                        <p>En attendant, n'hésitez pas à explorer notre site pour en savoir plus sur notre actualités.</p>
+                    </div>
+                    <div class="thank-you-actions">
+                        <a href="../index.html" class="button button-primary">
+                            <i class="fas fa-home"></i> Retour à l'accueil
+                        </a>
+                        <a href="../pages/actu.html" class="button button-secondary">
+                            <i class="fas fa-newspaper"></i> Voir les actualités
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Footer -->
+    <footer id="pied-de-page" role="contentinfo" tabindex="-1" class="footer">
+        <div class="footer-info">
+            <div class="footer-info-col">
+                <p class="footer-info-title h500">Besoin d&#039;un renseignement ? <br />
+                    Une question à nous poser ?</p>    
+                <a href="contact.html" class="button button--white footer-info-button"><span class="button-label">Nous
+                        contacter</span><i class="button-icon">
+                        <svg aria-hidden="true" class="button-icon-inner icon" viewBox="0 0 16 16">
+                            <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
+                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </i>
+                </a>
+            </div>
+
+            <div class="footer-info-col">
+                <p class="footer-info-title h500">Rejoignez les communautés SA06</p>
+                <a href="../index.html" class="footer-logo">
+                    <img class="footer-info-title-img" src="../images/logo.svg" alt="logo">
+                </a>
+                <div class="footer-networks">                        
+                    <ul class="footer-networks-list">
+                        <li class="footer-networks-item">
+                            <a href="https://www.facebook.com/saspppats06" target="_blank" rel="noopener"
+                                aria-label="Nous suivre sur Facebook - Nouvelle fenêtre" class="footer-networks-link">
+                                <svg aria-hidden="true" class="icon" viewBox="0 0 16 16">
+                                    <path
+                                        d="M16 8.04895C16 3.60355 12.4185 0 8.00101 0C3.58155 0.000999874 0 3.60355 0 8.04995C0 12.0664 2.92563 15.396 6.74917 16V10.3757H4.7194V8.04995H6.75117V6.27521C6.75117 4.25847 7.94602 3.14461 9.77279 3.14461C10.6487 3.14461 11.5636 3.30159 11.5636 3.30159V5.28134H10.5547C9.56181 5.28134 9.25185 5.90226 9.25185 6.53918V8.04895H11.4696L11.1156 10.3747H9.25085V15.999C13.0744 15.395 16 12.0654 16 8.04895Z"
+                                        fill="white" />
+                                </svg>    
+                            </a>
+                        </li>
+                        <li class="footer-networks-item">
+                            <a href="https://www.youtube.com/@saspp06" target="_blank" rel="noopener"
+                                aria-label="Nous suivre sur YouTube - Nouvelle fenêtre" class="footer-networks-link">
+                                <svg aria-hidden="true" class="icon" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8.051 1.99902H8.14C8.962 2.00202 13.127 2.03202 14.25 2.33402C14.5895 2.42619 14.8989 2.60584 15.1471 2.85503C15.3955 3.10422 15.574 3.4142 15.665 3.75402C15.766 4.13402 15.837 4.63702 15.885 5.15602L15.895 5.26002L15.917 5.52002L15.925 5.62402C15.99 6.53802 15.998 7.394 15.999 7.581V7.656C15.998 7.85 15.989 8.764 15.917 9.716L15.909 9.821L15.9 9.925C15.85 10.497 15.776 11.065 15.665 11.483C15.5743 11.823 15.3959 12.1331 15.1475 12.3823C14.8991 12.6316 14.5896 12.8111 14.25 12.903C13.09 13.215 8.681 13.237 8.07 13.238H7.928C7.619 13.238 6.341 13.232 5.001 13.186L4.831 13.18L4.744 13.176L4.573 13.169L4.402 13.162C3.292 13.113 2.235 13.034 1.748 12.902C1.40849 12.8102 1.09907 12.6308 0.850727 12.3817C0.602383 12.1327 0.423847 11.8228 0.333 11.483C0.222 11.066 0.148 10.497 0.098 9.925L0.09 9.82L0.082 9.716C0.0326476 9.0384 0.00529987 8.3594 0 7.68V7.557C0.002 7.342 0.01 6.59902 0.064 5.77902L0.071 5.67602L0.074 5.62402L0.082 5.52002L0.104 5.26002L0.114 5.15602C0.162 4.63702 0.233 4.13302 0.334 3.75402C0.424693 3.41407 0.603162 3.10393 0.851513 2.8547C1.09987 2.60548 1.40937 2.42591 1.749 2.33402C2.236 2.20402 3.293 2.12402 4.403 2.07402L4.573 2.06702L4.745 2.06102L4.831 2.05802L5.002 2.05102C5.95371 2.0204 6.9058 2.00339 7.858 2.00002H8.051V1.99902ZM6.4 5.20902V10.027L10.557 7.619L6.4 5.20902Z"
+                                        fill="white" />
+                                </svg>    
+                            </a>
+                        </li>
+                        <li class="footer-networks-item">
+                            <a href="https://www.tiktok.com/@saspp06" target="_blank" rel="noopener"
+                                aria-label="Nous suivre sur TikTok - Nouvelle fenêtre" class="footer-networks-link">
+                                <svg aria-hidden="true" class="icon" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.0668 3.88C10.6111 3.35975 10.3599 2.69162 10.3601 2H8.30013V10.2667C8.2842 10.714 8.09533 11.1377 7.77326 11.4486C7.4512 11.7595 7.02106 11.9333 6.57344 11.9333C5.62677 11.9333 4.8401 11.16 4.8401 10.2C4.8401 9.05333 5.94677 8.19333 7.0868 8.54667V6.44C4.78677 6.13333 2.77344 7.92 2.77344 10.2C2.77344 12.42 4.61344 14 6.56677 14C8.66013 14 10.3601 12.3 10.3601 10.2V6.00667C11.1955 6.60657 12.1983 6.9284 13.2268 6.92667V4.86667C13.2268 4.86667 11.9735 4.92667 11.0668 3.88Z"
+                                        fill="white" />
+                                </svg>    
+                            </a>
+                        </li>
+                        <li class="footer-networks-item">
+                            <a href="https://www.instagram.com/saspp06/" target="_blank" rel="noopener"
+                                aria-label="Nous suivre sur Instagram - Nouvelle fenêtre" class="footer-networks-link">
+                                <svg aria-hidden="true" class="icon" viewBox="0 0 16 17">
+                                    <path
+                                        d="M10.4252 2.40997H5.57483C3.60368 2.40997 2 4.01365 2 5.9848V10.8351C2 12.8063 3.60368 14.41 5.57483 14.41H10.4252C12.3963 14.41 14 12.8063 14 10.8351V5.9848C14 4.01365 12.3963 2.40997 10.4252 2.40997ZM12.7928 10.8351C12.7928 12.1427 11.7328 13.2028 10.4252 13.2028H5.57483C4.26724 13.2028 3.2072 12.1427 3.2072 10.8351V5.9848C3.2072 4.67722 4.26724 3.61717 5.57483 3.61717H10.4252C11.7328 3.61717 12.7928 4.67722 12.7928 5.9848V10.8351Z"
+                                        fill="white" />
+                                    <path
+                                        d="M7.99992 5.30629C6.28858 5.30629 4.89632 6.69855 4.89632 8.4099C4.89632 10.1212 6.28858 11.5135 7.99992 11.5135C9.71127 11.5135 11.1035 10.1212 11.1035 8.4099C11.1035 6.69855 9.71127 5.30629 7.99992 5.30629ZM7.99992 10.3064C6.95259 10.3064 6.10353 9.45731 6.10353 8.4099C6.10353 7.36257 6.95259 6.5135 7.99992 6.5135C9.04733 6.5135 9.89639 7.36257 9.89639 8.4099C9.89639 9.45723 9.04726 10.3064 7.99992 10.3064Z"
+                                        fill="white" />
+                                    <path
+                                        d="M11.1095 6.33139C11.6628 6.33139 12.1113 5.88285 12.1113 5.32966C12.1113 4.77639 11.6628 4.32785 11.1095 4.32785C10.5563 4.32785 10.1078 4.77639 10.1078 5.32966C10.1078 5.88285 10.5563 6.33139 11.1095 6.33139Z"
+                                        fill="white" />
+                                </svg>    
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-info-col">
+                <p class="footer-info-title h500">Envie de nous rejoindre ?</p>
+                <a href="#" target="_blank" class="button button--white footer-info-button"><span class="button-label">Adhérer</span><i class="button-icon">
+                        <svg aria-hidden="true" class="button-icon-inner icon" viewBox="0 0 16 16">
+                            <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
+                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-nav">
+            <ul class="footer-nav-list">
+                <li class="footer-nav-item">
+                    <a href="#" class="footer-nav-link">©2025 XRWeb</a>
+                </li>
+                <li class="footer-nav-item">
+                    <a href="../plan-du-site.html" class="footer-nav-link">Plan du site</a>
+                </li>
+                <li class="footer-nav-item">
+                    <a href="../legal/legal-mentions.html" class="footer-nav-link">Mentions légales</a>
+                </li>
+                <li class="footer-nav-item">
+                    <a href="../legal/privacy-policy.html" class="footer-nav-link">Politique de confidentialité</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Animation au chargement de la page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ajoute une classe au body pour les animations
+            document.body.classList.add('page-loaded');
+            
+            // Détection de la position de défilement pour les animations
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.animate-on-scroll');
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    if (elementTop < windowHeight - 100) {
+                        element.classList.add('animate');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Vérifie les éléments visibles au chargement
+        });
+    </script>
+
+    <script async src="../main.js"></script>
+    <script src="../js/scroll-to-top.js"></script>
+    <script src="../js/submenu-fix.js"></script>
+    <script src="../js/mobile-menu.js"></script>
+    <script src="../js/slider.js"></script>
+
+    <!-- Bouton de remontée de page -->
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Remonter en haut de page">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 </body>
 </html>
