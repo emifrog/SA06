@@ -1383,6 +1383,28 @@ body {
     /*margin: 2rem;*/
 }
 
+.btn-download {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    text-decoration: none;
+    border-radius: 1rem;
+    transition: background-color .2s ease;
+}
+
+.card-text-adhesion {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.btn-download:hover {
+    background-color: #ed1b24;
+}
+
 .card-form {
     display: flex;
     flex-direction: column;

@@ -1,25 +1,44 @@
 /* Styles modernes pour la page de contact */
 :root {
-    --primary-color: #e63946;
-    --secondary-color: #1d3557;
-    --accent-color: #457b9d;
-    --light-color: #f1faee;
-    --dark-color: #1d3557;
+    --primary-color: #394286;
+    --secondary-color: #ce0e2e;
+    --accent-color: #4a5298;
+    --light-color: #f8fafc;
+    --dark-color: #23272f;
     --success-color: #2ecc71;
     --error-color: #e74c3c;
 
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --card-shadow: 0 8px 40px rgba(57,66,134,0.12), 0 4px 12px rgba(206,14,46,0.08);
+    --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
 }
 
 /* Layout de la page */
 .page-header {
-    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-    padding: 80px 0 40px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    padding: 100px 0 60px;
     margin-bottom: 60px;
     color: white;
     position: relative;
     overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(20px, 20px); }
 }
 
 .page-header::after {
@@ -29,15 +48,30 @@
     left: 0;
     width: 100%;
     height: 100px;
-    background: white;
+    background: linear-gradient(135deg, #f8fafc 0%, #e8eef5 100%);
     border-radius: 50% 50% 0 0;
 }
 
 .page-header h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 10px;
     position: relative;
     z-index: 2;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    animation: slideInDown 0.8s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .breadcrumbs {
@@ -69,7 +103,19 @@
 }
 
 .intro-text {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--dark-color);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+    background: rgba(255,255,255,0.6);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
 .contact h2 {
@@ -84,16 +130,30 @@
 
 /* Formulaire de contact */
 .contact-form-container {
-    background-color: white;
-    border-radius: 12px;
-    padding: 40px;
-    box-shadow: var(--shadow);
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.95) 100%);
+    border-radius: 24px;
+    padding: 50px;
+    box-shadow: var(--card-shadow);
     transition: var(--transition);
+    border: 2px solid rgba(57,66,134,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
 
 .contact-form-container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 60px rgba(57,66,134,0.15), 0 8px 20px rgba(206,14,46,0.1);
+    border-color: rgba(57,66,134,0.2);
 }
 
 .form-group {
@@ -109,25 +169,29 @@
 
 input[type="text"],
 input[type="email"],
+input[type="tel"],
 select,
 textarea {
     width: 100%;
-    padding: 15px;
-    border: 1px solid #e1e1e1;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    padding: 16px;
+    border: 2px solid #e8eef5;
+    border-radius: 12px;
+    background-color: #f8fafc;
     font-size: 16px;
     transition: var(--transition);
+    font-family: 'Roboto', sans-serif;
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
+input[type="tel"]:focus,
 select:focus,
 textarea:focus {
-    border-color: var(--accent-color);
+    border-color: var(--primary-color);
     background-color: white;
     outline: none;
-    box-shadow: 0 0 0 3px rgba(69, 123, 157, 0.2);
+    box-shadow: 0 0 0 4px rgba(57,66,134,0.1);
+    transform: translateY(-2px);
 }
 
 textarea {
@@ -157,25 +221,43 @@ textarea {
 
 /* Bouton d'envoi */
 .submit-btn {
-    background: linear-gradient(135deg, var(--primary-color), #ff6b6b);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
     color: white;
     border: none;
-    padding: 15px 30px;
+    padding: 16px 40px;
     border-radius: 50px;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 600;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+    box-shadow: 0 6px 20px rgba(57,66,134,0.25);
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #ff4d6d 100%);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.submit-btn:hover::before {
+    left: 0;
 }
 
 .submit-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
-    background: linear-gradient(135deg, #ff6b6b, var(--primary-color));
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(57,66,134,0.3), 0 5px 15px rgba(206,14,46,0.15);
 }
 
 .submit-btn:active {
@@ -184,13 +266,14 @@ textarea {
 
 /* Informations de contact */
 .contact-info {
-    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-    border-radius: 12px;
-    padding: 40px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-radius: 24px;
+    padding: 50px;
     color: white;
     height: fit-content;
     position: relative;
     overflow: hidden;
+    box-shadow: var(--card-shadow);
 }
 
 .contact-info::before {
@@ -198,11 +281,17 @@ textarea {
     position: absolute;
     top: 0;
     right: 0;
-    width: 150px;
-    height: 150px;
-    background: rgba(255, 255, 255, 0.1);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
     border-radius: 50%;
     transform: translate(50%, -50%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translate(50%, -50%) scale(1); }
+    50% { transform: translate(50%, -50%) scale(1.1); }
 }
 
 .contact-info h2 {
@@ -216,9 +305,10 @@ textarea {
     position: absolute;
     bottom: -10px;
     left: 0;
-    width: 50px;
+    width: 60px;
     height: 3px;
-    background-color: var(--primary-color);
+    background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.3) 100%);
+    border-radius: 2px;
 }
 
 .contact-info p {
@@ -247,8 +337,8 @@ textarea {
 }
 
 .contact-method:hover i {
-    background-color: var(--primary-color);
-    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: scale(1.15) rotate(5deg);
 }
 
 .contact-method .details {
