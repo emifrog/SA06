@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -26,12 +28,16 @@
                     <span class="bar"></span>
                 </button>
                 <ul class="nav-links">
-                    <li><a href="./asa.html" aria-label="À propos de l'initiative" title="En savoir plus sur l'initiative">À propos</a></li>
-                    <li><a href="./asa.html" aria-label="Comprendre les risques de cancer" title="Découvrir les risques de cancer">Parcours santé</a></li>
-                    <li><a href="./asa.html" aria-label="Mesures de prévention" title="En savoir plus sur la prévention">Complémentaire</a></li>
+                    <li><a href="./asa.html" aria-label="À propos de l'initiative"
+                            title="En savoir plus sur l'initiative">À propos</a></li>
+                    <li><a href="./asa.html" aria-label="Comprendre les risques de cancer"
+                            title="Découvrir les risques de cancer">Parcours santé</a></li>
+                    <li><a href="./asa.html" aria-label="Mesures de prévention"
+                            title="En savoir plus sur la prévention">Complémentaire</a></li>
                     <!--<li><a href="./asa.html" aria-label="Ressources disponibles" title="Consulter les ressources">DUC</a></li>-->
                     <li><a href="./" aria-label="Contactez-nous" title="Nous contacter">Contact</a></li>
-                    <li><a href="../../index.html" target="_blank" rel="noopener noreferrer" aria-label="sa06" title="sa06">SA06</a></li>
+                    <li><a href="../../index.html" target="_blank" rel="noopener noreferrer" aria-label="sa06"
+                            title="sa06">SA06</a></li>
                 </ul>
             </nav>
         </div>
@@ -45,72 +51,74 @@
 
     <section class="section-contact">
         <div class="container">
-            <p class="intro-text">Que vous soyez un sapeur-pompier ou PAT à la recherche d'informations, 
-                un professionnel de santé souhaitant collaborer, n'hésitez pas à nous contacter. 
+            <p class="intro-text">Que vous soyez un sapeur-pompier ou PAT à la recherche d'informations,
+                un professionnel de santé souhaitant collaborer, n'hésitez pas à nous contacter.
                 Nous vous contacterons dans les meilleurs délais.</p>
-            
+
             <div class="content-wrapper">
                 <div class="contact-form-container">
                     <h2 class="contact">Formulaire de contact</h2>
                     <form id="contactForm" class="contact-form">
-                                <div id="formResponse" class="form-response" style="display: none;"></div>
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="name">Nom <span class="required">*</span></label>
-                                        <input type="text" id="name" name="name" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="firstname">Prénom <span class="required">*</span></label>
-                                        <input type="text" id="firstname" name="firstname" required>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="email">Email <span class="required">*</span></label>
-                                        <input type="email" id="email" name="email" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="phone">Téléphone <span class="required">*</span></label>
-                                        <input type="tel" id="phone" name="phone" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="profile">Affectation <span class="required">*</span></label>
-                                    <input type="text" id="profile" name="profile" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="subject">Sujet <span class="required">*</span></label>
-                                    <select id="subject" name="subject" required>
-                                        <option value="">Sélectionnez un sujet</option>
-                                        <option value="info">Contrat prévoyance</option>
-                                        <option value="support">Parcours santé</option>
-                                        <option value="partnership">Accompagnement</option>
-                                        <option value="testimony">DUC 06</option>
-                                        <option value="research">Idées</option>
-                                        <option value="other">Autre</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="message">Message <span class="required">*</span></label>
-                                    <textarea id="message" name="message" rows="6" required></textarea>
-                                </div>
-                                <div class="form-group checkbox-container">
-                                    <input type="checkbox" id="privacy" name="privacy" required>
-                                    <label for="privacy">J'accepte que mes données soient traitées conformément à la <a href="#">politique de confidentialité</a> <span class="required">*</span></label>
-                                </div>
-                                <div class="form-actions">
-                                    <button type="submit" class="submit-btn" id="submitBtn">Envoyer le message</button>
-                                    <div class="loading-spinner" id="loadingSpinner" style="display: none;">
-                                        <i class="fas fa-spinner fa-spin"></i> Envoi en cours...
-                                    </div>
-                                </div>
-                            </form>
+                        <div id="formResponse" class="form-response" style="display: none;"></div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nom <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstname">Prénom <span class="required">*</span></label>
+                                <input type="text" id="firstname" name="firstname" required>
+                            </div>
                         </div>
-                
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Téléphone <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile">Affectation <span class="required">*</span></label>
+                            <input type="text" id="profile" name="profile" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Sujet <span class="required">*</span></label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="info">Contrat prévoyance</option>
+                                <option value="support">Parcours santé</option>
+                                <option value="partnership">Accompagnement</option>
+                                <option value="testimony">DUC 06</option>
+                                <option value="research">Idées</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <div class="form-group checkbox-container">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">J'accepte que mes données soient traitées conformément à la <a
+                                    href="#">politique de confidentialité</a> <span class="required">*</span></label>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="submit-btn" id="submitBtn">Envoyer le message</button>
+                            <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Envoi en cours...
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
                 <div class="contact-info">
                     <h2>Nos coordonnées</h2>
-                    <p>N'hésitez pas à nous contacter directement par téléphone, email ou en nous rendant visite à nos bureaux. Notre équipe est à votre disposition pour répondre à toutes vos questions.</p>
-                    
+                    <p>N'hésitez pas à nous contacter directement par téléphone, email ou en nous rendant visite à nos
+                        bureaux. Notre équipe est à votre disposition pour répondre à toutes vos questions.</p>
+
                     <div class="contact-method">
                         <i class="fas fa-map-marker-alt"></i>
                         <div class="details">
@@ -118,7 +126,7 @@
                             <p>285 Avenue des Maurettes<br>06270 Villeneuve-Loubet<br>France</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-method">
                         <i class="fas fa-envelope"></i>
                         <div class="details">
@@ -126,7 +134,7 @@
                             <p>secretariat.asa06@gmail.com</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-method">
                         <i class="fas fa-clock"></i>
                         <div class="details">
@@ -135,93 +143,113 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <img src="../../images/asa/Logo-ASA06.png" alt="Logo" width="80" height="80">
-                    <p>
-                        L'Association de Solidarité Autonome s'engage auprès de ses adhérents et accompagne leurs familles dans les moments difficiles.
-                    </p>
-                </div>
-                <div class="footer-column">
-                    <h3>Liens rapides</h3>
-                    <ul>
-                        <li><a href="./asa.html#about" aria-label="À propos de l'initiative" title="En savoir plus sur l'initiative">À propos</a></li>
-                        <li><a href="./asa.html#risks" aria-label="Comprendre les risques de cancer" title="Découvrir les risques de cancer">Parcours santé</a></li>
-                        <li><a href="./asa.html#prevention" aria-label="Mesures de prévention" title="En savoir plus sur la prévention">Complémentaire</a></li>
-                        <li><a href="./asa-contact.html" aria-label="Contactez-nous" title="Nous contacter">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li>
-                            <i class="fas fa-map-marker-alt footer-icon"></i>
-                            <p aria-label="Adresse" title="Adresse">285 avenue des Maurettes <br> 06270 Villeneuve-Loubet</p>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope footer-icon"></i>
-                            <p aria-label="Email" title="Email">secretariat.asa06@gmail.com</p>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone footer-icon"></i>
-                            <p aria-label="Téléphone" title="Téléphone">06 64 16 71 90</p>
-                        </li>
-                    </ul>
+                <div class="contact-info">
+                    <h2>Bulletin d'adhésion</h2>
+                    <p>L’Association de Solidarité Autonome s’engage auprès de ses adhérents et accompagne leurs familles dans les moments difficiles.</p>
+                    <div class="contact-method">    
+                        <i class="fas fa-book"></i>
+                        <div class="details">
+                            <a href="../../data/ASA 06 - BULLETIN ADHESION PAT 2026.pdf" target="_blank" class="btn-download">
+                            <h3>Bulletin adhesion ASA06</h3>
+                            </a>
+                        </div>                    
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 XRWeb - Tous droits réservés</p>
-            </div>
-        </div>
-    </footer>
 
-    <!-- Bouton pour remonter en haut de la page -->
-    <button id="back-to-top" class="back-to-top" aria-label="Remonter en haut de la page" title="Haut de page">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+            <footer>
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-column">
+                            <img src="../../images/asa/Logo-ASA06.png" alt="Logo" width="80" height="80">
+                            <p>
+                                L'Association de Solidarité Autonome s'engage auprès de ses adhérents et accompagne
+                                leurs familles dans les moments difficiles.
+                            </p>
+                        </div>
+                        <div class="footer-column">
+                            <h3>Liens rapides</h3>
+                            <ul>
+                                <li><a href="./asa.html#about" aria-label="À propos de l'initiative"
+                                        title="En savoir plus sur l'initiative">À propos</a></li>
+                                <li><a href="./asa.html#risks" aria-label="Comprendre les risques de cancer"
+                                        title="Découvrir les risques de cancer">Parcours santé</a></li>
+                                <li><a href="./asa.html#prevention" aria-label="Mesures de prévention"
+                                        title="En savoir plus sur la prévention">Complémentaire</a></li>
+                                <li><a href="./asa-contact.html" aria-label="Contactez-nous"
+                                        title="Nous contacter">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            <h3>Contact</h3>
+                            <ul>
+                                <li>
+                                    <i class="fas fa-map-marker-alt footer-icon"></i>
+                                    <p aria-label="Adresse" title="Adresse">285 avenue des Maurettes <br> 06270
+                                        Villeneuve-Loubet</p>
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope footer-icon"></i>
+                                    <p aria-label="Email" title="Email">secretariat.asa06@gmail.com</p>
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone footer-icon"></i>
+                                    <p aria-label="Téléphone" title="Téléphone">06 64 16 71 90</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2025 XRWeb - Tous droits réservés</p>
+                    </div>
+                </div>
+            </footer>
 
-    <script>
-        // Script pour le bouton de retour en haut de page
-        const backToTopButton = document.getElementById("back-to-top");
-        
-        // Afficher le bouton quand l'utilisateur descend de 300px depuis le haut
-        window.onscroll = function() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                backToTopButton.style.display = "block";
-            } else {
-                backToTopButton.style.display = "none";
-            }
-        };
-        
-        // Remonter en haut quand l'utilisateur clique sur le bouton
-        backToTopButton.addEventListener("click", function() {
-            document.body.scrollTop = 0; // Pour Safari
-            document.documentElement.scrollTop = 0; // Pour Chrome, Firefox, IE et Opera
-        });
+            <!-- Bouton pour remonter en haut de la page -->
+            <button id="back-to-top" class="back-to-top" aria-label="Remonter en haut de la page" title="Haut de page">
+                <i class="fas fa-arrow-up"></i>
+            </button>
 
-        // Script pour le menu mobile
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const body = document.body;
-        const navLinks = document.querySelectorAll('.nav-links a');
+            <script>
+                // Script pour le bouton de retour en haut de page
+                const backToTopButton = document.getElementById("back-to-top");
 
-        // Ouvrir/fermer le menu mobile
-        mobileMenuToggle.addEventListener('click', function() {
-            body.classList.toggle('mobile-menu-open');
-        });
+                // Afficher le bouton quand l'utilisateur descend de 300px depuis le haut
+                window.onscroll = function () {
+                    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                        backToTopButton.style.display = "block";
+                    } else {
+                        backToTopButton.style.display = "none";
+                    }
+                };
 
-        // Fermer le menu mobile quand on clique sur un lien
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                body.classList.remove('mobile-menu-open');
-            });
-        });
-    </script>
-    <script src="../../main.js"></script>
-    <script src="../../js/asa.js"></script>
+                // Remonter en haut quand l'utilisateur clique sur le bouton
+                backToTopButton.addEventListener("click", function () {
+                    document.body.scrollTop = 0; // Pour Safari
+                    document.documentElement.scrollTop = 0; // Pour Chrome, Firefox, IE et Opera
+                });
+
+                // Script pour le menu mobile
+                const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+                const body = document.body;
+                const navLinks = document.querySelectorAll('.nav-links a');
+
+                // Ouvrir/fermer le menu mobile
+                mobileMenuToggle.addEventListener('click', function () {
+                    body.classList.toggle('mobile-menu-open');
+                });
+
+                // Fermer le menu mobile quand on clique sur un lien
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function () {
+                        body.classList.remove('mobile-menu-open');
+                    });
+                });
+            </script>
+            <script src="../../main.js"></script>
+            <script src="../../js/asa.js"></script>
 
 </body>
+
 </html>
