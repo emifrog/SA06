@@ -173,7 +173,8 @@ class YouTubePlayer extends HTMLElement {
       iframe.style.border = '0';
       iframe.src = `https://www.youtube.com/embed/${this.videoId}?autoplay=1&rel=0`;
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-      iframe.allowFullscreen = true;
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('frameborder', '0');
       container.appendChild(iframe);
     });
   }

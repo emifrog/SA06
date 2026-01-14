@@ -92,8 +92,27 @@ Votre site SA06 est maintenant une **Progressive Web App** complète avec les fo
 
 ## 🛠 Maintenance et mises à jour
 
+### 🔄 Système de version centralisé
+
+Le site utilise un système de version centralisé pour le cache busting. **Un seul endroit à modifier** :
+
+#### Fichier `sw.js` (ligne 5)
+```javascript
+const APP_VERSION = '1.0.0';  // ← Modifiez uniquement cette valeur
+```
+
+#### Comment mettre à jour
+1. Ouvrez `sw.js`
+2. Incrémentez `APP_VERSION` : `'1.0.0'` → `'1.0.1'`
+3. Sauvegardez et déployez
+4. Les utilisateurs recevront automatiquement la mise à jour
+
+#### Fichiers concernés
+- `sw.js` : Variable `APP_VERSION` utilisée pour le nom du cache
+- `js/version.js` : Script qui ajoute automatiquement `?v=X.X.X` aux ressources CSS/JS
+
 ### Mise à jour du cache
-1. Modifiez la version dans `sw.js` : `CACHE_NAME = 'sa06-v1.0.1'`
+1. Modifiez la version dans `sw.js` : `APP_VERSION = '1.0.1'`
 2. Les utilisateurs recevront automatiquement une notification
 3. Le cache sera mis à jour en arrière-plan
 

@@ -10,17 +10,23 @@ class PWAManager {
         if ('serviceWorker' in navigator) {
             try {
                 const registration = await navigator.serviceWorker.register('/sw.js');
-                console.log('Service Worker enregistré avec succès:', registration);
-                
+
                 // Écouter les mises à jour du service worker
                 registration.addEventListener('updatefound', () => {
                     const newWorker = registration.installing;
                     newWorker.addEventListener('statechange', () => {
                         if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                            this.showUpdateNotification();
+                            // Rechargement automatique silencieux
+                            newWorker.postMessage({ type: 'SKIP_WAITING' });
                         }
                     });
                 });
+
+                // Recharger la page quand le nouveau SW prend le contrôle
+                navigator.serviceWorker.addEventListener('controllerchange', () => {
+                    window.location.reload();
+                });
+
             } catch (error) {
                 console.error('Erreur lors de l\'enregistrement du Service Worker:', error);
             }
@@ -73,38 +79,6 @@ class PWAManager {
         this.hideInstallButton();
     }
 
-    showUpdateNotification() {
-        // Créer une notification de mise à jour
-        const notification = document.createElement('div');
-        notification.id = 'pwa-update-notification';
-        notification.innerHTML = `
-            <div class="pwa-notification">
-                <span>Une nouvelle version est disponible</span>
-                <button onclick="window.pwaManager.updateApp()">Mettre à jour</button>
-                <button onclick="this.parentElement.parentElement.remove()">×</button>
-            </div>
-        `;
-        notification.className = 'pwa-update-banner';
-        
-        document.body.appendChild(notification);
-        
-        // Auto-hide après 10 secondes
-        setTimeout(() => {
-            if (notification.parentElement) {
-                notification.remove();
-            }
-        }, 10000);
-    }
-
-    async updateApp() {
-        if ('serviceWorker' in navigator) {
-            const registration = await navigator.serviceWorker.getRegistration();
-            if (registration && registration.waiting) {
-                registration.waiting.postMessage({ type: 'SKIP_WAITING' });
-                window.location.reload();
-            }
-        }
-    }
 }
 
 // Les styles PWA sont maintenant dans le fichier style.css

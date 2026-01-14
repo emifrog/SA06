@@ -1,4 +1,10 @@
-const CACHE_NAME = 'sa06-v1.0.0';
+/**
+ * ⚠️ VERSION CENTRALISÉE - Modifiez uniquement cette valeur pour forcer le rafraîchissement du cache
+ * Incrémentez la version après chaque modification (ex: 1.0.0 → 1.0.1)
+ */
+const APP_VERSION = '1.0.1';
+
+const CACHE_NAME = 'sa06-v' + APP_VERSION;
 const STATIC_CACHE_URLS = [
   '/',
   '/index.html',
@@ -30,44 +36,27 @@ const STATIC_CACHE_URLS = [
 
 // Installation du service worker
 self.addEventListener('install', (event) => {
-  console.log('Service Worker: Installation en cours...');
-  
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => {
-        console.log('Service Worker: Mise en cache des fichiers statiques');
-        return cache.addAll(STATIC_CACHE_URLS);
-      })
-      .then(() => {
-        console.log('Service Worker: Installation terminée');
-        return self.skipWaiting();
-      })
-      .catch((error) => {
-        console.error('Service Worker: Erreur lors de l\'installation', error);
-      })
+      .then((cache) => cache.addAll(STATIC_CACHE_URLS))
+      .then(() => self.skipWaiting())
   );
 });
 
 // Activation du service worker
 self.addEventListener('activate', (event) => {
-  console.log('Service Worker: Activation en cours...');
-  
   event.waitUntil(
     caches.keys()
       .then((cacheNames) => {
         return Promise.all(
           cacheNames.map((cacheName) => {
             if (cacheName !== CACHE_NAME) {
-              console.log('Service Worker: Suppression de l\'ancien cache', cacheName);
               return caches.delete(cacheName);
             }
           })
         );
       })
-      .then(() => {
-        console.log('Service Worker: Activation terminée');
-        return self.clients.claim();
-      })
+      .then(() => self.clients.claim())
   );
 });
 
@@ -133,12 +122,5 @@ self.addEventListener('fetch', (event) => {
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
-  }
-});
-
-// Notification de mise à jour disponible
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'GET_VERSION') {
-    event.ports[0].postMessage({ version: CACHE_NAME });
   }
 });
