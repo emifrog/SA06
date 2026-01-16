@@ -33,6 +33,54 @@
     <link rel="stylesheet" href="css/reasons-style.css">
     <link rel="stylesheet" href="css/slider-progress.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- OneSignal Push Notifications -->
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script>
+        window.OneSignalDeferred = window.OneSignalDeferred || [];
+        OneSignalDeferred.push(async function(OneSignal) {
+            await OneSignal.init({
+                appId: "9b1c8aba-fd70-45cf-a567-1b0f93bccd9f",
+                notifyButton: {
+                    enable: true,
+                    size: 'medium',
+                    position: 'bottom-left',
+                    prenotify: true,
+                    showCredit: false,
+                    text: {
+                        'tip.state.unsubscribed': 'Recevoir les notifications',
+                        'tip.state.subscribed': 'Notifications activées',
+                        'tip.state.blocked': 'Notifications bloquées',
+                        'message.prenotify': 'Cliquez pour recevoir les actualités du SA06',
+                        'message.action.subscribed': 'Merci ! Vous recevrez nos notifications.',
+                        'message.action.resubscribed': 'Notifications réactivées !',
+                        'message.action.unsubscribed': 'Vous ne recevrez plus de notifications.',
+                        'dialog.main.title': 'Gérer les notifications',
+                        'dialog.main.button.subscribe': 'ACTIVER',
+                        'dialog.main.button.unsubscribe': 'DÉSACTIVER',
+                        'dialog.blocked.title': 'Débloquer les notifications',
+                        'dialog.blocked.message': 'Suivez ces instructions pour autoriser les notifications.'
+                    },
+                    colors: {
+                        'circle.background': '#3262ac',
+                        'circle.foreground': 'white',
+                        'badge.background': '#ed1b24',
+                        'badge.foreground': 'white',
+                        'badge.bordercolor': 'white',
+                        'pulse.color': '#3262ac',
+                        'dialog.button.background.hovering': '#ed1b24',
+                        'dialog.button.background.active': '#3262ac',
+                        'dialog.button.background': '#3262ac',
+                        'dialog.button.foreground': 'white'
+                    }
+                },
+                welcomeNotification: {
+                    title: "Bienvenue sur SA06 !",
+                    message: "Vous recevrez désormais nos actualités syndicales."
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -660,8 +708,7 @@
                 <div class="inserts-text cms">
                     <p>Le Syndicat Autonome est la première force syndicale des SDIS de France. Ce résultat est
                         le fruit du travail et de l’engagement des militants et des militantes du Syndicat Autonome, et le reflet
-                        de la confiance que les travailleurs et les travailleuses leur accordent pour améliorer leurs
-                        droits.</p>
+                        de la confiance que les agents leur accordent pour améliorer leurs droits.</p>
                     <p>Partout en France, sur votre lieu de travail ou près de chez vous, le Syndicat Autonome vous
                         accueillent pour répondre à vos questions et vous accompagner.</p>
                 </div>
@@ -1077,7 +1124,7 @@
                 </div>
                 <div class="footer-info-col">
                     <p class="footer-info-title h500">Envie de nous rejoindre ?</p>
-                    <a href="#" target="_blank" class="button button--white footer-info-button"><span class="button-label">Adhérer</span><i class="button-icon">
+                    <a href="/pages/adherer.html" target="_blank" class="button button--white footer-info-button"><span class="button-label">Adhérer</span><i class="button-icon">
                             <svg aria-hidden="true" class="button-icon-inner icon" viewBox="0 0 16 16">
                                 <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
                                     stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />

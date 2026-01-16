@@ -34,6 +34,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- CSS pour la page de contact -->
 
+    <!-- OneSignal Push Notifications -->
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script>
+        window.OneSignalDeferred = window.OneSignalDeferred || [];
+        OneSignalDeferred.push(async function(OneSignal) {
+            await OneSignal.init({
+                appId: "9b1c8aba-fd70-45cf-a567-1b0f93bccd9f",
+                notifyButton: { enable: true, size: 'medium', position: 'bottom-left' }
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -517,6 +528,12 @@
                                         <p class="form-help-content">Format attendu : email@example.com</p>
                                     </div>
                                 </div>
+                                                                <div class="form-row">
+                                    <label for="contact_firstName" class="form-label">Affectation<span
+                                            aria-hidden="true">*</span></label><input type="text" id="contact_firstName"
+                                        name="firstName" form="contact" required="required" aria-describedby=""
+                                        class="input">
+                                </div>
                                 <div class="form-row">
                                     <label for="contact_subject" class="form-label">Votre demande<span
                                             aria-hidden="true">*</span></label>
@@ -530,8 +547,6 @@
                                                 renseignements</option>
                                             <option value="f3769203-803e-4f46-987e-5ac7172ba351">Question sur l'adhésion
                                                 au SA 06</option>
-                                            <option value="d4710a91-86bd-4479-b5a5-ad38a30eed32">Question sur l'adhésion
-                                                en ligne</option>
                                             <option value="d4710a91-86bd-4479-b5a5-ad38a30eed32">Autre</option>
                                         </select>
 
@@ -661,7 +676,7 @@
             </div>
             <div class="footer-info-col">
                 <p class="footer-info-title h500">Envie de nous rejoindre ?</p>
-                <a href="#" target="_blank" class="button button--white footer-info-button"><span class="button-label">Adhérer</span><i class="button-icon">
+                <a href="/pages/adherer.html" target="_blank" class="button button--white footer-info-button"><span class="button-label">Adhérer</span><i class="button-icon">
                         <svg aria-hidden="true" class="button-icon-inner icon" viewBox="0 0 16 16">
                             <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
                                 stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
