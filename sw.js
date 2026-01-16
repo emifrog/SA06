@@ -2,7 +2,7 @@
  * ⚠️ VERSION CENTRALISÉE - Modifiez uniquement cette valeur pour forcer le rafraîchissement du cache
  * Incrémentez la version après chaque modification (ex: 1.0.0 → 1.0.1)
  */
-const APP_VERSION = '1.0.1';
+const APP_VERSION = '1.1.0';
 
 const CACHE_NAME = 'sa06-v' + APP_VERSION;
 const STATIC_CACHE_URLS = [
