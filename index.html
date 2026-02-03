@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#3262ac">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -497,9 +497,12 @@
                         <li class="slider-item">
                             <article data-theme="burgundy" class="card">
                                 <div class="card-image media-cover">
-                                    <img src="images/actu/finances-scaled.jpg"
-                                        alt="Services publics : premiers en dépense, derniers en efforts ?" width="347"
-                                        height="201" loading="lazy">
+                                    <picture>
+                                        <source srcset="images/actu/finances-scaled.webp" type="image/webp">
+                                        <img src="images/actu/finances-scaled.jpg"
+                                            alt="Services publics : premiers en dépense, derniers en efforts ?" width="347"
+                                            height="201" loading="lazy">
+                                    </picture>
                                 </div>
                                 <h3 class="card-title h400">Services publics : premiers en dépense, derniers en efforts ?</h3><a
                                     href="#"
@@ -523,9 +526,12 @@
                         <li class="slider-item">
                             <article data-theme="orange" class="card">
                                 <div class="card-image media-cover">
-                                    <img src="images/actu/Sapeurs-pompiers.jpg"
-                                        alt="pompier" width="347" height="201"
-                                        loading="lazy">
+                                    <picture>
+                                        <source srcset="images/actu/Sapeurs-pompiers.webp" type="image/webp">
+                                        <img src="images/actu/Sapeurs-pompiers.jpg"
+                                            alt="pompier" width="347" height="201"
+                                            loading="lazy">
+                                    </picture>
                                 </div>
                                 <h3 class="card-title h400">STOP face aux agressions à l’encontre des sapeurs-pompiers</h3><a
                                     href="./pages/actu/STOP face aux agressions à l’encontre des sapeurs-pompiers.html"
@@ -644,9 +650,12 @@
                         <li class="slider-item">
                             <article data-theme="burgundy" class="card">
                                 <div class="card-image media-cover">
-                                    <img src="images/actu/réseaux sociaux.png"
-                                        alt="logos des réseaux sociaux où trouver le SA 06" width="347" height="201"
-                                        loading="lazy">
+                                    <picture>
+                                        <source srcset="images/actu/réseaux sociaux.webp" type="image/webp">
+                                        <img src="images/actu/réseaux sociaux.png"
+                                            alt="logos des réseaux sociaux où trouver le SA 06" width="347" height="201"
+                                            loading="lazy">
+                                    </picture>
                                 </div>
                                 <h3 class="card-title h400">Le Syndicat Autonome 06 sur les réseaux sociaux</h3><a
                                     href="#"
@@ -832,16 +841,26 @@
                     </ol>
 
                     <div class="reasons-image">
-                        <img src="images/pompier.png" alt="" loading="lazy" inert
-                            class="reasons-image-layer">
-                        <img src="images/administratif.jpg" alt="" loading="lazy"
-                            inert class="reasons-image-layer">
-                        <img src="images/technique.jpg" alt="" loading="lazy"
-                            inert class="reasons-image-layer">
-                        <img src="images/justice.jpg" alt="" loading="lazy" inert
-                            class="reasons-image-layer">
-                        <img src="images/FA.jpg" alt="" loading="lazy"
-                            inert class="reasons-image-layer">
+                        <picture>
+                            <source srcset="images/pompier.webp" type="image/webp">
+                            <img src="images/pompier.png" alt="" loading="lazy" inert class="reasons-image-layer">
+                        </picture>
+                        <picture>
+                            <source srcset="images/administratif.webp" type="image/webp">
+                            <img src="images/administratif.jpg" alt="" loading="lazy" inert class="reasons-image-layer">
+                        </picture>
+                        <picture>
+                            <source srcset="images/technique.webp" type="image/webp">
+                            <img src="images/technique.jpg" alt="" loading="lazy" inert class="reasons-image-layer">
+                        </picture>
+                        <picture>
+                            <source srcset="images/justice.webp" type="image/webp">
+                            <img src="images/justice.jpg" alt="" loading="lazy" inert class="reasons-image-layer">
+                        </picture>
+                        <picture>
+                            <source srcset="images/FA.webp" type="image/webp">
+                            <img src="images/FA.jpg" alt="" loading="lazy" inert class="reasons-image-layer">
+                        </picture>
                     </div>
 
                 </div>
@@ -1050,6 +1069,11 @@
                             </svg>
                         </i>
                     </a>
+                    <address class="footer-contact">
+                        <p>285 avenue des Maurettes 06270 Villeneuve-Loubet</p>
+                        <p><a href="mailto:secretariat.asa06@gmail.com">secretariat.asa06@gmail.com</a></p>
+                        <p><a href="tel:+33493348109">04 93 34 81 09</a></p>
+                    </address>
                 </div>
     
                 <div class="footer-info-col">

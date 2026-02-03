@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#3262ac">
+    <link rel="icon" href="../images/favicon.ico">
+    <title>Hors ligne | SA06</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #3262ac 0%, #1e3a6e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: white;
+        }
+
+        .offline-container {
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .offline-icon {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .offline-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .offline-message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .offline-button {
+            display: inline-block;
+            background: white;
+            color: #3262ac;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .offline-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .offline-button:active {
+            transform: translateY(0);
+        }
+
+        .offline-tips {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .offline-tips ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .offline-tips li {
+            margin: 0.5rem 0;
+        }
+
+        .offline-tips li::before {
+            content: "•";
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <svg class="offline-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="white" opacity="0.3"/>
+            <path d="M1 1l22 22M12 3a9 9 0 0 1 8.5 12.15M16.72 11.06A3 3 0 0 0 12.97 8M5 12.55a11 11 0 0 1 2.65-1.9M8.53 16.11a6 6 0 0 1 2.5-.66M12 20a8 8 0 0 1-7.13-4.36" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <h1 class="offline-title">Vous etes hors ligne</h1>
+
+        <p class="offline-message">
+            Il semble que vous n'ayez pas de connexion internet.
+            Verifiez votre connexion et reessayez.
+        </p>
+
+        <button class="offline-button" onclick="window.location.reload()">
+            Reessayer
+        </button>
+
+        <div class="offline-tips">
+            <p>En attendant, vous pouvez :</p>
+            <ul>
+                <li>Verifier votre connexion Wi-Fi ou donnees mobiles</li>
+                <li>Activer puis desactiver le mode avion</li>
+                <li>Vous rapprocher de votre routeur</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Rafraichir automatiquement quand la connexion revient
+        window.addEventListener('online', function() {
+            window.location.reload();
+        });
+    </script>
+</body>
+</html>

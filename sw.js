@@ -2,13 +2,14 @@
  * ⚠️ VERSION CENTRALISÉE - Modifiez uniquement cette valeur pour forcer le rafraîchissement du cache
  * Incrémentez la version après chaque modification (ex: 1.0.0 → 1.0.1)
  */
-const APP_VERSION = '1.1.0';
+const APP_VERSION = '1.2.0';
 
 const CACHE_NAME = 'sa06-v' + APP_VERSION;
 const STATIC_CACHE_URLS = [
   '/',
   '/index.html',
   '/pages/faq.html',
+  '/pages/offline.html',
   '/pages/asa/contact.html',
   '/pages/asa/asa.html',
   '/pages/media.html',
@@ -109,9 +110,9 @@ self.addEventListener('fetch', (event) => {
             return response;
           })
           .catch(() => {
-            // En cas d'erreur réseau, retourner une page hors ligne pour les pages HTML
+            // En cas d'erreur réseau, retourner la page hors ligne pour les pages HTML
             if (event.request.destination === 'document') {
-              return caches.match('/index.html');
+              return caches.match('/pages/offline.html');
             }
           });
       })

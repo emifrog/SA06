@@ -3850,6 +3850,28 @@ margin-top: 2.2rem;
     text-align: center
 }
 
+.footer-contact {
+    font-style: normal;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: white
+}
+
+.footer-contact p {
+    margin: 0.25rem 0
+}
+
+.footer-contact a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.2s ease
+}
+
+.footer-contact a:hover {
+    opacity: 0.8;
+    text-decoration: underline
+}
+
 .footer-info-title {
     margin-bottom: auto;
     line-height: 1.25
@@ -4101,13 +4123,13 @@ margin-top: 2.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 48px;
+    height: 48px;
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.2s ease;
     color: white;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .social-icon:hover {
