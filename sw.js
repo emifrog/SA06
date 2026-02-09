@@ -2,7 +2,9 @@
  * ⚠️ VERSION CENTRALISÉE - Modifiez uniquement cette valeur pour forcer le rafraîchissement du cache
  * Incrémentez la version après chaque modification (ex: 1.0.0 → 1.0.1)
  */
-const APP_VERSION = '1.2.0';
+importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
+
+const APP_VERSION = '1.3.1';
 
 const CACHE_NAME = 'sa06-v' + APP_VERSION;
 const STATIC_CACHE_URLS = [
@@ -10,7 +12,7 @@ const STATIC_CACHE_URLS = [
   '/index.html',
   '/pages/faq.html',
   '/pages/offline.html',
-  '/pages/asa/contact.html',
+  '/pages/asa/asa-contact.html',
   '/pages/asa/asa.html',
   '/pages/media.html',
   '/style.css',
@@ -39,7 +41,16 @@ const STATIC_CACHE_URLS = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(STATIC_CACHE_URLS))
+      .then((cache) => {
+        // Mise en cache tolérante : si un fichier échoue, les autres sont quand même mis en cache
+        return Promise.all(
+          STATIC_CACHE_URLS.map((url) =>
+            cache.add(url).catch((err) => {
+              console.warn('SW: impossible de mettre en cache:', url, err);
+            })
+          )
+        );
+      })
       .then(() => self.skipWaiting())
   );
 });
@@ -81,7 +92,7 @@ self.addEventListener('fetch', (event) => {
   }
 
   event.respondWith(
-    caches.match(event.request)
+    caches.match(event.request, { ignoreSearch: true })
       .then((cachedResponse) => {
         // Si la ressource est en cache, la retourner
         if (cachedResponse) {
@@ -110,9 +121,9 @@ self.addEventListener('fetch', (event) => {
             return response;
           })
           .catch(() => {
-            // En cas d'erreur réseau, retourner la page hors ligne pour les pages HTML
+            // En cas d'erreur réseau, retourner la page d'accueil ou la page hors ligne
             if (event.request.destination === 'document') {
-              return caches.match('/pages/offline.html');
+              return caches.match('/index.html') || caches.match('/pages/offline.html');
             }
           });
       })

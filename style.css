@@ -27,6 +27,33 @@
     display: none;
 }
 
+/* Fix iOS PWA : ameliorer les interactions tactiles */
+a, button, [role="button"], .button, .tertiary-button, .menu-link, .menu-toggle {
+    -webkit-tap-highlight-color: rgba(50, 98, 172, 0.2);
+    cursor: pointer;
+}
+
+/* Empecher le zoom sur les inputs iOS */
+input, select, textarea {
+    font-size: 16px;
+}
+
+/* Safe area pour les encoches iPhone */
+@supports (padding: env(safe-area-inset-bottom)) {
+    body {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+    }
+
+    .footer {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .header {
+        padding-top: env(safe-area-inset-top);
+    }
+}
+
 @font-face {
     font-family: "Gotham Condensed";
     src: url(./fonts/500.f7e8f5253107e6dcf1ec.woff2) format("woff2");

@@ -1,96 +1,77 @@
 /**
  * Script pour corriger le problème d'affichage des sous-menus
+ * Compatible iOS PWA standalone mode
+ *
+ * Utilise uniquement click (pas de double binding touchend)
+ * pour éviter les conflits sur iOS standalone.
  */
 document.addEventListener('DOMContentLoaded', function() {
-    
+
     // Sélectionner tous les boutons qui contrôlent les sous-menus
-    const submenuButtons = document.querySelectorAll('button[aria-controls^="menu-"]');
-        
-    // Ajouter des écouteurs d'événements à chaque bouton
-    submenuButtons.forEach(button => {
-        const submenuId = button.getAttribute('aria-controls');
-        const submenu = document.getElementById(submenuId);
-        
-        // Vérifier si le sous-menu correspondant existe
-        if (submenu) {
-            
-            // Supprimer les écouteurs d'événements existants pour éviter les conflits
-            const newButton = button.cloneNode(true);
-            button.parentNode.replaceChild(newButton, button);
-            
-            // Ajouter un nouvel écouteur d'événement
-            newButton.addEventListener('click', function(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                
-                // Récupérer l'état actuel du sous-menu
-                const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                                
-                // Basculer l'état du sous-menu
-                if (isExpanded) {
-                    // Fermer le sous-menu
-                    this.setAttribute('aria-expanded', 'false');
-                    submenu.setAttribute('data-state', 'closed');
-                } else {
-                    // Fermer les autres sous-menus d'abord
-                    document.querySelectorAll('.submenu[data-state="opened"]').forEach(menu => {
-                        if (menu.id !== submenuId) {
-                            menu.setAttribute('data-state', 'closed');
-                            const otherButton = document.querySelector(`button[aria-controls="${menu.id}"]`);
-                            if (otherButton) {
-                                otherButton.setAttribute('aria-expanded', 'false');
-                            }
-                        }
-                    });
-                    
-                    // Ouvrir ce sous-menu
-                    this.setAttribute('aria-expanded', 'true');
-                    submenu.setAttribute('data-state', 'opened');
-                }
-            });
-        } else {
-        }
-    });
-    
-    // Sélectionner tous les boutons de fermeture des sous-menus
-    const closeButtons = document.querySelectorAll('button[data-close]');
-    
-    // Ajouter des écouteurs d'événements à chaque bouton de fermeture
-    closeButtons.forEach(button => {
-        // Supprimer les écouteurs d'événements existants
-        const newButton = button.cloneNode(true);
+    var submenuButtons = document.querySelectorAll('button[aria-controls^="menu-"]');
+
+    submenuButtons.forEach(function(button) {
+        var submenuId = button.getAttribute('aria-controls');
+        var submenu = document.getElementById(submenuId);
+
+        if (!submenu) return;
+
+        // Supprimer les écouteurs existants via cloneNode
+        var newButton = button.cloneNode(true);
         button.parentNode.replaceChild(newButton, button);
-        
-        // Ajouter un nouvel écouteur d'événement
+
         newButton.addEventListener('click', function(event) {
             event.preventDefault();
             event.stopPropagation();
-            
-            // Récupérer l'ID du sous-menu à partir de l'attribut data-close
-            const submenuId = this.getAttribute('data-close');
-            const submenu = document.getElementById(submenuId);
-            
-            if (submenu) {
-                // Fermer le sous-menu
+
+            var isExpanded = newButton.getAttribute('aria-expanded') === 'true';
+
+            if (isExpanded) {
+                newButton.setAttribute('aria-expanded', 'false');
                 submenu.setAttribute('data-state', 'closed');
-                
-                // Mettre à jour l'état du bouton qui contrôle ce sous-menu
-                const controlButton = document.querySelector(`button[aria-controls="${submenuId}"]`);
-                if (controlButton) {
-                    controlButton.setAttribute('aria-expanded', 'false');
-                }                
+            } else {
+                // Fermer les autres sous-menus
+                document.querySelectorAll('.submenu[data-state="opened"]').forEach(function(menu) {
+                    if (menu.id !== submenuId) {
+                        menu.setAttribute('data-state', 'closed');
+                        var otherButton = document.querySelector('button[aria-controls="' + menu.id + '"]');
+                        if (otherButton) otherButton.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                newButton.setAttribute('aria-expanded', 'true');
+                submenu.setAttribute('data-state', 'opened');
             }
         });
     });
-    
-    // Ajouter un gestionnaire pour fermer les sous-menus en cliquant en dehors
+
+    // Boutons de fermeture des sous-menus
+    var closeButtons = document.querySelectorAll('button[data-close]');
+
+    closeButtons.forEach(function(button) {
+        var newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+
+        newButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            var submenuId = newButton.getAttribute('data-close');
+            var submenu = document.getElementById(submenuId);
+
+            if (submenu) {
+                submenu.setAttribute('data-state', 'closed');
+                var controlButton = document.querySelector('button[aria-controls="' + submenuId + '"]');
+                if (controlButton) controlButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+
+    // Fermer les sous-menus en cliquant en dehors
     document.addEventListener('click', function(event) {
-        // Si on clique en dehors d'un sous-menu ouvert et de son bouton de contrôle
-        document.querySelectorAll('.submenu[data-state="opened"]').forEach(submenu => {
-            const button = document.querySelector(`button[aria-controls="${submenu.id}"]`);
-            
+        document.querySelectorAll('.submenu[data-state="opened"]').forEach(function(submenu) {
+            var button = document.querySelector('button[aria-controls="' + submenu.id + '"]');
             if (button && !submenu.contains(event.target) && !button.contains(event.target)) {
-                // Fermer le sous-menu
                 button.setAttribute('aria-expanded', 'false');
                 submenu.setAttribute('data-state', 'closed');
             }

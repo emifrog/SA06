@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Generateur de Splash Screens iOS - SA06</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 { color: #3262ac; }
+        .info { background: #e8f4fd; padding: 15px; border-radius: 8px; margin: 20px 0; }
+        .screens { display: grid; gap: 10px; margin: 20px 0; }
+        .screen {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button {
+            background: #3262ac;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover { background: #254a87; }
+        canvas { display: none; }
+        .download-all {
+            background: #28a745;
+            padding: 15px 30px;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generateur de Splash Screens iOS</h1>
+
+    <div class="info">
+        <p><strong>Instructions :</strong></p>
+        <ol>
+            <li>Cliquez sur "Generer tous les splash screens"</li>
+            <li>Telechargez chaque image</li>
+            <li>Placez-les dans le dossier <code>images/splash/</code></li>
+        </ol>
+    </div>
+
+    <button class="download-all" onclick="generateAll()">Generer tous les splash screens</button>
+
+    <div class="screens" id="screens"></div>
+
+    <canvas id="canvas"></canvas>
+
+    <script>
+        const splashSizes = [
+            { name: 'splash-1170x2532.png', width: 1170, height: 2532, device: 'iPhone 12/13/14' },
+            { name: 'splash-1125x2436.png', width: 1125, height: 2436, device: 'iPhone X/XS/11 Pro' },
+            { name: 'splash-1242x2688.png', width: 1242, height: 2688, device: 'iPhone XS Max/11 Pro Max' },
+            { name: 'splash-828x1792.png', width: 828, height: 1792, device: 'iPhone XR/11' },
+            { name: 'splash-1179x2556.png', width: 1179, height: 2556, device: 'iPhone 14 Pro' },
+            { name: 'splash-1290x2796.png', width: 1290, height: 2796, device: 'iPhone 14 Pro Max' },
+        ];
+
+        const logo = new Image();
+        logo.crossOrigin = 'anonymous';
+        logo.src = '../images/logo-512x512.png';
+
+        function generateSplash(width, height) {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+
+            canvas.width = width;
+            canvas.height = height;
+
+            // Fond gradient
+            const gradient = ctx.createLinearGradient(0, 0, width, height);
+            gradient.addColorStop(0, '#3262ac');
+            gradient.addColorStop(1, '#1e3a6e');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+
+            // Logo au centre
+            const logoSize = Math.min(width, height) * 0.3;
+            const logoX = (width - logoSize) / 2;
+            const logoY = (height - logoSize) / 2 - 50;
+
+            if (logo.complete) {
+                ctx.drawImage(logo, logoX, logoY, logoSize, logoSize);
+            }
+
+            // Texte
+            ctx.fillStyle = 'white';
+            ctx.font = `bold ${Math.floor(width * 0.08)}px -apple-system, sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.fillText('SA06', width / 2, logoY + logoSize + 80);
+
+            ctx.font = `${Math.floor(width * 0.035)}px -apple-system, sans-serif`;
+            ctx.fillStyle = 'rgba(255,255,255,0.8)';
+            ctx.fillText('Syndicat Autonome 06', width / 2, logoY + logoSize + 130);
+
+            return canvas.toDataURL('image/png');
+        }
+
+        function downloadImage(dataUrl, filename) {
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = dataUrl;
+            link.click();
+        }
+
+        function generateAll() {
+            const container = document.getElementById('screens');
+            container.innerHTML = '';
+
+            logo.onload = () => {
+                splashSizes.forEach((size, index) => {
+                    setTimeout(() => {
+                        const dataUrl = generateSplash(size.width, size.height);
+
+                        const div = document.createElement('div');
+                        div.className = 'screen';
+                        div.innerHTML = `
+                            <span><strong>${size.name}</strong> (${size.device})</span>
+                            <button onclick="downloadImage('${dataUrl}', '${size.name}')">Telecharger</button>
+                        `;
+                        container.appendChild(div);
+
+                        // Auto-download
+                        downloadImage(dataUrl, size.name);
+                    }, index * 500);
+                });
+            };
+
+            if (logo.complete) {
+                logo.onload();
+            }
+        }
+    </script>
+</body>
+</html>

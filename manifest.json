@@ -2,12 +2,13 @@
   "name": "Syndicat Autonome 06 - SA06",
   "short_name": "SA06",
   "description": "Site officiel du Syndicat Autonome 06, 1ère force syndicale du SDIS 06",
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#3262ac",
   "orientation": "portrait-primary",
   "scope": "/",
+  "id": "/",
   "lang": "fr",
   "categories": ["business", "productivity", "social"],
   "icons": [
@@ -64,7 +65,7 @@
       "name": "Contact",
       "short_name": "Contact",
       "description": "Contacter le SA06",
-      "url": "/pages/asa/contact.html",
+      "url": "/pages/asa/asa-contact.html",
       "icons": [
         {
           "src": "images/logo.svg",
