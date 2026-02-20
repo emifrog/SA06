@@ -3,7 +3,7 @@ class PWAManager {
     constructor() {
         this.deferredPrompt = null;
         this.isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-                     (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+                     (navigator.maxTouchPoints > 1 && /Macintosh/.test(navigator.userAgent));
         this.isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches ||
                                    window.navigator.standalone === true;
         this.init();
@@ -79,8 +79,8 @@ class PWAManager {
     }
 
     showIOSInstallGuide() {
-        // Ne pas afficher si déjà fermé récemment
-        if (sessionStorage.getItem('iosInstallDismissed')) return;
+        // Ne pas afficher si deja ferme (persiste entre les sessions)
+        if (localStorage.getItem('iosInstallDismissed')) return;
 
         const guide = document.createElement('div');
         guide.id = 'iosInstallGuide';
@@ -114,7 +114,7 @@ class PWAManager {
 
         guide.querySelector('.ios-install-close').addEventListener('click', () => {
             this.hideIOSInstallGuide();
-            sessionStorage.setItem('iosInstallDismissed', 'true');
+            localStorage.setItem('iosInstallDismissed', 'true');
         });
     }
 
