@@ -1425,7 +1425,7 @@ body {
     margin-top: 2rem;
     font-size: 1.2rem;
     text-align: center;
-    text-decoration: underline;
+    padding-bottom: 20px;
 }
 
 .btn-download:hover {
