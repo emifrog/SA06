@@ -3,7 +3,8 @@
     src: url(./fonts/400.dab51d49a849b6d8f686.woff2) format("woff2");
     font-weight: 400;
     font-style: normal;
-    font-stretch: normal
+    font-stretch: normal;
+    font-display: swap
 }
 
 @font-face {
@@ -11,7 +12,8 @@
     src: url(./fonts/600.eb71c9a6d07078c796d5.woff2) format("woff2");
     font-weight: 600;
     font-style: normal;
-    font-stretch: normal
+    font-stretch: normal;
+    font-display: swap
 }
 
 @font-face {
@@ -19,7 +21,8 @@
     src: url(./fonts/700.06b94e213fba202200b6.woff2) format("woff2");
     font-weight: 700;
     font-style: normal;
-    font-stretch: normal
+    font-stretch: normal;
+    font-display: swap
 }
 
 /* Classe pour cacher le champ honeypot de Netlify Forms */
@@ -59,7 +62,8 @@ input, select, textarea {
     src: url(./fonts/500.f7e8f5253107e6dcf1ec.woff2) format("woff2");
     font-weight: 500;
     font-style: normal;
-    font-stretch: normal
+    font-stretch: normal;
+    font-display: swap
 }
 
 @keyframes spin {
@@ -1067,8 +1071,8 @@ body {
 
 .modal-close {
     display: flex;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2.75rem;
+    height: 2.75rem;
     justify-content: center;
     align-items: center
 }
@@ -3074,11 +3078,6 @@ mark {
 }
 
 
-@media(max-width: 47.96875rem) {
-    :has(.sticky-actions) .tarteaucitronIconBottomRight {
-        bottom: 3.5rem
-    }
-}
 
 .header {
     width: 100%;

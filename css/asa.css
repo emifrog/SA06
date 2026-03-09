@@ -807,13 +807,18 @@ footer .container {
 
 .close {
     position: absolute;
-    top: 20px;
-    right: 30px;
+    top: 12px;
+    right: 12px;
     color: #fff;
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
     transition: color 0.3s ease;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .close:hover,
@@ -922,7 +927,8 @@ footer .container {
     }
 
     .hero img {
-        height: 250px;
+        height: auto;
+        max-height: 250px;
     }
     
     .hero h2 {
@@ -1691,7 +1697,7 @@ font-size: 1.5rem;
 }
 
 .slider {
-height: 400px;
+height: clamp(280px, 55vw, 400px);
 }
 
 .slide-content {
