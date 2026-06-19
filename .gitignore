@@ -1,0 +1,17 @@
+# Dépendances
+node_modules/
+
+# Fichiers temporaires Claude
+tmpclaude-*
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+*.swp
+*~

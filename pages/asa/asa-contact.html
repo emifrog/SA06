@@ -4,9 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- Préconnexion aux origines tierces -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.onesignal.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Préchargement des polices critiques -->
+    <link rel="preload" href="../../fonts/400.dab51d49a849b6d8f686.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../fonts/700.06b94e213fba202200b6.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="icon" type="image/png" href="../../images/asa/favicon.png">
 
     <title>Contact | Cancer chez les Sapeurs-Pompiers</title>
+    <meta name="description"
+        content="Contactez l'Association Solidarité Autonome (ASA 06) : solidarité et accompagnement face au cancer chez les sapeurs-pompiers.">
+
     <link rel="stylesheet" href="../../css/asa.css">
     <link rel="stylesheet" href="../../css/asa-contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -32,7 +43,7 @@
             <nav class="navbar">
                 <div class="logo">
                     <a href="asa.html" aria-label="Retour à l'accueil" title="Retour à l'accueil">
-                        <img src="../../images/asa/logo-remove.png" alt="Logo">
+                        <img width="483" height="464" src="../../images/asa/logo-remove.png" alt="Logo">
                     </a>
                 </div>
                 <button class="mobile-menu-toggle" aria-label="Ouvrir le menu" title="Menu">
@@ -257,9 +268,9 @@
                     });
                 });
             </script>
-            <script src="../../main.js"></script>
-            <script src="../../js/asa.js"></script>
-            <script src="../../js/pwa.js"></script>
+            <script defer src="../../main.js"></script>
+            <script defer src="../../js/asa.js"></script>
+            <script defer src="../../js/pwa.js"></script>
 
 </body>
 

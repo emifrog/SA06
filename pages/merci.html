@@ -5,15 +5,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- Préconnexion aux origines tierces -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.onesignal.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Préchargement des polices critiques -->
+    <link rel="preload" href="../fonts/400.dab51d49a849b6d8f686.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../fonts/700.06b94e213fba202200b6.woff2" as="font" type="font/woff2" crossorigin>
     <title>Message envoyé - Merci | SA06</title>
     <meta name="description" content="Merci d'avoir contacté le Syndicat Autonome 06. Votre message a bien été envoyé et nous vous répondrons dans les plus brefs délais.">
     <link rel="icon" href="../images/favicon.ico">
-    <link rel="preload" href="../style.css" as="style">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/france-map.css">
     <link rel="stylesheet" href="../css/asa-contact.css">
     <link rel="stylesheet" href="../css/reasons-style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- CSS personnalisé pour le menu mobile -->
     <link rel="stylesheet" href="../css/mobile-menu.css">
     <!-- CSS pour la barre de progression du slider -->
@@ -83,7 +89,7 @@
             <div class="footer-info-col">
                 <p class="footer-info-title h500">Rejoignez les communautés SA06</p>
                 <a href="../index.html" class="footer-logo">
-                    <img class="footer-info-title-img" src="../images/logo.svg" alt="logo">
+                    <img width="660" height="660" class="footer-info-title-img" src="../images/logo.svg" alt="logo">
                 </a>
                 <div class="footer-networks">                        
                     <ul class="footer-networks-list">
@@ -188,12 +194,12 @@
         });
     </script>
 
-    <script async src="../main.js"></script>
-    <script src="../js/scroll-to-top.js"></script>
-    <script src="../js/submenu-fix.js"></script>
-    <script src="../js/mobile-menu.js"></script>
-    <script src="../js/slider.js"></script>
-    <script src="../js/pwa.js"></script>
+    <script defer src="../main.js"></script>
+    <script defer src="../js/scroll-to-top.js"></script>
+    <script defer src="../js/submenu-fix.js"></script>
+    <script defer src="../js/mobile-menu.js"></script>
+    <script defer src="../js/slider.js"></script>
+    <script defer src="../js/pwa.js"></script>
 
     <!-- Bouton de remontée de page -->
     <button id="scroll-to-top" class="scroll-to-top" aria-label="Remonter en haut de page">

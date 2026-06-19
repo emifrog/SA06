@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Pages techniques non destinées à l'indexation
+Disallow: /pages/merci.html
+Disallow: /pages/offline.html
+Disallow: /pages/search.html
+
+Sitemap: https://sa06.org/sitemap.xml

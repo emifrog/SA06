@@ -6,26 +6,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
+    <!-- Préconnexion aux origines tierces -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.onesignal.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Préchargement des polices critiques -->
+    <link rel="preload" href="../../fonts/400.dab51d49a849b6d8f686.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../fonts/700.06b94e213fba202200b6.woff2" as="font" type="font/woff2" crossorigin>
+
     <link rel="icon" href="../../images/favicon.ico">
 
-    <title>Bienvenue sur le site du Syndicat Autonome 06, 1ère force syndicale du SDIS 06 | SA06</title>
+    <title>Le droit de grève des sapeurs-pompiers | SA06</title>
 
     <meta name="description"
-        content="Rejoignez le Syndicat Autonome 06, pour améliorer vos droits et conditions de travail.">
+        content="Le droit de grève des sapeurs-pompiers expliqué par le Syndicat Autonome 06 : cadre légal, modalités et garanties au SDIS 06.">
 
-    <meta property="og:title" content="Bienvenue sur le site du Syndicat Autonome 06">
+    <meta property="og:title" content="Le droit de grève des sapeurs-pompiers | SA06">
 
     <meta property="og:description"
-        content="Rejoignez le Syndicat Autonome 06, pour améliorer vos droits et conditions de travail.">
+        content="Le droit de grève des sapeurs-pompiers expliqué par le Syndicat Autonome 06 : cadre légal, modalités et garanties au SDIS 06.">
 
     <meta property="og:type" content="site web">
     <meta property="og:url" content="#">
 
-    <link rel="preload" href="../../style.css" as="style">
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="../../css/france-map.css">
     <link rel="stylesheet" href="../../css/reasons-style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- CSS personnalisé pour le menu mobile -->
     <link rel="stylesheet" href="../../css/mobile-menu.css">
     <!-- CSS pour la barre de progression du slider -->
@@ -52,7 +58,7 @@
         <div class="container">
             <div class="header-wrapper">
                 <a href="../../index.html" class="header-logo">
-                    <img src="../../images/logo.svg" alt="Logo SA06" class="header-logo-image">
+                    <img width="660" height="660" src="../../images/logo.svg" alt="Logo SA06" class="header-logo-image">
                     <span class="header-logo-tagline">SYNDICAT AUTONOME 06</span>
                 </a>
 
@@ -95,20 +101,20 @@
                                 <li class="menu-item">
                                     <a href="../../pages/adherer.html" target="_blank" rel="noopener noreferrer" class="menu-button menu-button-bleu">
                                         <span class="menu-button-label">Adhérer</span>
-                                        <img class="menu-button-icon" src="../../images/like.png" alt="Adhérer">
+                                        <img width="500" height="500" class="menu-button-icon" src="../../images/like.png" alt="Adhérer">
                                     </a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="../../pages/contact.html" target="_blank" rel="noopener noreferrer" class="menu-button menu-button-bleu">
                                         <span class="menu-button-label">Contactez-nous</span>
-                                        <img class="menu-button-icon" src="../../images/enveloppe.png" alt="Contact">
+                                        <img width="512" height="512" class="menu-button-icon" src="../../images/enveloppe.png" alt="Contact">
                                     </a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="../../pages/faq.html" target="_blank" rel="noopener noreferrer"
                                         class="menu-button menu-button-bleu">
                                         <span class="menu-button-label">FAQ</span>
-                                        <img class="menu-button-icon" src="../../images/interrogation.png" alt="FAQ">
+                                        <img width="263" height="461" class="menu-button-icon" src="../../images/interrogation.png" alt="FAQ">
                                     </a>
                                 </li>
                             </ul>
@@ -400,7 +406,7 @@
 
                                 <li class="menu-item">
                                     <a href="../asa/asa.html" target="_blank" rel="noopener noreferrer" class="menu-link menu-link--primary">
-                                        <img class="menu-item-asa" src="../../images/asa/Logo-ASA06.png" alt="ASA">
+                                        <img width="483" height="464" class="menu-item-asa" src="../../images/asa/Logo-ASA06.png" alt="ASA">
                                     </a>
                                 </li>
                             </ul>
@@ -603,7 +609,7 @@
                 <div class="footer-info-col">
                     <p class="footer-info-title h500">Rejoignez les communautés SA06</p>
                     <a href="../index.html" class="footer-logo">
-                        <img class="footer-info-title-img" src="../../images/logo.svg" alt="logo">
+                        <img width="660" height="660" class="footer-info-title-img" src="../../images/logo.svg" alt="logo">
                     </a>
                     <div class="footer-networks">                        
                         <ul class="footer-networks-list">
@@ -685,13 +691,13 @@
             </div>
         </footer>    
 
-    <script async src="../../main.js"></script>
-    <script src="../../js/france-map.js"></script>
-    <script src="../../js/scroll-to-top.js"></script>
-    <script src="../../js/submenu-fix.js"></script>
-    <script src="../../js/mobile-menu.js"></script>
-    <script src="../../js/slider.js"></script>
-    <script src="../../js/pwa.js"></script>
+    <script defer src="../../main.js"></script>
+    <script defer src="../../js/france-map.js"></script>
+    <script defer src="../../js/scroll-to-top.js"></script>
+    <script defer src="../../js/submenu-fix.js"></script>
+    <script defer src="../../js/mobile-menu.js"></script>
+    <script defer src="../../js/slider.js"></script>
+    <script defer src="../../js/pwa.js"></script>
 
     <!-- Bouton de remontée de page -->
     <button id="scroll-to-top" class="scroll-to-top" aria-label="Remonter en haut de page">
