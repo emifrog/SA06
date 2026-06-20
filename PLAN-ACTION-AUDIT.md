@@ -142,23 +142,23 @@
 
 ## Phase 3 — Moyen terme (chantiers de fond)
 
-- [ ] **3.1 — Factoriser header / menu / footer** ⭐⭐⭐ 🔴
+- [ ] (reporté) **3.1 — Factoriser header / menu / footer** ⭐⭐⭐ 🔴
   - ~390 lignes de header + ~95 de footer copiées-collées dans 14 pages.
   - Action : passer à un générateur statique (Eleventy/11ty) ou des includes SSI Apache.
-- [ ] **3.2 — Minifier CSS/JS au build** ⭐⭐ 🟡
+- [ ] (reporté) **3.2 — Minifier CSS/JS au build** ⭐⭐ 🟡
   - `style.css` 148 Ko (1 284 lignes vides) → ~90 Ko. Mettre en place un pipeline (cssnano/csso, esbuild).
-- [ ] **3.3 — Alléger Font Awesome** ⭐⭐ 🟡
+- [ ] (reporté) **3.3 — Alléger Font Awesome** ⭐⭐ 🟡
   - `all.min.css` complet (~150 Ko) pour ~24 icônes utilisées → sous-ensemble SVG. Gain ~140-180 Ko.
-- [ ] **3.4 — Purger le CSS inutilisé** ⭐⭐ 🟡 — PurgeCSS (vestiges de thème), gain potentiel 30-50 %.
-- [ ] **3.5 — Durcir la CSP** ⭐⭐ 🔴
+- [ ] (reporté) **3.4 — Purger le CSS inutilisé** ⭐⭐ 🟡 — PurgeCSS (vestiges de thème), gain potentiel 30-50 %.
+- [x] **3.5 — Durcir la CSP** ⭐⭐ 🔴
   - Retirer `'unsafe-inline'` de `script-src` (externaliser le script OneSignal inline), ajouter SRI sur Font Awesome, `frame-ancestors 'none'`, restreindre `img-src`.
-- [ ] **3.6 — Ajouter Brotli + compresser le SVG** ⭐⭐ 🟢
+- [x] **3.6 — Ajouter Brotli + compresser le SVG** ⭐⭐ 🟢
   - Bloc `mod_brotli` dans `.htaccess` + inclure `image/svg+xml` dans DEFLATE.
-- [ ] **3.7 — Harmoniser la marque et les domaines** ⭐⭐ 🟡
+- [x] **3.7 — Harmoniser la marque et les domaines** ⭐⭐ 🟡
   - Unifier SA06 / ASA06 / ASA 06 ; un seul domaine de référence (`sa06.org`) dans les liens de partage (`saspp06.fr` utilisé dans les mailto).
   - Purger les vestiges du template CFDT (liens morts `cfdt.fr`, `qui-est-la-cfdt`, `index.html:705,728,751`).
-- [ ] **3.8 — Retirer les `console.log` de production** ⭐ 🟢 — `main.js`, `js/pwa.js`, `js/france-map.js`, `sw.js:49`.
-- [ ] **3.9 — Stratégie de cache images du SW** ⭐ 🟡 — plafonner/purger le cache runtime (sinon gonflement illimité).
+- [x] **3.8 — Retirer les `console.log` de production** ⭐ 🟢 — `main.js`, `js/pwa.js`, `js/france-map.js`, `sw.js:49`.
+- [x] **3.9 — Stratégie de cache images du SW** ⭐ 🟡 — plafonner/purger le cache runtime (sinon gonflement illimité).
 
 ---
 
@@ -168,6 +168,6 @@
 |---|---|---|---|
 | Phase 1 — Quick wins | 9 | ~1 jour | ✅ Fait (19/06/2026) |
 | Phase 2 — Court terme | 23 | ~1-2 semaines | ✅ Fait (20/06/2026) |
-| Phase 3 — Moyen terme | 9 | chantiers de fond | ⬜ À faire |
+| Phase 3 — Moyen terme | 9 | chantiers de fond | 🟡 5/9 faits (20/06/2026) — 3.1/3.2/3.3/3.4 reportés (nécessitent un système de build) |
 
 > Recommandation : enchaîner Phase 1 d'un bloc (fort impact, faible risque), puis traiter la Phase 2 par lots thématiques (SEO, puis A11y, puis Sécurité/PWA).

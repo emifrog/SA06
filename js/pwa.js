@@ -55,7 +55,6 @@ class PWAManager {
 
         // Gérer l'installation de l'app
         window.addEventListener('appinstalled', () => {
-            console.log('PWA installée avec succès');
             this.hideInstallButton();
             this.hideIOSInstallGuide();
             this.deferredPrompt = null;
@@ -128,12 +127,6 @@ class PWAManager {
 
         this.deferredPrompt.prompt();
         const { outcome } = await this.deferredPrompt.userChoice;
-
-        if (outcome === 'accepted') {
-            console.log('Utilisateur a accepté l\'installation');
-        } else {
-            console.log('Utilisateur a refusé l\'installation');
-        }
 
         this.deferredPrompt = null;
         this.hideInstallButton();

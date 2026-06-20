@@ -420,11 +420,7 @@ if (document.readyState === 'loading') {
 }
 
 function initContactForm() {
-    const form = document.querySelector('form[action*="formspree.io"]');
-    if (form) {
-        // La validation se fera via l'attribut onsubmit du formulaire
-        console.log('Formulaire de contact initialisé');
-    }
+    // La validation se fait via l'attribut onsubmit du formulaire (validateContactForm).
 }
 
 // Fonction de validation du formulaire

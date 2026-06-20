@@ -4,9 +4,24 @@
  */
 importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
 
-const APP_VERSION = '1.4.0';
+const APP_VERSION = '1.4.1';
 
 const CACHE_NAME = 'sa06-v' + APP_VERSION;
+// Cache des ressources mises en cache à la volée (images de contenu, etc.),
+// séparé du précache et plafonné pour éviter une croissance illimitée.
+const RUNTIME_CACHE = 'sa06-runtime-v' + APP_VERSION;
+const RUNTIME_MAX_ENTRIES = 60;
+
+// Limite le nombre d'entrées d'un cache (suppression des plus anciennes)
+async function trimCache(cacheName, maxEntries) {
+  const cache = await caches.open(cacheName);
+  const keys = await cache.keys();
+  if (keys.length > maxEntries) {
+    for (let i = 0; i < keys.length - maxEntries; i++) {
+      await cache.delete(keys[i]);
+    }
+  }
+}
 const STATIC_CACHE_URLS = [
   '/',
   '/index.html',
@@ -68,7 +83,8 @@ self.addEventListener('activate', (event) => {
       .then((cacheNames) => {
         return Promise.all(
           cacheNames.map((cacheName) => {
-            if (cacheName !== CACHE_NAME) {
+            // Conserver le précache et le cache runtime de la version courante
+            if (cacheName !== CACHE_NAME && cacheName !== RUNTIME_CACHE) {
               return caches.delete(cacheName);
             }
           })
@@ -116,13 +132,15 @@ self.addEventListener('fetch', (event) => {
             // Cloner la réponse pour la mettre en cache
             const responseToCache = response.clone();
 
-            caches.open(CACHE_NAME)
-              .then((cache) => {
-                // Mettre en cache seulement les ressources de notre domaine
-                if (!isExternal || isFont) {
-                  cache.put(event.request, responseToCache);
-                }
+            // Ne mettre en cache que les ressources de notre domaine (ou fonts/CDN).
+            // Les ressources non précachées vont dans le cache runtime plafonné,
+            // ce qui borne la taille du cache des images de contenu.
+            if (!isExternal || isFont) {
+              caches.open(RUNTIME_CACHE).then((cache) => {
+                cache.put(event.request, responseToCache);
+                trimCache(RUNTIME_CACHE, RUNTIME_MAX_ENTRIES);
               });
+            }
 
             return response;
           })
