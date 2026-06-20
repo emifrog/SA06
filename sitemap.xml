@@ -76,8 +76,23 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://sa06.org/pages/actu/STOP%20face%20aux%20agressions%20%C3%A0%20l%E2%80%99encontre%20des%20sapeurs-pompiers.html</loc>
+    <loc>https://sa06.org/pages/actu/stop-agressions-sapeurs-pompiers.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sa06.org/plan-du-site.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://sa06.org/legal/legal-mentions.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://sa06.org/legal/privacy-policy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
 </urlset>

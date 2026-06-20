@@ -75,66 +75,66 @@
 
 ### SEO
 
-- [ ] **2.1 — Ajouter les balises `canonical`** ⭐⭐⭐ 🟡 — aucune page n'en a aujourd'hui.
-- [ ] **2.2 — Réparer le partage social** ⭐⭐ 🟡
+- [x] **2.1 — Ajouter les balises `canonical`** ⭐⭐⭐ 🟡 — aucune page n'en a aujourd'hui.
+- [x] **2.2 — Réparer le partage social** ⭐⭐ 🟡
   - Ajouter `og:image` (1200×630) sur toutes les pages.
   - `og:type` : `website` (et `article` pour `pages/actu/*`) au lieu de `site web` (invalide).
   - `og:url` : URL absolue réelle au lieu de `#` sur les pages internes.
   - Ajouter les Twitter Cards (`twitter:card=summary_large_image`).
-- [ ] **2.3 — Données structurées JSON-LD** ⭐⭐ 🟡
+- [x] **2.3 — Données structurées JSON-LD** ⭐⭐ 🟡
   - `Organization`/`NGO` sur l'accueil (logo, sameAs réseaux sociaux déjà présents).
   - `NewsArticle` sur `pages/actu/*` (dates `<time>`, images, fils d'Ariane déjà présents).
   - `BreadcrumbList`, `FAQPage`, `VideoObject` selon les pages.
   - Ajouter `datetime` aux balises `<time>` (`pages/actu/*:667`, `videos/*:496`).
-- [ ] **2.4 — Corriger les liens internes cassés** ⭐⭐⭐ 🟡
+- [x] **2.4 — Corriger les liens internes cassés** ⭐⭐⭐ 🟡
   - Chemins `./pages/...` depuis une page déjà dans `/pages/` → `/pages/pages/...` (`faq.html:103,110`, `media.html:102,108`, `actu/*:90`).
   - `../adherer.html` depuis `/pages/` → `/adherer.html` inexistant (`faq.html:637`, `droits/*`).
   - Lien « Adhérer » vers `#` (`merci.html:141`).
-- [ ] **2.5 — Renommer le fichier à espaces/apostrophe** ⭐ 🟢
+- [x] **2.5 — Renommer le fichier à espaces/apostrophe** ⭐ 🟢
   - `pages/actu/STOP face aux agressions à l'encontre des sapeurs-pompiers.html` → `stop-agressions-sapeurs-pompiers.html` (+ MAJ du lien `actu.html:566`).
-- [ ] **2.6 — Corriger la hiérarchie des titres** ⭐ 🟡 — sauts h1→h3 (`droits/conges.html`, `actu/rapportCDG.html`).
+- [x] **2.6 — Corriger la hiérarchie des titres** ⭐ 🟡 — sauts h1→h3 (`droits/conges.html`, `actu/rapportCDG.html`).
 
 ### Accessibilité
 
-- [ ] **2.7 — Lien d'évitement « Aller au contenu »** ⭐⭐⭐ 🟢
+- [x] **2.7 — Lien d'évitement « Aller au contenu »** ⭐⭐⭐ 🟢
   - Le CSS existe (`style.css:1090`) et `<main id="contenu-principal" tabindex="-1">` est prêt — le `<a>` manque dans le HTML.
-- [ ] **2.8 — Rendre la carte de France accessible au clavier** ⭐⭐⭐ 🟡
+- [x] **2.8 — Rendre la carte de France accessible au clavier** ⭐⭐⭐ 🟡
   - `js/france-map.js:67-81` : ajouter `tabindex="0"`, `role="button"`, `aria-label`, gestion `keydown` (Enter/Espace). Ne pas signaler la sélection par la seule couleur.
-- [ ] **2.9 — Fiabiliser le menu mobile** ⭐⭐ 🟡
+- [x] **2.9 — Fiabiliser le menu mobile** ⭐⭐ 🟡
   - `js/mobile-menu.js` : fermeture par Échap, confinement du focus (focus trap), restitution du focus au bouton burger.
-- [ ] **2.10 — Vidéos YouTube accessibles** ⭐⭐ 🟡
+- [x] **2.10 — Vidéos YouTube accessibles** ⭐⭐ 🟡
   - `js/youtube-player.js:167-178` : ajouter `title` à l'iframe, rendre le déclencheur focusable (`<button>`).
-- [ ] **2.11 — Modale de zoom (organigramme)** ⭐⭐ 🟢
+- [x] **2.11 — Modale de zoom (organigramme)** ⭐⭐ 🟢
   - `pages/asa/asa.html:121,126` : image cliquable → `<button>`, bouton de fermeture → `<button aria-label="Fermer">`.
-- [ ] **2.12 — Corriger les contrastes insuffisants** ⭐⭐ 🟡
+- [x] **2.12 — Corriger les contrastes insuffisants** ⭐⭐ 🟡
   - `css/rifseep.css:320-325,521-523`, texte blanc sur rouge `#ed1b24`, `css/france-map.css:433`. Viser ≥ 4.5:1.
-- [ ] **2.13 — `prefers-reduced-motion` global** ⭐ 🟡
+- [x] **2.13 — `prefers-reduced-motion` global** ⭐ 🟡
   - Étendre aux autres CSS (`css/mobile-menu.css:25`) et au slider auto (`main.js:352`) + bouton pause.
-- [ ] **2.14 — `alt` pertinents** ⭐ 🟡
+- [x] **2.14 — `alt` pertinents** ⭐ 🟡
   - Icônes de boutons redondantes → `alt=""` ; logos footer `alt="logo"` → descriptif ; corriger `alt="finance"` (`index.html:491`).
 
 ### Sécurité
 
-- [ ] **2.15 — Forcer HTTPS + HSTS** ⭐⭐⭐ 🟢
+- [x] **2.15 — Forcer HTTPS + HSTS** ⭐⭐⭐ 🟢
   - Décommenter le RewriteRule HTTPS (`.htaccess:62-64`).
   - Ajouter `Strict-Transport-Security` (après vérification HTTPS) et `Permissions-Policy`.
-- [ ] **2.16 — Corriger la validation du formulaire** ⭐⭐⭐ 🟢
+- [x] **2.16 — Corriger la validation du formulaire** ⭐⭐⭐ 🟢
   - `main.js:415,425` ciblent `formsubmit.co` mais le form utilise `formspree.io` (`contact.html:498`) → validation jamais exécutée. Corriger le sélecteur.
-- [ ] **2.17 — Corriger l'ID dupliqué du formulaire** ⭐⭐ 🟢
+- [x] **2.17 — Corriger l'ID dupliqué du formulaire** ⭐⭐ 🟢
   - `contact.html:517-535` : « Prénom » et « Affectation » partagent `id="contact_firstName"`/`name="firstName"` → perte de données. Renommer en `contact_affectation`/`name="affectation"`.
-- [ ] **2.18 — Page « politique de confidentialité »** ⭐⭐ 🟡
+- [x] **2.18 — Page « politique de confidentialité »** ⭐⭐ 🟡
   - `contact.html:583` pointe vers `/legal/privacy-policy` inexistant (enjeu RGPD). Créer la page.
-- [ ] **2.19 — `rel="noopener noreferrer"` sur les `target="_blank"` externes** ⭐ 🟢
+- [x] **2.19 — `rel="noopener noreferrer"` sur les `target="_blank"` externes** ⭐ 🟢
   - Manquants : `actu/*:689,696,703`, `adherer.html:500-521`, `videos/*:520-534`.
-- [ ] **2.20 — Réparer ou retirer la recherche** ⭐⭐ 🟡
+- [x] **2.20 — Réparer ou retirer la recherche** ⭐⭐ 🟡
   - `pages/search.html` fait 0 octet alors que ~14 pages pointent dessus.
 
 ### PWA
 
-- [ ] **2.21 — Supprimer le service worker mort** ⭐ 🟢 — `OneSignalSDKWorker.js` n'est référencé nulle part.
-- [ ] **2.22 — Compléter le manifest** ⭐ 🟡
+- [x] **2.21 — Supprimer le service worker mort** ⭐ 🟢 — `OneSignalSDKWorker.js` n'est référencé nulle part.
+- [x] **2.22 — Compléter le manifest** ⭐ 🟡
   - Ajouter `screenshots` (wide + narrow), harmoniser `start_url: "/"` avec `scope`/`id`, vraies icônes maskable avec safe-zone.
-- [ ] **2.23 — Compléter le précache SW** ⭐ 🟢
+- [x] **2.23 — Compléter le précache SW** ⭐ 🟢
   - Ajouter `js/pwa.js`, `js/youtube-player.js`, `logo-192x192.png`, `logo-512x512.png` à `STATIC_CACHE_URLS`.
   - Corriger le fallback offline (`sw.js:125-127`) : `offline.html` n'est jamais atteint.
 
@@ -167,7 +167,7 @@
 | Phase | Items | Effort estimé | Statut |
 |---|---|---|---|
 | Phase 1 — Quick wins | 9 | ~1 jour | ✅ Fait (19/06/2026) |
-| Phase 2 — Court terme | 23 | ~1-2 semaines | ⬜ À faire |
+| Phase 2 — Court terme | 23 | ~1-2 semaines | ✅ Fait (20/06/2026) |
 | Phase 3 — Moyen terme | 9 | chantiers de fond | ⬜ À faire |
 
 > Recommandation : enchaîner Phase 1 d'un bloc (fort impact, faible risque), puis traiter la Phase 2 par lots thématiques (SEO, puis A11y, puis Sécurité/PWA).

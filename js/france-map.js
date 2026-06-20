@@ -39,7 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (departementData[deptId]) {
           const data = departementData[deptId];
-          
+
+          // Accessibilité : rendre le département focusable et activable au clavier
+          dept.setAttribute('tabindex', '0');
+          dept.setAttribute('role', 'button');
+          dept.setAttribute('aria-label', `${data.nom} (${deptId}) — afficher les coordonnées`);
+          dept.setAttribute('aria-pressed', 'false');
+
           // Événements
           dept.addEventListener('mouseenter', (e) => {
             if (!dept.querySelector('.info-bubble')) {
@@ -64,11 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
           });
           
           
-          dept.addEventListener('click', () => {
+          // Activation commune souris/clavier
+          const activate = () => {
             // Ne réagir que si le département n'est pas masqué par le filtre
             if (dept.style.opacity !== '0.3') {
-              console.log(`Département cliqué : ${data.nom} (${deptId})`);
-              
+              // Réinitialiser l'état pressé de tous les départements
+              document.querySelectorAll('path[data-numerodepartement][role="button"]')
+                .forEach(d => d.setAttribute('aria-pressed', 'false'));
+
               // Si on clique sur le département déjà sélectionné, le désélectionner
               if (deptId === selectedDepartment) {
                 selectedDepartment = null;
@@ -76,7 +85,16 @@ document.addEventListener('DOMContentLoaded', () => {
               } else {
                 // Sinon, afficher les détails et mettre en évidence
                 displayDepartmentDetails(deptId, true);
+                dept.setAttribute('aria-pressed', 'true');
               }
+            }
+          };
+
+          dept.addEventListener('click', activate);
+          dept.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+              e.preventDefault();
+              activate();
             }
           });
         }

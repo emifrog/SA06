@@ -4,7 +4,7 @@
  */
 importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
 
-const APP_VERSION = '1.3.1';
+const APP_VERSION = '1.4.0';
 
 const CACHE_NAME = 'sa06-v' + APP_VERSION;
 const STATIC_CACHE_URLS = [
@@ -30,10 +30,16 @@ const STATIC_CACHE_URLS = [
   '/js/scroll-to-top.js',
   '/js/slider.js',
   '/js/submenu-fix.js',
+  '/js/pwa.js',
+  '/js/youtube-player.js',
   '/images/logo.svg',
   '/images/favicon.ico',
+  '/images/logo-192x192.png',
+  '/images/logo-512x512.png',
   '/images/asa/Logo-ASA06.png',
   '/images/asa/favicon.png',
+  '/404.html',
+  '/pages/search.html',
   '/manifest.json'
 ];
 
@@ -120,10 +126,12 @@ self.addEventListener('fetch', (event) => {
 
             return response;
           })
-          .catch(() => {
-            // En cas d'erreur réseau, retourner la page d'accueil ou la page hors ligne
+          .catch(async () => {
+            // En cas d'erreur réseau pour une page, retourner la page hors ligne
+            // (ou, à défaut, la page d'accueil mise en cache).
             if (event.request.destination === 'document') {
-              return caches.match('/index.html') || caches.match('/pages/offline.html');
+              return (await caches.match('/pages/offline.html')) ||
+                     (await caches.match('/index.html'));
             }
           });
       })

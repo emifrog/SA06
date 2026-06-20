@@ -1109,6 +1109,22 @@ body {
     overflow: hidden
 }
 
+.quick-access-link {
+    margin: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: #3262ac;
+    color: #fff;
+    border-radius: 0 0 8px 8px;
+    text-decoration: none;
+    font-weight: 600;
+    pointer-events: auto;
+}
+
+.quick-access-link:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+}
+
 .collapsible {
     --bg: #FFF;
     --alt-bg: #FAF2E9;
@@ -7836,5 +7852,16 @@ margin-top: 2.2rem;
         min-width: 110px !important;
         max-width: 140px !important;
         width: auto !important;
+    }
+}
+/* Respect de la préférence "réduire les animations" (WCAG 2.3.3 / 2.2.2) */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
     }
 }

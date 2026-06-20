@@ -318,11 +318,11 @@
 }
 
 .ifse-card {
-    background: linear-gradient(135deg, #64b5f6 0%, #1976d2 100%);
+    background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
 }
 
 .cia-card {
-    background: linear-gradient(135deg, #f06292 0%, #c2185b 100%);
+    background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);
 }
 
 .card-header {

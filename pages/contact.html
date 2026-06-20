@@ -26,8 +26,19 @@
     <meta property="og:description"
         content="Une question, une situation à signaler ? Contactez le Syndicat Autonome 06, à l'écoute des sapeurs-pompiers et personnels du SDIS 06.">
 
-    <meta property="og:type" content="site web">
-    <meta property="og:url" content="#">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sa06.org/pages/contact.html">
+    <meta property="og:image" content="https://sa06.org/images/og-default.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Syndicat Autonome 06 — SA06">
+    <meta property="og:site_name" content="Syndicat Autonome 06">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="canonical" href="https://sa06.org/pages/contact.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contacter le Syndicat Autonome 06 | SA06">
+    <meta name="twitter:description" content="Une question, une situation à signaler ? Contactez le Syndicat Autonome 06, à l'écoute des sapeurs-pompiers et personnels du SDIS 06.">
+    <meta name="twitter:image" content="https://sa06.org/images/og-default.jpg">
 
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/france-map.css">
@@ -55,10 +66,11 @@
 </head>
 
 <body>
+    <a href="#contenu-principal" class="quick-access-link">Aller au contenu</a>
     <header role="banner" class="header">
         <div class="container">
             <div class="header-wrapper">
-                <a href="../index.html" class="header-logo">
+                <a href="/index.html" class="header-logo">
                     <img width="660" height="660" src="../images/logo.svg" alt="Logo SA06" class="header-logo-image">
                     <span class="header-logo-tagline">SYNDICAT AUTONOME 06</span>
                 </a>
@@ -102,20 +114,20 @@
                                 <li class="menu-item">
                                     <a href="../pages/adherer.html" target="_blank" rel="noopener noreferrer" class="menu-button menu-button-bleu">
                                         <span class="menu-button-label">Adhérer</span>
-                                        <img width="500" height="500" class="menu-button-icon" src="../images/like.png" alt="Adhérer">
+                                        <img width="500" height="500" class="menu-button-icon" src="../images/like.png" alt="">
                                     </a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="contact.html" target="_blank" rel="noopener noreferrer" class="menu-button menu-button-bleu">
                                         <span class="menu-button-label">Contactez-nous</span>
-                                        <img width="512" height="512" class="menu-button-icon" src="../images/enveloppe.png" alt="Contact">
+                                        <img width="512" height="512" class="menu-button-icon" src="../images/enveloppe.png" alt="">
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="./pages/faq.html" target="_blank" rel="noopener noreferrer"
+                                    <a href="/pages/faq.html" target="_blank" rel="noopener noreferrer"
                                         class="menu-button menu-button-bleu">
                                         <span class="menu-button-label">FAQ</span>
-                                        <img width="263" height="461" class="menu-button-icon" src="../images/interrogation.png" alt="FAQ">
+                                        <img width="263" height="461" class="menu-button-icon" src="../images/interrogation.png" alt="">
                                     </a>
                                 </li>
                             </ul>
@@ -125,7 +137,7 @@
                                 </li>
 
                                 <li class="menu-item">
-                                    <a href="../index.html" class="menu-link menu-link--primary">Le Syndicat Autonome 06</a>
+                                    <a href="/index.html" class="menu-link menu-link--primary">Le Syndicat Autonome 06</a>
                                 </li>
 
                                 <li class="menu-item">
@@ -433,7 +445,7 @@
                         <div class="container container--sm">
                             <label for="search_input" class="h400 search-title">Que cherchez-vous ?</label>
 
-                            <form action="./pages/search.html" role="search" class="search-form">
+                            <form action="/pages/search.html" role="search" class="search-form">
                                 <div class="autocomplete">
                                     <input id="search_input" type="search" name="r" placeholder="Droits, actualités.."
                                         value="" data-source="/suggestions-de-recherche" class="search-input">
@@ -513,7 +525,7 @@
                                 <div class="form-row">
                                     <label for="contact_lastName" class="form-label">Nom<span
                                             aria-hidden="true">*</span></label><input type="text" id="contact_lastName"
-                                        name="lastName" form="contact" required="required" aria-describedby=""
+                                        name="lastName" form="contact" required="required"
                                         class="input">
                                     <div data-lastpass-icon-root=""
                                         style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;">
@@ -522,7 +534,7 @@
                                 <div class="form-row">
                                     <label for="contact_firstName" class="form-label">Prénom<span
                                             aria-hidden="true">*</span></label><input type="text" id="contact_firstName"
-                                        name="firstName" form="contact" required="required" aria-describedby=""
+                                        name="firstName" form="contact" required="required"
                                         class="input">
                                 </div>
                                 <div class="form-row">
@@ -536,9 +548,9 @@
                                     </div>
                                 </div>
                                                                 <div class="form-row">
-                                    <label for="contact_firstName" class="form-label">Affectation<span
-                                            aria-hidden="true">*</span></label><input type="text" id="contact_firstName"
-                                        name="firstName" form="contact" required="required" aria-describedby=""
+                                    <label for="contact_affectation" class="form-label">Affectation<span
+                                            aria-hidden="true">*</span></label><input type="text" id="contact_affectation"
+                                        name="affectation" form="contact" required="required"
                                         class="input">
                                 </div>
                                 <div class="form-row">
@@ -546,7 +558,7 @@
                                             aria-hidden="true">*</span></label>
                                     <div class="select">
                                         <select id="contact_subject" name="contact[subject]" form="contact"
-                                            required="required" aria-describedby="" class="select-inner">
+                                            required="required" class="select-inner">
                                             <option value="" selected="selected">Sélectionnez un sujet</option>
                                             <option value="e69f479a-2685-4455-8e9d-b89190ba3a42">Transmettre un avis, un
                                                 commentaire</option>
@@ -568,7 +580,7 @@
                                     <label for="contact_message" class="form-label">Votre message<span
                                             aria-hidden="true">*</span></label><textarea id="contact_message"
                                         name="message" form="contact" required="required"
-                                        placeholder="Rédigez votre message ici" aria-describedby=""
+                                        placeholder="Rédigez votre message ici"
                                         class="input"></textarea>
                                 </div>
                                 <div class="form-row">
@@ -585,8 +597,8 @@
 
                             <p class="form-mandatory">(*) : champs obligatoires</p>
 
-                            <p class="form-rgpd">En cliquant sur <strong>"Envoyer"</strong>, j'affirme avoir pris connaissance de la <a
-                                    href="/legal/privacy-policy" target="_blank">politique de confidentialité</a> du
+                            <p class="form-rgpd">En cliquant sur <strong>"Envoyer"</strong>, j'affirme avoir pris connaissance de la <a rel="noopener noreferrer"
+                                    href="/legal/privacy-policy.html" target="_blank">politique de confidentialité</a> du
                                 Syndicat Autonome 06.</p>
 
                             <div class="form-submit">
@@ -627,8 +639,8 @@
 
             <div class="footer-info-col">
                 <p class="footer-info-title h500">Rejoignez les communautés SA06</p>
-                <a href="../index.html" class="footer-logo">
-                    <img width="660" height="660" class="footer-info-title-img" src="../images/logo.svg" alt="logo">
+                <a href="/index.html" class="footer-logo">
+                    <img width="660" height="660" class="footer-info-title-img" src="../images/logo.svg" alt="Syndicat Autonome 06">
                 </a>
                 <div class="footer-networks">                        
                     <ul class="footer-networks-list">
@@ -683,7 +695,7 @@
             </div>
             <div class="footer-info-col">
                 <p class="footer-info-title h500">Envie de nous rejoindre ?</p>
-                <a href="/pages/adherer.html" target="_blank" class="button button--white footer-info-button"><span class="button-label">Adhérer</span><i class="button-icon">
+                <a rel="noopener noreferrer" href="/pages/adherer.html" target="_blank" class="button button--white footer-info-button"><span class="button-label">Adhérer</span><i class="button-icon">
                         <svg aria-hidden="true" class="button-icon-inner icon" viewBox="0 0 16 16">
                             <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
                                 stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -698,13 +710,13 @@
                     <a href="#" class="footer-nav-link">©2025 XRWeb</a>
                 </li>
                 <li class="footer-nav-item">
-                    <a href="../plan-du-site.html" class="footer-nav-link">Plan du site</a>
+                    <a href="/plan-du-site.html" class="footer-nav-link">Plan du site</a>
                 </li>
                 <li class="footer-nav-item">
-                    <a href="../legal/legal-mentions.html" class="footer-nav-link">Mentions légales</a>
+                    <a href="/legal/legal-mentions.html" class="footer-nav-link">Mentions légales</a>
                 </li>
                 <li class="footer-nav-item">
-                    <a href="../legal/privacy-policy.html" class="footer-nav-link">Politique de confidentialité</a>
+                    <a href="/legal/privacy-policy.html" class="footer-nav-link">Politique de confidentialité</a>
                 </li>
             </ul>
         </div>

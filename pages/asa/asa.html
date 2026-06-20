@@ -11,9 +11,19 @@
     <!-- Préchargement des polices critiques -->
     <link rel="preload" href="../../fonts/400.dab51d49a849b6d8f686.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../../fonts/700.06b94e213fba202200b6.woff2" as="font" type="font/woff2" crossorigin>
-    <meta name="description" content="Association Solidarité Autonome">
+    <meta name="description" content="Association Solidarité Autonome (ASA 06) : solidarité, prévention et accompagnement face au cancer chez les sapeurs-pompiers.">
     <link rel="icon" type="image/png" href="../../images/asa/favicon.png">
     <title>Association Solidarité Autonome</title>
+    <link rel="canonical" href="https://sa06.org/pages/asa/asa.html">
+    <meta property="og:title" content="Association Solidarité Autonome">
+    <meta property="og:description" content="Association Solidarité Autonome (ASA 06) : solidarité, prévention et accompagnement face au cancer chez les sapeurs-pompiers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sa06.org/pages/asa/asa.html">
+    <meta property="og:image" content="https://sa06.org/images/og-default.jpg">
+    <meta property="og:site_name" content="Syndicat Autonome 06">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://sa06.org/images/og-default.jpg">
 
     <link rel="stylesheet" href="../../css/asa.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -53,7 +63,7 @@
                     <li><a href="#prevention" aria-label="Mesures de prévention" title="En savoir plus sur la prévention">Complémentaire</a></li>
                     <!--<li><a href="#resources" aria-label="Ressources disponibles" title="Consulter les ressources">DUC</a></li>-->
                     <li><a href="./asa-contact.html" aria-label="Contactez-nous" title="Nous contacter">Contact</a></li>
-                    <li><a href="../../index.html" target="_blank" rel="noopener noreferrer">
+                    <li><a href="/index.html" target="_blank" rel="noopener noreferrer">
                             <img width="500" height="500" src="../../images/logo-remove.png" alt="Logo">
                         </a>
                     </li>
@@ -126,13 +136,13 @@
             <p><strong>Notre mission : être une présence bienveillante et solidaire, lorsque l’épreuve frappe.</strong></p>
             <p>Sur ce site, vous trouverez l’ensemble des aides proposées, les démarches simples pour en bénéficier.</p>
             <div class="image-zoom-container">
-                <img width="1024" height="768" src="../../images/asa/organigramme.png" alt="Organigramme" class="zoomable-image">
+                <img width="1024" height="768" src="../../images/asa/organigramme.png" alt="Organigramme de l'ASA 06" class="zoomable-image" role="button" tabindex="0" aria-label="Agrandir l'organigramme de l'ASA 06">
             </div>
             
             <!-- Modal pour l'image en grand -->
-            <div id="imageModal" class="modal">
-                <span class="close">&times;</span>
-                <img class="modal-content" id="zoomedImage">
+            <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="Organigramme agrandi">
+                <button type="button" class="close" aria-label="Fermer">&times;</button>
+                <img class="modal-content" id="zoomedImage" alt="">
                 <div id="caption"></div>
             </div>
         </div>
@@ -251,7 +261,7 @@
                 <div class="prevention-info__content">
                     <h4>Besoin d'informations ?</h4>
                     <p>Pour toute question concernant les garanties complémentaires, n'hésitez pas à contacter Prévifrance.</p>
-                    <a href="../../data/Plaquette_DECES-PTIA - Adhérents ANSA.pdf" target="_blank" class="btn-download">
+                    <a rel="noopener noreferrer" href="../../data/Plaquette_DECES-PTIA - Adhérents ANSA.pdf" target="_blank" class="btn-download">
                         <i class="fa-solid fa-book"></i> <span>Plaquette_DECES-PTIA</span>
                     </a>
                 </div>
@@ -368,20 +378,31 @@
         const closeBtn = document.querySelector('.close');
 
         if (zoomableImage) {
-            // Ouvrir la modal quand on clique sur l'image
-            zoomableImage.addEventListener('click', function() {
+            // Ouvrir la modal (souris ou clavier)
+            const openModal = function() {
                 modal.classList.add('show');
-                modalImg.src = this.src;
-                modalImg.alt = this.alt; // Ajout de l'attribut alt manquant
-                captionText.innerHTML = this.alt;
+                modalImg.src = zoomableImage.src;
+                modalImg.alt = zoomableImage.alt; // Ajout de l'attribut alt manquant
+                if (captionText) captionText.innerHTML = zoomableImage.alt;
                 document.body.style.overflow = 'hidden'; // Empêcher le défilement de la page
+                if (closeBtn) closeBtn.focus(); // Déplacer le focus dans la modale
+            };
+            const closeModal = function() {
+                modal.classList.remove('show');
+                document.body.style.overflow = 'auto'; // Rétablir le défilement de la page
+                zoomableImage.focus(); // Rendre le focus à l'élément déclencheur
+            };
+
+            zoomableImage.addEventListener('click', openModal);
+            zoomableImage.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') {
+                    event.preventDefault();
+                    openModal();
+                }
             });
 
             // Fermer la modal quand on clique sur la croix
-            closeBtn.addEventListener('click', function() {
-                modal.classList.remove('show');
-                document.body.style.overflow = 'auto'; // Rétablir le défilement de la page
-            });
+            closeBtn.addEventListener('click', closeModal);
 
             // Fermer la modal quand on clique en dehors de l'image
             window.addEventListener('click', function(event) {

@@ -30,6 +30,11 @@ class YouTubePlayer extends HTMLElement {
     container.style.backgroundColor = '#000';
     container.style.overflow = 'hidden';
     container.style.cursor = 'pointer';
+    // Accessibilité : déclencheur activable au clavier
+    this.titleText = this.getAttribute('title') || 'Vidéo YouTube';
+    container.setAttribute('role', 'button');
+    container.setAttribute('tabindex', '0');
+    container.setAttribute('aria-label', 'Lire la vidéo : ' + this.titleText);
     this.appendChild(container);
     
     // Créer l'image d'arrière-plan par défaut (affichée immédiatement)
@@ -160,10 +165,12 @@ class YouTubePlayer extends HTMLElement {
       container.appendChild(duration);
     }
     
-    // Ajouter l'événement de clic
-    container.addEventListener('click', () => {
+    // Lancer la lecture (souris ou clavier)
+    const play = () => {
       // Remplacer le contenu par l'iframe YouTube
       container.innerHTML = '';
+      container.removeAttribute('role');
+      container.removeAttribute('tabindex');
       const iframe = document.createElement('iframe');
       iframe.style.position = 'absolute';
       iframe.style.top = '0';
@@ -172,10 +179,20 @@ class YouTubePlayer extends HTMLElement {
       iframe.style.height = '100%';
       iframe.style.border = '0';
       iframe.src = `https://www.youtube.com/embed/${this.videoId}?autoplay=1&rel=0`;
+      iframe.title = 'Vidéo YouTube : ' + this.titleText;
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
       iframe.setAttribute('allowfullscreen', '');
       iframe.setAttribute('frameborder', '0');
       container.appendChild(iframe);
+      iframe.focus();
+    };
+
+    container.addEventListener('click', play);
+    container.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        play();
+      }
     });
   }
 }

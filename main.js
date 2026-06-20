@@ -350,6 +350,10 @@ document.addEventListener('DOMContentLoaded', function() {
         let autoSlideInterval;
         
         function startAutoSlide() {
+            // Respecter la préférence "réduire les animations" : pas de défilement auto
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                return;
+            }
             autoSlideInterval = setInterval(() => {
                 showSlide(currentIndex + 1);
             }, 5000); // Changer de slide toutes les 5 secondes
@@ -365,6 +369,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Arrêter le défilement automatique lors du survol
         sliderTrack.addEventListener('mouseenter', stopAutoSlide);
         sliderTrack.addEventListener('mouseleave', startAutoSlide);
+
+        // Arrêter le défilement automatique lors de la navigation au clavier
+        sliderTrack.addEventListener('focusin', stopAutoSlide);
+        sliderTrack.addEventListener('focusout', startAutoSlide);
         
         // Arrêter le défilement automatique lors du clic sur les boutons
         prevButton.addEventListener('mouseenter', stopAutoSlide);
@@ -412,7 +420,7 @@ if (document.readyState === 'loading') {
 }
 
 function initContactForm() {
-    const form = document.querySelector('form[action*="formsubmit.co"]');
+    const form = document.querySelector('form[action*="formspree.io"]');
     if (form) {
         // La validation se fera via l'attribut onsubmit du formulaire
         console.log('Formulaire de contact initialisé');
@@ -422,7 +430,7 @@ function initContactForm() {
 // Fonction de validation du formulaire
 document.validateContactForm = function() {
     try {
-        const form = document.querySelector('form[action*="formsubmit.co"]');
+        const form = document.querySelector('form[action*="formspree.io"]');
         if (!form) return true; // Si le formulaire n'existe pas, on laisse passer
 
         const fields = {

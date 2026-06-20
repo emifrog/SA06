@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#3262ac">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" href="/images/favicon.ico">
+
+    <title>Recherche | SA06</title>
+    <meta name="description" content="Recherchez dans le site du Syndicat Autonome 06 : actualités, droits, adhésion, FAQ.">
+    <link rel="canonical" href="https://sa06.org/pages/search.html">
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/mobile-menu.css">
+</head>
+
+<body>
+    <a href="#contenu-principal" class="quick-access-link">Aller au contenu</a>
+
+    <header role="banner" class="header">
+        <div class="container">
+            <div class="header-wrapper">
+                <a href="/index.html" class="header-logo">
+                    <img width="660" height="660" src="/images/logo.svg" alt="Logo SA06" class="header-logo-image">
+                    <span class="header-logo-tagline">SYNDICAT AUTONOME 06</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="contenu-principal" tabindex="-1" class="container" style="max-width:850px;margin:0 auto;padding:2rem 1rem;">
+        <h1>Recherche</h1>
+
+        <form action="/pages/search.html" role="search" class="search-form" style="margin:1.5rem 0;display:flex;gap:0.5rem;">
+            <label for="search_input" style="position:absolute;width:1px;height:1px;overflow:hidden;">Que cherchez-vous ?</label>
+            <input id="search_input" type="search" name="r" placeholder="Droits, actualités…" class="search-input"
+                style="flex:1;padding:0.75rem 1rem;border:1px solid #cbd5e1;border-radius:8px;">
+            <button type="submit" class="button button--primary" style="padding:0.75rem 1.25rem;">Rechercher</button>
+        </form>
+
+        <div id="search-results" aria-live="polite"></div>
+    </main>
+
+    <script>
+        // Index des pages du site (titre + mots-clés + URL)
+        var PAGES = [
+            { t: "Accueil — Syndicat Autonome 06", u: "/index.html", k: "accueil sa06 syndicat sdis 06 sapeurs-pompiers" },
+            { t: "Actualités syndicales", u: "/pages/actu.html", k: "actualités news communiqués mobilisation" },
+            { t: "Adhérer au SA06", u: "/pages/adherer.html", k: "adhésion adhérer bulletin cotisation spp pats rejoindre" },
+            { t: "Contact", u: "/pages/contact.html", k: "contact contacter message formulaire" },
+            { t: "FAQ — Questions fréquentes", u: "/pages/faq.html", k: "faq questions réponses aide" },
+            { t: "Parole Autonome — médias", u: "/pages/media.html", k: "médias presse vidéos reportage parole autonome" },
+            { t: "Les congés annuels", u: "/pages/droits/conges.html", k: "congés annuels droits vacances repos" },
+            { t: "Le droit de grève", u: "/pages/droits/greve.html", k: "grève droit mobilisation préavis" },
+            { t: "Le RIFSEEP", u: "/pages/sinformer/rifseep.html", k: "rifseep ifse cia régime indemnitaire prime salaire" },
+            { t: "90% des pompiers du 06 en grève", u: "/pages/videos/videos.html", k: "vidéo grève reportage bfmtv" },
+            { t: "Consommables : de la passion au poison", u: "/pages/videos/consommables.html", k: "vidéo consommables toxiques santé cancer" },
+            { t: "Rapport de la Cour des comptes : les secours en montagne", u: "/pages/actu/rapportCDG.html", k: "cour des comptes secours montagne rapport finances" },
+            { t: "Meilleurs vœux 2026", u: "/pages/actu/bonne-annee-2026.html", k: "vœux 2026 bonne année" },
+            { t: "STOP aux agressions contre les sapeurs-pompiers", u: "/pages/actu/stop-agressions-sapeurs-pompiers.html", k: "agressions violences sécurité protection" },
+            { t: "Association Solidarité Autonome (ASA 06)", u: "/pages/asa/asa.html", k: "asa cancer solidarité prévention santé" },
+            { t: "Contact ASA 06", u: "/pages/asa/asa-contact.html", k: "asa contact cancer" },
+            { t: "Plan du site", u: "/plan-du-site.html", k: "plan du site sitemap pages" }
+        ];
+
+        function normalize(s) {
+            return (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+        }
+
+        function getQuery() {
+            var params = new URLSearchParams(window.location.search);
+            return params.get("r") || params.get("q") || "";
+        }
+
+        function escapeHtml(s) {
+            return s.replace(/[<>&]/g, function (c) { return { "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]; });
+        }
+
+        function render() {
+            var q = getQuery();
+            var input = document.getElementById("search_input");
+            var out = document.getElementById("search-results");
+            input.value = q;
+            if (!q.trim()) {
+                out.innerHTML = "<p>Saisissez un mot-clé pour lancer la recherche.</p>";
+                return;
+            }
+            var terms = normalize(q).split(/\s+/).filter(Boolean);
+            var results = PAGES.filter(function (p) {
+                var hay = normalize(p.t + " " + p.k);
+                return terms.every(function (t) { return hay.indexOf(t) !== -1; });
+            });
+            var safe = escapeHtml(q);
+            if (!results.length) {
+                out.innerHTML = "<p>Aucun résultat pour « " + safe + " ».</p>";
+                return;
+            }
+            var html = "<p>" + results.length + " résultat(s) pour « " + safe + " » :</p><ul>";
+            results.forEach(function (p) {
+                html += '<li><a href="' + p.u + '">' + escapeHtml(p.t) + "</a></li>";
+            });
+            html += "</ul>";
+            out.innerHTML = html;
+        }
+
+        render();
+    </script>
+    <script defer src="/js/mobile-menu.js"></script>
+</body>
+
+</html>

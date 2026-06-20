@@ -2,7 +2,7 @@
   "name": "Syndicat Autonome 06 - SA06",
   "short_name": "SA06",
   "description": "Site officiel du Syndicat Autonome 06, 1ère force syndicale du SDIS 06",
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#3262ac",
@@ -48,6 +48,22 @@
       "purpose": "maskable"
     }
   ],
+  "screenshots": [
+    {
+      "src": "images/screenshots/desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Page d'accueil du SA06 sur ordinateur"
+    },
+    {
+      "src": "images/screenshots/mobile.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Page d'accueil du SA06 sur mobile"
+    }
+  ],
   "shortcuts": [
     {
       "name": "Actualités",
@@ -65,7 +81,7 @@
       "name": "Contact",
       "short_name": "Contact",
       "description": "Contacter le SA06",
-      "url": "/pages/asa/asa-contact.html",
+      "url": "/pages/contact.html",
       "icons": [
         {
           "src": "images/logo.svg",

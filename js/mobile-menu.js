@@ -67,4 +67,34 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = '';
         }
     });
+
+    // Accessibilité clavier : Échap pour fermer + confinement du focus (focus trap)
+    document.addEventListener('keydown', function(event) {
+        if (menuWrapper.getAttribute('data-state') !== 'opened') return;
+
+        // Échap : fermer et rendre le focus au bouton
+        if (event.key === 'Escape') {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuWrapper.setAttribute('data-state', 'closed');
+            document.body.style.overflow = '';
+            menuToggle.focus();
+            return;
+        }
+
+        // Tab : confiner le focus entre le bouton et le dernier élément du menu
+        if (event.key === 'Tab') {
+            var nodes = [menuToggle].concat(Array.prototype.slice.call(
+                menuWrapper.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])')
+            )).filter(function(el) { return el.offsetParent !== null; });
+            if (!nodes.length) return;
+            var first = nodes[0], last = nodes[nodes.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        }
+    });
 });

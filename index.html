@@ -27,6 +27,28 @@
     <link rel="apple-touch-startup-image" href="images/splash/splash-1290x2796.png" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3)">
 
     <link rel="manifest" href="manifest.json">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Syndicat Autonome 06",
+      "alternateName": "SA06",
+      "url": "https://sa06.org/",
+      "logo": "https://sa06.org/images/logo-512x512.png",
+      "description": "Syndicat Autonome 06, 1ère force syndicale du SDIS 06, au service des sapeurs-pompiers et personnels administratifs et techniques.",
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Alpes-Maritimes (06)"
+      },
+      "sameAs": [
+        "https://www.facebook.com/saspppats06",
+        "https://x.com/Faspp06",
+        "https://www.instagram.com/saspp06/",
+        "https://www.tiktok.com/@saspp06",
+        "https://www.youtube.com/@saspp06"
+      ]
+    }
+    </script>
 
     <title>Bienvenue sur le site du Syndicat Autonome 06, 1ère force syndicale du SDIS 06 | SA06</title>
 
@@ -38,8 +60,19 @@
     <meta property="og:description"
         content="Rejoignez le Syndicat Autonome 06, pour améliorer vos droits et conditions de travail.">
 
-    <meta property="og:type" content="site web">
-    <meta property="og:url" content="https://sa06.org">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sa06.org/">
+    <meta property="og:image" content="https://sa06.org/images/og-default.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Syndicat Autonome 06 — SA06">
+    <meta property="og:site_name" content="Syndicat Autonome 06">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="canonical" href="https://sa06.org/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bienvenue sur le site du Syndicat Autonome 06">
+    <meta name="twitter:description" content="Rejoignez le Syndicat Autonome 06, pour améliorer vos droits et conditions de travail.">
+    <meta name="twitter:image" content="https://sa06.org/images/og-default.jpg">
 
     <!-- Préconnexion aux origines tierces (réduit la latence DNS/TLS) -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -93,6 +126,7 @@
 </head>
 
 <body>
+    <a href="#contenu-principal" class="quick-access-link">Aller au contenu</a>
     <header role="banner" class="header">
         <div class="container">
             <div class="header-wrapper">
@@ -140,20 +174,20 @@
                                 <li class="menu-item">
                                     <a href="./pages/adherer.html" target="_blank" rel="noopener noreferrer" class="menu-button menu-button-bleu">
                                         <span class="menu-button-label">Adhérer</span>
-                                        <img width="500" height="500" class="menu-button-icon" src="images/like.png" alt="Adhérer">
+                                        <img width="500" height="500" class="menu-button-icon" src="images/like.png" alt="">
                                     </a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="./pages/contact.html" target="_blank" rel="noopener noreferrer" class="menu-button menu-button-bleu">
                                         <span class="menu-button-label">Contactez-nous</span>
-                                        <img width="512" height="512" class="menu-button-icon" src="images/enveloppe.png" alt="Contact">
+                                        <img width="512" height="512" class="menu-button-icon" src="images/enveloppe.png" alt="">
                                     </a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="./pages/faq.html" rel="noopener noreferrer"
                                         class="menu-button menu-button-bleu">
                                         <span class="menu-button-label">FAQ</span>
-                                        <img width="263" height="461" class="menu-button-icon" src="images/interrogation.png" alt="FAQ">
+                                        <img width="263" height="461" class="menu-button-icon" src="images/interrogation.png" alt="">
                                     </a>
                                 </li>
                             </ul>
@@ -457,7 +491,7 @@
                         <div class="container container--sm">
                             <label for="search_input" class="h400 search-title">Que cherchez-vous ?</label>
 
-                            <form action="./pages/search.html" role="search" class="search-form">
+                            <form action="/pages/search.html" role="search" class="search-form">
                                 <div class="autocomplete">
                                     <input id="search_input" type="search" name="r" placeholder="Droits, actualités.."
                                         value="" data-source="/suggestions-de-recherche" class="search-input">
@@ -589,7 +623,7 @@
                                     </picture>
                                 </div>
                                 <h3 class="card-title h400">STOP face aux agressions à l’encontre des sapeurs-pompiers</h3><a
-                                    href="./pages/actu/STOP face aux agressions à l’encontre des sapeurs-pompiers.html"
+                                    href="./pages/actu/stop-agressions-sapeurs-pompiers.html"
                                     title="STOP face aux agressions à l’encontre des sapeurs-pompiers"
                                     class="tertiary-button card-link"><svg aria-hidden="true"
                                         class="tertiary-button-icon icon" viewBox="0 0 16 16">
@@ -1078,7 +1112,7 @@
                 <div class="footer-info-col">
                     <p class="footer-info-title h500">Rejoignez les communautés SA06</p>
                     <a href="index.html" class="footer-logo">
-                        <img width="945" height="945" class="footer-info-title-img" src="images/logo.jpg" alt="logo">
+                        <img width="945" height="945" class="footer-info-title-img" src="images/logo.jpg" alt="Syndicat Autonome 06">
                     </a>
                     <div class="footer-networks">                        
                         <ul class="footer-networks-list">
@@ -1133,7 +1167,7 @@
                 </div>
                 <div class="footer-info-col">
                     <p class="footer-info-title h500">Envie de nous rejoindre ?</p>
-                    <a href="/pages/adherer.html" target="_blank" class="button button--white footer-info-button"><span class="button-label">Adhérer</span><i class="button-icon">
+                    <a rel="noopener noreferrer" href="/pages/adherer.html" target="_blank" class="button button--white footer-info-button"><span class="button-label">Adhérer</span><i class="button-icon">
                             <svg aria-hidden="true" class="button-icon-inner icon" viewBox="0 0 16 16">
                                 <path d="M3.33337 8H12.6667M12.6667 8L8.00003 3.33334M12.6667 8L8.00003 12.6666"
                                     stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
