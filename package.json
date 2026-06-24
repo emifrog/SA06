@@ -1,5 +1,18 @@
 {
+  "scripts": {
+    "build": "node scripts/build.js",
+    "extract-partials": "node scripts/extract-partials.js"
+  },
   "devDependencies": {
-    "sharp": "^0.34.5"
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "esbuild": "^0.28.1",
+    "html-minifier-terser": "^7.2.0",
+    "purgecss": "^8.0.0",
+    "sharp": "^0.34.5",
+    "subset-font": "^2.5.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "sharp@0.34.5": true
   }
 }

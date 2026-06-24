@@ -142,14 +142,14 @@
 
 ## Phase 3 — Moyen terme (chantiers de fond)
 
-- [ ] (reporté) **3.1 — Factoriser header / menu / footer** ⭐⭐⭐ 🔴
-  - ~390 lignes de header + ~95 de footer copiées-collées dans 14 pages.
-  - Action : passer à un générateur statique (Eleventy/11ty) ou des includes SSI Apache.
-- [ ] (reporté) **3.2 — Minifier CSS/JS au build** ⭐⭐ 🟡
-  - `style.css` 148 Ko (1 284 lignes vides) → ~90 Ko. Mettre en place un pipeline (cssnano/csso, esbuild).
-- [ ] (reporté) **3.3 — Alléger Font Awesome** ⭐⭐ 🟡
-  - `all.min.css` complet (~150 Ko) pour ~24 icônes utilisées → sous-ensemble SVG. Gain ~140-180 Ko.
-- [ ] (reporté) **3.4 — Purger le CSS inutilisé** ⭐⭐ 🟡 — PurgeCSS (vestiges de thème), gain potentiel 30-50 %.
+- [x] **3.1 — Factoriser header / menu / footer** ⭐⭐⭐ 🔴
+  - ~390 lignes de header + ~95 de footer copiées-collées dans 18/15 pages.
+  - Fait : pipeline Node léger. Header/footer canoniques extraits dans `partials/` (tokens `{{base}}` résolus à la profondeur de chaque page) ; les pages sources n'ont plus qu'un marqueur `<!-- @include header/footer -->`. `scripts/extract-partials.js` (extraction one-shot) + `scripts/build.js` (injection). Les gabarits distincts (ASA, 404, offline) sont laissés tels quels.
+- [x] **3.2 — Minifier CSS/JS au build** ⭐⭐ 🟡
+  - Fait via esbuild dans `scripts/build.js`. CSS 135 → 92 Ko, JS 66 → 30 Ko, HTML 1097 → 620 Ko.
+- [x] **3.3 — Alléger Font Awesome** ⭐⭐ 🟡
+  - Fait : `scripts/fa-subset.js` génère un sous-ensemble auto-hébergé (25 icônes, woff2 3,1 Ko + css 1,8 Ko), remplace le CDN `all.min.css` (~150 Ko + une requête tierce bloquante) sur les 17 pages concernées. Alias FA5 résolus (ex. `fa-shield-alt` → shield-halved). Unifie au passage les 2 versions CDN (6.5.1 / 6.0.0-beta3).
+- [x] **3.4 — Purger le CSS inutilisé** ⭐⭐ 🟡 — Fait via PurgeCSS dans le build : 224 → 134 Ko avant minification (~40 %). Safelist pour les classes ajoutées en JS (`active`, `visible`, `info-bubble`, `svg-loaded`, `mobile-menu-js-loaded`), keyframes et variables conservés.
 - [x] **3.5 — Durcir la CSP** ⭐⭐ 🔴
   - Retirer `'unsafe-inline'` de `script-src` (externaliser le script OneSignal inline), ajouter SRI sur Font Awesome, `frame-ancestors 'none'`, restreindre `img-src`.
 - [x] **3.6 — Ajouter Brotli + compresser le SVG** ⭐⭐ 🟢
@@ -168,6 +168,6 @@
 |---|---|---|---|
 | Phase 1 — Quick wins | 9 | ~1 jour | ✅ Fait (19/06/2026) |
 | Phase 2 — Court terme | 23 | ~1-2 semaines | ✅ Fait (20/06/2026) |
-| Phase 3 — Moyen terme | 9 | chantiers de fond | 🟡 5/9 faits (20/06/2026) — 3.1/3.2/3.3/3.4 reportés (nécessitent un système de build) |
+| Phase 3 — Moyen terme | 9 | chantiers de fond | ✅ Fait (24/06/2026) — pipeline Node léger (`npm run build` → `dist/`) pour 3.1/3.2/3.3/3.4 |
 
 > Recommandation : enchaîner Phase 1 d'un bloc (fort impact, faible risque), puis traiter la Phase 2 par lots thématiques (SEO, puis A11y, puis Sécurité/PWA).

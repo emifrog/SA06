@@ -1,6 +1,9 @@
 # Dépendances
 node_modules/
 
+# Sortie du build (régénérée par `npm run build`)
+dist/
+
 # Fichiers temporaires Claude
 tmpclaude-*
 
